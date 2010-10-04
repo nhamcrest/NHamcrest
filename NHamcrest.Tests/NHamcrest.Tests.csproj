@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\AllOfTests.cs" />
     <Compile Include="CustomMatcherTests.cs" />
     <Compile Include="DescriptionTests.cs" />
     <Compile Include="DiagnosingMatcherTests.cs" />
