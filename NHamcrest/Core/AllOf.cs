@@ -31,4 +31,13 @@ namespace NHamcrest.Core
             description.AppendList("(", " " + "and" + " ", ")", matchers.Cast<ISelfDescribing>());
         }
     }
+
+    public static partial class Matches
+    {
+        [Factory]
+        public static IMatcher<T> AllOf<T>(IEnumerable<IMatcher<T>> matchers)
+        {
+            return new AllOf<T>(matchers);
+        }
+    }
 }

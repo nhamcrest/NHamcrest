@@ -3,7 +3,7 @@ using System;
 namespace NHamcrest
 {
     /// <summary>
-    /// Marks a Hamcrest static factory method so tools recognise them.
+    /// Marks a static factory method so tools can recognise them.
     /// A factory method is an equivalent to a named constructor.
     /// </summary>
     [AttributeUsage(AttributeTargets.Method)]

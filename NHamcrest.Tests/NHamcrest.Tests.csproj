@@ -52,6 +52,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\AllOfTests.cs" />
+    <Compile Include="Core\AnyOfTests.cs" />
+    <Compile Include="Core\CombinableMatcherTests.cs" />
     <Compile Include="CustomMatcherTests.cs" />
     <Compile Include="DescriptionTests.cs" />
     <Compile Include="DiagnosingMatcherTests.cs" />

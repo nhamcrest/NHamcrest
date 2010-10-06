@@ -1,4 +1,5 @@
 using MbUnit.Framework;
+using NHamcrest.Core;
 
 namespace NHamcrest.Tests.Core
 {

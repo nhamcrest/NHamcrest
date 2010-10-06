@@ -42,7 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\AllOf.cs" />
-    <Compile Include="Matches.cs" />
+    <Compile Include="Core\AnyOf.cs" />
+    <Compile Include="Core\CombinableMatcher.cs" />
     <Compile Include="NonNullDiagnosingMatcher.cs" />
     <Compile Include="CustomMatcher.cs" />
     <Compile Include="Description.cs" />
