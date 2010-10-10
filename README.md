@@ -1,4 +1,4 @@
 NHamcrest
 =============
 
-This is a C# port of [hamcrest](http://code.google.com/p/hamcrest/), specifically the Java version.
+This is an idiomatic C# port of [Hamcrest](http://code.google.com/p/hamcrest/), specifically the Java version.
