@@ -1,6 +1,6 @@
 namespace NHamcrest
 {
-    public abstract class NonNullDiagnosingMatcher<T> : Matcher<T> where T : class
+    public abstract class NonNullDiagnosingMatcher<T> : Matcher<T>
     {
         /// <summary>
         /// Subclasses should implement this. The item will already have been checked
@@ -13,12 +13,12 @@ namespace NHamcrest
 
         public override bool Matches(T item)
         {
-            return item != null && MatchesSafely(item, new NullDescription());
+            return ReferenceEquals(item, null) == false && MatchesSafely(item, new NullDescription());
         }
 
         public override void DescribeMismatch(T item, IDescription mismatchDescription)
         {
-            if (item == null)
+            if (ReferenceEquals(item, null))
             {
                 base.DescribeMismatch(item, mismatchDescription);
             }
