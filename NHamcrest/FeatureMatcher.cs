@@ -20,9 +20,9 @@ namespace NHamcrest
         /// <returns>The feature to be matched.</returns>
         protected abstract U FeatureValueOf(T actual);
 
-        protected override bool MatchesSafely(T item, IDescription mismatchDescription)
+        protected override bool MatchesSafely(T collection, IDescription mismatchDescription)
         {
-            var featureValue = FeatureValueOf(item);
+            var featureValue = FeatureValueOf(collection);
             
             if (subMatcher.Matches(featureValue) == false)
             {

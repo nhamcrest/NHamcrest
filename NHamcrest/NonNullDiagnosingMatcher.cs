@@ -2,11 +2,14 @@ namespace NHamcrest
 {
     public abstract class NonNullDiagnosingMatcher<T> : Matcher<T> where T : class
     {
-        /**
-         * Subclasses should implement this. The item will already have been checked
-         * for the specific type and will never be null.
-         */
-        protected abstract bool MatchesSafely(T item, IDescription mismatchDescription);
+        /// <summary>
+        /// Subclasses should implement this. The item will already have been checked
+        /// for the specific type and will never be null.
+        /// </summary>
+        /// <param name="collection"></param>
+        /// <param name="mismatchDescription"></param>
+        /// <returns></returns>
+        protected abstract bool MatchesSafely(T collection, IDescription mismatchDescription);
 
         public override bool Matches(T item)
         {

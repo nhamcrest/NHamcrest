@@ -45,6 +45,9 @@
     <Compile Include="Core\AnyOf.cs" />
     <Compile Include="Core\CombinableMatcher.cs" />
     <Compile Include="Core\DescribedAs.cs" />
+    <Compile Include="Core\Every.cs" />
+    <Compile Include="Core\IsEqual.cs" />
+    <Compile Include="Core\IsNot.cs" />
     <Compile Include="NonNullDiagnosingMatcher.cs" />
     <Compile Include="CustomMatcher.cs" />
     <Compile Include="Description.cs" />

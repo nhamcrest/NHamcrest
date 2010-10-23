@@ -51,10 +51,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\IsEqualTests.cs" />
+    <Compile Include="Core\IsNotTests.cs" />
+    <Compile Include="Internal\Assert.cs" />
+    <Compile Include="Internal\AssertionError.cs" />
     <Compile Include="Core\AllOfTests.cs" />
     <Compile Include="Core\AnyOfTests.cs" />
     <Compile Include="Core\CombinableMatcherTests.cs" />
     <Compile Include="Core\DescribedAsTests.cs" />
+    <Compile Include="Core\EveryTests.cs" />
     <Compile Include="CustomMatcherTests.cs" />
     <Compile Include="DescriptionTests.cs" />
     <Compile Include="DiagnosingMatcherTests.cs" />

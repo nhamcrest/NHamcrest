@@ -57,9 +57,9 @@ namespace NHamcrest.Tests
                 this.match = match;
             }
 
-            protected override bool MatchesSafely(string item, IDescription mismatchDescription)
+            protected override bool MatchesSafely(string collection, IDescription mismatchDescription)
             {
-                if (match(item))
+                if (match(collection))
                     return true;
 
                 mismatchDescription.AppendText("TestNonNullDiagnosingMatcher.MatchesSafely");
