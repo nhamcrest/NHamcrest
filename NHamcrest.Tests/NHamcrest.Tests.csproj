@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\IsAnythingTests.cs" />
     <Compile Include="Core\IsEqualTests.cs" />
     <Compile Include="Core\IsNotTests.cs" />
     <Compile Include="Internal\Assert.cs" />
