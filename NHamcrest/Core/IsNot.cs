@@ -18,13 +18,6 @@ namespace NHamcrest.Core
         {
             description.AppendText("not ").AppendDescriptionOf(matcher);
         }
-
-        // Inverts the rule.
-        [Factory]
-        public static Matcher<T> Not(IMatcher<T> matcher)
-        {
-            return new IsNot<T>(matcher);
-        }
     }
 
     public static partial class Is
@@ -36,7 +29,13 @@ namespace NHamcrest.Core
         [Factory]
         public static IMatcher<T> Not<T>(T value)
         {
-            return IsNot<T>.Not(EqualTo(value));
+            return Not(EqualTo(value));
+        }
+
+        [Factory]
+        public static Matcher<T> Not<T>(IMatcher<T> matcher)
+        {
+            return new IsNot<T>(matcher);
         }
     }
 }

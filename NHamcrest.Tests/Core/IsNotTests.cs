@@ -27,7 +27,7 @@ namespace NHamcrest.Tests.Core
         [Test]
         public void Description_adds_not()
         {
-            var matcher = IsNot<string>.Not(always);
+            var matcher = Is.Not(always);
             var description = new StringDescription();
 
             matcher.DescribeTo(description);
