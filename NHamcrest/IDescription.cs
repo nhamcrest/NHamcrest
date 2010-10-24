@@ -11,9 +11,17 @@ namespace NHamcrest
         /// <summary>
         /// Appends some plain text to the description.
         /// </summary>
-        /// <param name="text"></param>
-        /// <returns></returns>
+        /// <param name="text">The text to append.</param>
+        /// <returns>The description.</returns>
         IDescription AppendText(string text);
+
+        /// <summary>
+        /// Appends some plain text to the description.
+        /// </summary>
+        /// <param name="format">A format string.</param>
+        /// <param name="args">The values to use.</param>
+        /// <returns>The description.</returns>
+        IDescription AppendText(string format, params object[] args);
 
         /// <summary>
         /// Appends the description of an <see cref="ISelfDescribing"/> value to this description.

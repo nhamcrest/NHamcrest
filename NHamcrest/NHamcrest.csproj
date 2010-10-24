@@ -49,6 +49,7 @@
     <Compile Include="Core\IsAnything.cs" />
     <Compile Include="Core\IsCollectionContaining.cs" />
     <Compile Include="Core\IsEqual.cs" />
+    <Compile Include="Core\IsInstanceOf.cs" />
     <Compile Include="Core\IsNot.cs" />
     <Compile Include="NonNullDiagnosingMatcher.cs" />
     <Compile Include="CustomMatcher.cs" />

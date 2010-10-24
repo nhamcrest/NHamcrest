@@ -17,6 +17,12 @@ namespace NHamcrest
             return this;
         }
 
+        public IDescription AppendText(string format, params object[] args)
+        {
+            Append(string.Format(format, args));
+            return this;
+        }
+
         public IDescription AppendDescriptionOf(ISelfDescribing value)
         {
             value.DescribeTo(this);

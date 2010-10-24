@@ -43,5 +43,15 @@ namespace NHamcrest.Core
         {
             return IsEqual<T>.EqualTo(value);
         }
+
+        public static IMatcher<bool> True()
+        {
+            return IsEqual<bool>.EqualTo(true);
+        }
+
+        public static IMatcher<bool> False()
+        {
+            return IsEqual<bool>.EqualTo(false);
+        }
     }
 }

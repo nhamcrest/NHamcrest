@@ -54,6 +54,7 @@
     <Compile Include="Core\IsAnythingTests.cs" />
     <Compile Include="Core\IsCollectionContainingTests.cs" />
     <Compile Include="Core\IsEqualTests.cs" />
+    <Compile Include="Core\IsInstanceOfTests.cs" />
     <Compile Include="Core\IsNotTests.cs" />
     <Compile Include="Internal\Assert.cs" />
     <Compile Include="Internal\AssertionError.cs" />
