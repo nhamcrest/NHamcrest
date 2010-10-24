@@ -53,6 +53,8 @@
     <Compile Include="Core\IsNot.cs" />
     <Compile Include="Core\IsNull.cs" />
     <Compile Include="Core\IsSame.cs" />
+    <Compile Include="Core\StringContains.cs" />
+    <Compile Include="Core\SubstringMatcher.cs" />
     <Compile Include="NonNullDiagnosingMatcher.cs" />
     <Compile Include="CustomMatcher.cs" />
     <Compile Include="Description.cs" />
