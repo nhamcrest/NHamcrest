@@ -52,6 +52,7 @@
     <Compile Include="Core\IsInstanceOf.cs" />
     <Compile Include="Core\IsNot.cs" />
     <Compile Include="Core\IsNull.cs" />
+    <Compile Include="Core\IsSame.cs" />
     <Compile Include="NonNullDiagnosingMatcher.cs" />
     <Compile Include="CustomMatcher.cs" />
     <Compile Include="Description.cs" />
