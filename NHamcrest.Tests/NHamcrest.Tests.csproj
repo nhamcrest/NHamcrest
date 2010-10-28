@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\StringStartsWithTests.cs" />
     <Compile Include="Core\IsAnythingTests.cs" />
     <Compile Include="Core\IsCollectionContainingTests.cs" />
     <Compile Include="Core\IsEqualTests.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="Core\IsNullTests.cs" />
     <Compile Include="Core\IsSameTests.cs" />
     <Compile Include="Core\StringContainsTests.cs" />
+    <Compile Include="Core\StringEndsWithTests.cs" />
     <Compile Include="Internal\Assert.cs" />
     <Compile Include="Internal\AssertionError.cs" />
     <Compile Include="Core\AllOfTests.cs" />

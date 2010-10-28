@@ -1,27 +1,17 @@
-using System;
-
 namespace NHamcrest.Core
 {
     public class StringContains : SubstringMatcher
     {
-        private StringComparison stringComparison = StringComparison.CurrentCulture;
-
         public StringContains(string substring) : base(substring) { }
 
         protected override bool EvalSubstringOf(string s)
         {
-            return s.IndexOf(Substring, stringComparison) >= 0;
+            return s.IndexOf(Substring, StringComparison) >= 0;
         }
 
         protected override string Relationship()
         {
             return "containing";
-        }
-
-        public StringContains CaseInsensitive()
-        {
-            stringComparison = StringComparison.CurrentCultureIgnoreCase;
-            return this;
         }
     }
 

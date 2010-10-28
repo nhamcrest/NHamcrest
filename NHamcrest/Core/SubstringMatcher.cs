@@ -1,8 +1,11 @@
-﻿namespace NHamcrest.Core
+﻿using System;
+
+namespace NHamcrest.Core
 {
     public abstract class SubstringMatcher : NonNullMatcher<string>
     {
         protected readonly string Substring;
+        protected StringComparison StringComparison = StringComparison.CurrentCulture;
 
         protected SubstringMatcher(string substring)
         {
@@ -28,5 +31,11 @@
         protected abstract bool EvalSubstringOf(string @string);
 
         protected abstract string Relationship();
+
+        public SubstringMatcher CaseInsensitive()
+        {
+            StringComparison = StringComparison.CurrentCultureIgnoreCase;
+            return this;
+        }
     }
 }

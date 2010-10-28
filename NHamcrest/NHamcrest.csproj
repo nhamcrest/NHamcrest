@@ -44,6 +44,7 @@
     <Compile Include="Core\AllOf.cs" />
     <Compile Include="Core\AnyOf.cs" />
     <Compile Include="Core\CombinableMatcher.cs" />
+    <Compile Include="Core\StringStartsWith.cs" />
     <Compile Include="Core\DescribedAs.cs" />
     <Compile Include="Core\Every.cs" />
     <Compile Include="Core\IsAnything.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="Core\IsNull.cs" />
     <Compile Include="Core\IsSame.cs" />
     <Compile Include="Core\StringContains.cs" />
+    <Compile Include="Core\StringEndsWith.cs" />
     <Compile Include="Core\SubstringMatcher.cs" />
     <Compile Include="NonNullDiagnosingMatcher.cs" />
     <Compile Include="CustomMatcher.cs" />
