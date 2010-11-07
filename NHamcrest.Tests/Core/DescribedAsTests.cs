@@ -1,11 +1,10 @@
 using MbUnit.Framework;
-using NHamcrest.Core;
 
 namespace NHamcrest.Tests.Core
 {
     public class DescribedAsTests
     {
-        private readonly IMatcher<string> originalMatcher = new CustomMatcher<string>("originalDescription", s => true);
+        private readonly Matcher<string> originalMatcher = new CustomMatcher<string>("originalDescription", s => true);
 
         [Test]
         public void Description_is_overridden()

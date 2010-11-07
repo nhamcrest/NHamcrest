@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 
 namespace NHamcrest.Core
 {
@@ -14,8 +13,11 @@ namespace NHamcrest.Core
 
         protected override bool MatchesSafely(IEnumerable<T> collection, IDescription mismatchDescription)
         {
-            foreach (var item in collection.Where(item => matcher.Matches(item) == false))
+            foreach (var item in collection)
             {
+                if (matcher.Matches(item))
+                    continue;
+
                 mismatchDescription.AppendText("an item ");
                 matcher.DescribeMismatch(item, mismatchDescription);
                 return false;

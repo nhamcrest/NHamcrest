@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 
 namespace NHamcrest.Core
 {
@@ -14,10 +13,11 @@ namespace NHamcrest.Core
 
         protected override bool Matches(T item, IDescription mismatchDescription)
         {
-            var failingMatchers = matchers.Where(matcher => matcher.Matches(item) == false);
-
-            foreach (var matcher in failingMatchers)
+            foreach (var matcher in matchers)
             {
+                if (matcher.Matches(item))
+                    continue;
+
                 mismatchDescription.AppendDescriptionOf(matcher).AppendText(" ");
                 matcher.DescribeMismatch(item, mismatchDescription);
                 return false;
@@ -28,8 +28,8 @@ namespace NHamcrest.Core
 
         public override void DescribeTo(IDescription description)
         {
-            description.AppendList("(", " " + "and" + " ", ")", matchers.Cast<ISelfDescribing>());
-        }
+            description.AppendList("(", " " + "and" + " ", ")", FakeLinq.Cast<ISelfDescribing>(matchers));
+        }        
     }
 
     public static partial class Matches

@@ -29,14 +29,6 @@ namespace NHamcrest.Core
 
     public static class DescribedAsExtension
     {
-        /// <summary>
-        /// Wraps an existing matcher and overrides the description when it fails.
-        /// </summary>
-        [Factory]
-        public static IMatcher<T> DescribedAs<T>(this IMatcher<T> matcher, string description, 
-            params object[] values)
-        {
-            return new DescribedAs<T>(description, matcher, values);
-        }
+
     }
 }

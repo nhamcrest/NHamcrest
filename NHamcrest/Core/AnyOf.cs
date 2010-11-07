@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 
 namespace NHamcrest.Core
 {
@@ -14,12 +13,17 @@ namespace NHamcrest.Core
 
         public override bool Matches(T item)
         {
-            return matchers.Any(m => m.Matches(item));
+            foreach (var matcher in matchers)
+            {
+                if (matcher.Matches(item))
+                    return true;
+            }
+            return false;
         }
 
         public override void DescribeTo(IDescription description)
         {
-            description.AppendList("(", " " + "or" + " ", ")", matchers.Cast<ISelfDescribing>());
+            description.AppendList("(", " " + "or" + " ", ")", FakeLinq.Cast<ISelfDescribing>(matchers));
         }
     }
 

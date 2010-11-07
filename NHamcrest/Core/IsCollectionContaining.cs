@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 
 namespace NHamcrest.Core
 {
@@ -55,9 +54,13 @@ namespace NHamcrest.Core
         [Factory]
         public static IMatcher<IEnumerable<T>> Items<T>(params IMatcher<T>[] elementMatchers)
         {
-            var all = elementMatchers.Select(elementMatcher => new IsCollectionContaining<T>(elementMatcher))
-                .Cast<IMatcher<IEnumerable<T>>>()
-                .ToList();
+            var all = new List<IMatcher<IEnumerable<T>>>();
+            
+            foreach (var elementMatcher in elementMatchers)
+            {
+                var matcher = new IsCollectionContaining<T>(elementMatcher);
+                all.Add(matcher);
+            }
 
             return Matches.AllOf(all);
         }
@@ -65,7 +68,15 @@ namespace NHamcrest.Core
         [Factory]
         public static IMatcher<IEnumerable<T>> Items<T>(params T[] elements)
         {
-            return Matches.AllOf(elements.Select(element => Item(element)));
+            var matchers = new List<IMatcher<IEnumerable<T>>>();
+
+            foreach (var element in elements)
+            {
+                var matcher = Item(element);
+                matchers.Add(matcher);
+            }
+            
+            return Matches.AllOf(matchers);
         }
     }
 }
