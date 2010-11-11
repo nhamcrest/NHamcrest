@@ -35,7 +35,7 @@ namespace NHamcrest.Core
         /// <summary>
         /// This is useful for fluently combining matchers that must both pass.  For example:
         /// <pre>
-        ///   Assert.That(string, Matches.Both(containsString("a")).And(containsString("b")));
+        /// Assert.That("ab", Matches.Both(Contains.String("a")).And(Contains.String("b")));
         /// </pre>
         /// </summary>
         [Factory]
@@ -47,7 +47,7 @@ namespace NHamcrest.Core
         /// <summary>
         /// This is useful for fluently combining matchers where either may pass, for example:
         /// <pre>
-        ///   Assert.That(string, Matches.Either(Contains.String("a")).Or(Contains.String("b")));
+        /// Assert.That("ac", Matches.Either(Contains.String("a")).Or(Contains.String("b")));
         /// </pre>
         /// </summary>
         [Factory]

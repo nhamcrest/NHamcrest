@@ -13,30 +13,32 @@ namespace NHamcrest.Core
         }
     }
 
+    public class IsNull : IsNull<object> { }
+
     public static partial class Is
     {
         [Factory]
-        public static IMatcher<T> NullValue<T>()
+        public static IMatcher<T> Null<T>()
         {
             return new IsNull<T>();
         }
 
         [Factory]
-        public static IMatcher<object> NullValue()
+        public static IMatcher<object> Null()
         {
-            return new IsNull<object>();
+            return new IsNull();
         }
 
         [Factory]
-        public static IMatcher<T> NotNullValue<T>()
+        public static IMatcher<T> NotNull<T>()
         {
-            return Not(NullValue<T>());
+            return Not(Null<T>());
         }
 
         [Factory]
-        public static IMatcher<object> NotNullValue()
+        public static IMatcher<object> NotNull()
         {
-            return Not(NullValue());
+            return Not(Null());
         }
     }
 }

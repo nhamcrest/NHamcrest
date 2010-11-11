@@ -19,7 +19,7 @@ namespace NHamcrest.Tests.Core
         [Test]
         public void No_match_if_any_matcher_fails()
         {
-            var matcher = Matches.AllOf(new[] { failingMatcher, successfulMatcher });
+            var matcher = Matches.AllOf(failingMatcher, successfulMatcher);
 
             Assert.AreEqual(false, matcher.Matches(""), "Expected no match if any matcher fails.");
         }

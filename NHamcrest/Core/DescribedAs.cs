@@ -26,9 +26,4 @@ namespace NHamcrest.Core
             description.AppendText(string.Format(descriptionTemplate, values));
         }
     }
-
-    public static class DescribedAsExtension
-    {
-
-    }
 }

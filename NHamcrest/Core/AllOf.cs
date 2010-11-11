@@ -39,5 +39,11 @@ namespace NHamcrest.Core
         {
             return new AllOf<T>(matchers);
         }
+
+        [Factory]
+        public static IMatcher<T> AllOf<T>(params IMatcher<T>[] matchers)
+        {
+            return new AllOf<T>(matchers);
+        }
     }
 }

@@ -48,7 +48,7 @@ namespace NHamcrest.Core
          * Is the value an instance of a particular type? 
          * This version assumes no relationship between the required type and
          * the signature of the method that sets it up, for example in
-         * <code>assertThat(anObject, instanceOf(Thing.class));</code>
+         * <code>Assert.That(anObject, Is.InstanceOf(typeof(Thing)));</code>
          */
         [Factory]
         public static IMatcher<T> InstanceOf<T>()

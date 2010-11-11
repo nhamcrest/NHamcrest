@@ -9,13 +9,13 @@ namespace NHamcrest.Tests.Core
         [Test]
         public void Match_if_null()
         {
-            Assert.That(null, Is.NullValue());
+            Assert.That(null, Is.Null());
         }
 
         [Test]
         public void No_match_if_not_null()
         {
-            var matcher = Is.NullValue<string>();
+            var matcher = Is.Null<string>();
 
             var matches = matcher.Matches("");
 
@@ -25,7 +25,7 @@ namespace NHamcrest.Tests.Core
         [Test]
         public void Describe_to()
         {
-            var matcher = Is.NullValue<string>();
+            var matcher = Is.Null<string>();
             var description = new StringDescription();
 
             matcher.DescribeTo(description);
@@ -39,13 +39,13 @@ namespace NHamcrest.Tests.Core
         [Test]
         public void Match_if_not_null()
         {
-            Assert.That("", Is.NotNullValue());
+            Assert.That("", Is.NotNull());
         }
 
         [Test]
         public void No_match_if_null()
         {
-            var matcher = Is.NotNullValue<string>();
+            var matcher = Is.NotNull<string>();
 
             var matches = matcher.Matches(null);
 
