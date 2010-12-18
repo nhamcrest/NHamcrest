@@ -46,6 +46,7 @@
     <Compile Include="Core\AnyOf.cs" />
     <Compile Include="Core\CombinableMatcher.cs" />
     <Compile Include="Core\FakeLinq.cs" />
+    <Compile Include="Core\IsGreaterThan.cs" />
     <Compile Include="Core\StringStartsWith.cs" />
     <Compile Include="Core\DescribedAs.cs" />
     <Compile Include="Core\Every.cs" />
