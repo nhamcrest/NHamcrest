@@ -37,11 +37,6 @@ namespace NHamcrest
             @out.Append(str);
         }
 
-        protected override void Append(char c)
-        {
-            @out.Append(c);
-        }
-
         public override string ToString()
         {
             return @out.ToString();

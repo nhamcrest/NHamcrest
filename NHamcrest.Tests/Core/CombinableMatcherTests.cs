@@ -40,9 +40,20 @@ namespace NHamcrest.Tests.Core
         [Test]
         public void Either_returns_no_match_if_all_fail()
         {
-            var matcher = Matches.Both(new CombinableMatcher<string>(failingMatcher).And(failingMatcher));
+            var matcher = Matches.Either(new CombinableMatcher<string>(failingMatcher).And(failingMatcher));
 
             Assert.AreEqual(false, matcher.Matches(""), "Expected no match if either matcher fails.");
         }
+
+		[Test]
+		public void DescribeTo()
+		{
+			var matcher = new CombinableMatcher<string>(failingMatcher);
+			var description = new StringDescription();
+
+			matcher.DescribeTo(description);
+
+			Assert.AreEqual("Failing matcher", description.ToString(), "Expected no match if either matcher fails.");
+		}
     }
 }

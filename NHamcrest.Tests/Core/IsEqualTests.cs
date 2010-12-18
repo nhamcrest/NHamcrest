@@ -9,9 +9,7 @@ namespace NHamcrest.Tests.Core
         [Test]
         public void Match_if_equal()
         {
-            const string test = "test";
-
-            NHAssert.That(test, Is.EqualTo(test));
+            NHAssert.That(true, Is.True());
         }
 
         [Test]
@@ -23,6 +21,17 @@ namespace NHamcrest.Tests.Core
 
             Assert.IsFalse(matches);
         }
+
+		[Test]
+		public void No_match_if_compared_to_null()
+		{
+			var isEqual = new IsEqual<string>("test");
+
+			var matches = isEqual.Matches(null);
+
+			Assert.IsFalse(matches);
+			Assert.IsFalse(Is.EqualTo<string>(null).Matches("test"));
+		}
 
         [Test]
         public void Append_description()

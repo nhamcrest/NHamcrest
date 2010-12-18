@@ -30,6 +30,27 @@ namespace NHamcrest.Tests
             Assert.AreEqual(text, toString);
         }
 
+		[Test]
+		public void Matches_returns_false()
+		{
+			var matcher = new TestMatcher("");
+
+			var matches = matcher.Matches("");
+
+			Assert.IsFalse(matches);
+		}
+
+		[Test]
+		public void Describe_to()
+		{
+			var matcher = new TestMatcher("");
+			var description = new StringDescription();
+
+			matcher.DescribeTo(description);
+
+			Assert.AreEqual("", description.ToString());
+		}
+
         private class TestMatcher : Matcher<string>
         {
             private readonly string text;
@@ -43,6 +64,7 @@ namespace NHamcrest.Tests
 
             public override void DescribeTo(IDescription description)
             {
+				base.DescribeTo(description);
                 description.AppendText(text);
             }
         }

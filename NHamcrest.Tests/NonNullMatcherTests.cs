@@ -1,4 +1,3 @@
-using System;
 using MbUnit.Framework;
 
 namespace NHamcrest.Tests
@@ -48,6 +47,17 @@ namespace NHamcrest.Tests
             Assert.AreEqual("TestNonNullMatcher.DescribeMismatchSafely", description.ToString());
         }
 
+		[Test]
+		public void Describe_mismatch_safely()
+		{
+			var matcher = new TestNonNullMatcher(s => false);
+			var description = new StringDescription();
+
+			matcher.DescribeMismatchSafely2("something", description);
+
+			Assert.AreEqual("was something", description.ToString());
+		}
+
         private class TestNonNullMatcher : NonNullMatcher<string>
         {
             private readonly Func<string, bool> match;
@@ -66,6 +76,11 @@ namespace NHamcrest.Tests
             {
                 mismatchDescription.AppendText("TestNonNullMatcher.DescribeMismatchSafely");
             }
+
+			public void DescribeMismatchSafely2(string item, IDescription mismatchDescription)
+			{
+				base.DescribeMismatchSafely(item, mismatchDescription);
+			}
         }
     }
 }

@@ -6,7 +6,7 @@ namespace NHamcrest.Tests.Core
 {
     public class EveryTests
     {
-        private readonly IMatcher<string> startsWithA = new CustomMatcher<string>("Starts with A", 
+        private readonly IMatcher<string> startsWithA = new CustomMatcher<string>("starts with an A", 
             s => s.StartsWith("A"));
 
         [Test]
@@ -24,5 +24,16 @@ namespace NHamcrest.Tests.Core
 
             Assert.That(strings, NotEvery.Item(startsWithA));
         }
+
+		[Test]
+		public void Describe_to()
+		{
+			var matcher = Every.Item(startsWithA);
+			var description = new StringDescription();
+
+			matcher.DescribeTo(description);
+
+			Assert.That(description.ToString(), Is.EqualTo("every item starts with an A"));
+		}
     }
 }

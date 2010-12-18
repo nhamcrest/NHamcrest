@@ -27,6 +27,28 @@ namespace NHamcrest.Tests
             Assert.AreEqual(value, description.ToString());
         }
 
+		[Test]
+		public void Append_string()
+		{
+			var description = new StringDescription(new StringBuilder());
+			const string value = "test";
+
+			description.AppendText(value);
+
+			Assert.AreEqual(value, description.ToString());
+		}
+
+		[Test]
+		public void Append_char()
+		{
+			var description = new StringDescription(new StringBuilder());
+			const char value = 't';
+
+			description.AppendValue(value);
+
+			Assert.AreEqual("\"t\"", description.ToString());
+		}
+
         [Test]
         public void Static_ToString_returns_self_described_value()
         {

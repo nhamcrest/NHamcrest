@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using MbUnit.Framework;
 using NHamcrest.Core;
 
@@ -17,7 +18,7 @@ namespace NHamcrest.Tests.Core
             var matcher = Matches.AnyOf(new[] { successfulMatcher, failingMatcher });
             Assert.AreEqual(true, matcher.Matches(""), "Expected match if any matchers succeed.");
 
-            matcher = Matches.AnyOf(new[] { failingMatcher, successfulMatcher });
+            matcher = Matches.AnyOf(new List<IMatcher<string>> { failingMatcher, successfulMatcher });
             Assert.AreEqual(true, matcher.Matches(""), "Expected match if any matchers succeed.");
         }
 

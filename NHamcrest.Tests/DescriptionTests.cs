@@ -27,16 +27,6 @@ namespace NHamcrest.Tests
         }
 
         [Test]
-        public void AppendText_appends_each_char()
-        {
-            const string text = "test";
-
-            description.AppendText(text);
-
-            Assert.AreEqual(text.Length, description.Count);
-        }
-
-        [Test]
         public void AppendDescriptionOf_asks_value_to_describe_itself()
         {
             var selfDescribing = MockRepository.GenerateStub<ISelfDescribing>();
@@ -141,18 +131,10 @@ namespace NHamcrest.Tests
         {
             private readonly StringBuilder stringBuilder = new StringBuilder();
 
-            public int Count { get; private set; }
-
             protected override void Append(string str)
             {
                 Console.WriteLine("Appended string: {0}", str);
                 stringBuilder.Append(str);
-                base.Append(str);
-            }
-
-            protected override void Append(char c)
-            {
-                Count++;
             }
 
             public override string ToString()

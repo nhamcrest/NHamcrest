@@ -99,24 +99,12 @@ namespace NHamcrest
             return this;
         }
 
-        /// <summary>
-        /// Append a string to the description.  
-        /// The default implementation passes every character to Append(char).
-        /// Override in subclasses to provide an efficient implementation.
-        /// </summary>
-        /// <param name="str">The string to append.</param>
-        protected virtual void Append(string str)
-        {
-            foreach (var t in str)
-            {
-                Append(t);
-            }
-        }
-
-        /// <summary>
-        /// Append a char to the description.
-        /// </summary>
-        /// <param name="c">The char to append.</param>
-        protected abstract void Append(char c);
+    	/// <summary>
+    	/// Append a string to the description.  
+    	/// The default implementation passes every character to Append(char).
+    	/// Override in subclasses to provide an efficient implementation.
+    	/// </summary>
+    	/// <param name="str">The string to append.</param>
+    	protected abstract void Append(string str);
     }
 }

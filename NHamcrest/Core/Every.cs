@@ -27,7 +27,7 @@ namespace NHamcrest.Core
 
         public override void DescribeTo(IDescription description)
         {
-            description.AppendText("every item is ").AppendDescriptionOf(matcher);
+            description.AppendText("every item ").AppendDescriptionOf(matcher);
         }
     }
 

@@ -1,3 +1,4 @@
+using System;
 using MbUnit.Framework;
 using Rhino.Mocks;
 
@@ -5,6 +6,12 @@ namespace NHamcrest.Tests
 {
     public class CustomMatcherTests
     {
+    	[Test]
+    	public void Ctor_throws_if_description_is_null()
+    	{
+			Assert.Throws<ArgumentNullException>(() => new CustomMatcher<string>(null, s => true));
+    	}
+
         [Test]
         public void DescribeTo_appends_provided_description()
         {

@@ -45,5 +45,16 @@ namespace NHamcrest.Tests.Core
 
             Assert.That(description.ToString(), Is.EqualTo("a collection containing aaa"));
         }
+
+		[Test]
+		public void Describe_mismatch()
+		{
+			var matcher = Has.Item("aaa");
+			var description = new StringDescription();
+
+			matcher.DescribeMismatch(new [] { "bbb", "ddd" }, description);
+
+			Assert.That(description.ToString(), Is.EqualTo("was bbb, was ddd"));
+		}
     }
 }
