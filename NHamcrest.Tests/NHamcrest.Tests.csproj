@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\IsLessThanTests.cs" />
     <Compile Include="Core\IsGreaterThanTests.cs" />
     <Compile Include="Core\StringStartsWithTests.cs" />
     <Compile Include="Core\IsAnythingTests.cs" />

@@ -11,11 +11,6 @@ namespace NHamcrest.Core
 			@object = arg;
 		}
 
-		private static bool IsGreater(T left, T right)
-		{
-			return left.CompareTo(right) > 0;
-		}
-
 		public override void DescribeTo(IDescription description)
 		{
 			description.AppendText("greater than ").AppendValue(@object);
@@ -23,7 +18,7 @@ namespace NHamcrest.Core
 
 		public override bool Matches(T arg)
 		{
-			return IsGreater(arg, @object);
+			return arg.CompareTo(@object) > 0;
 		}
 	}
 

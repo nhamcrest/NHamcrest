@@ -25,6 +25,16 @@ namespace NHamcrest.Tests.Core
 		}
 
 		[Test]
+		public void No_match_if_equal()
+		{
+			var isGreaterThanOne = new IsGreaterThan<int>(1);
+
+			var matches = isGreaterThanOne.Matches(1);
+
+			Assert.IsFalse(matches);
+		}
+
+		[Test]
 		public void Append_description()
 		{
 			const int six = 6;
