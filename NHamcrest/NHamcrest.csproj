@@ -45,6 +45,7 @@
     <Compile Include="Core\AllOf.cs" />
     <Compile Include="Core\AnyOf.cs" />
     <Compile Include="Core\CombinableMatcher.cs" />
+    <Compile Include="Core\IsGreaterThanOrEqualTo.cs" />
     <Compile Include="Core\IsLessThan.cs" />
     <Compile Include="Core\FakeLinq.cs" />
     <Compile Include="Core\IsGreaterThan.cs" />
