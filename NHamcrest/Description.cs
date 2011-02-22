@@ -62,7 +62,13 @@ namespace NHamcrest
             return this;
         }
 
-        private static IEnumerable<object> IterateArray(Array array)
+    	public IDescription AppendNewLine()
+    	{
+    		Append(Environment.NewLine);
+    		return this;
+    	}
+
+    	private static IEnumerable<object> IterateArray(Array array)
         {
             for (var i = 0; i < array.Length; i++)
             {

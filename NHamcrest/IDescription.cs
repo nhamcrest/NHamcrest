@@ -37,6 +37,12 @@ namespace NHamcrest
         /// <returns></returns>
         IDescription AppendValue(object value);
 
+		/// <summary>
+		/// Appends a new line to the description.
+		/// </summary>
+		/// <returns>The current description.</returns>
+		IDescription AppendNewLine();
+
         /// <summary>
         /// Appends a list of values to the description.
         /// </summary>

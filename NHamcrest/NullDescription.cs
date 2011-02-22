@@ -24,7 +24,12 @@ namespace NHamcrest
             return this;
         }
 
-        public IDescription AppendValueList<T>(string start, string separator, string end, params T[] values)
+    	public IDescription AppendNewLine()
+    	{
+    		return this;
+    	}
+
+    	public IDescription AppendValueList<T>(string start, string separator, string end, params T[] values)
         {
             return this;
         }
