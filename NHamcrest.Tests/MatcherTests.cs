@@ -20,7 +20,7 @@ namespace NHamcrest.Tests
         }
 
         [Test]
-        public void ToString()
+        public void To_string()
         {
             const string text = "text";
             var matcher = new TestMatcher(text);
