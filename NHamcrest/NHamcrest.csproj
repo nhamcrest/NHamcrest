@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Action.cs" />
     <Compile Include="Core\AllOf.cs" />
     <Compile Include="Core\AnyOf.cs" />
     <Compile Include="Core\CombinableMatcher.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Core\StringContains.cs" />
     <Compile Include="Core\StringEndsWith.cs" />
     <Compile Include="Core\SubstringMatcher.cs" />
+    <Compile Include="Core\Throws.cs" />
     <Compile Include="Func.cs" />
     <Compile Include="NonNullDiagnosingMatcher.cs" />
     <Compile Include="CustomMatcher.cs" />

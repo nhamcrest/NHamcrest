@@ -65,6 +65,7 @@
     <Compile Include="Core\IsSameTests.cs" />
     <Compile Include="Core\StringContainsTests.cs" />
     <Compile Include="Core\StringEndsWithTests.cs" />
+    <Compile Include="Core\ThrowsTests.cs" />
     <Compile Include="Internal\Assert.cs" />
     <Compile Include="Internal\AssertionError.cs" />
     <Compile Include="Core\AllOfTests.cs" />
