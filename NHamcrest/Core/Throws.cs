@@ -4,7 +4,7 @@ namespace NHamcrest.Core
 {
 	public class Throws<T> : DiagnosingMatcher<Action> where T : Exception
 	{
-		private Func<Exception, bool> predicate = e => true;
+		private Func<T, bool> predicate = e => true;
 
 		public override void DescribeTo(IDescription description)
 		{
@@ -36,14 +36,14 @@ namespace NHamcrest.Core
 			return false;
 		}
 
-		public Throws<T> With(Func<Exception, bool> predicate)
+		public Throws<T> With(Func<T, bool> predicate)
 		{
 			this.predicate = predicate;
 			return this;
 		}
 	}
 
-	public class Throws
+	public static class Throws
 	{
 		public static Throws<T> An<T>() where T : Exception
 		{
