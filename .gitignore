@@ -1,4 +1,4 @@
-*.ReSharper.user
+*.user
 *.suo
 _ReSharper*
 bin
