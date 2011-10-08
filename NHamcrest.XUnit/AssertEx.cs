@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace NHamcrest.XUnit
+﻿namespace NHamcrest.XUnit
 {
-    public class AssertEx
+    public class Assert : Xunit.Assert
     {
         public static void That<T>(T actual, IMatcher<T> matcher)
         {
