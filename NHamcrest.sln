@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHamcrest.Tests", "NHamcres
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHamcrest.NUnit", "NHamcrest.NUnit\NHamcrest.NUnit.csproj", "{ED5F34C9-D815-46CD-BAC2-AC62A795894B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHamcrest.NUnit.Tests", "NHamcrest.NUnit.Tests\NHamcrest.NUnit.Tests.csproj", "{3047BC0C-DD71-4EC8-9835-15B9A41B2C62}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHamcrest.NUnit.Examples", "NHamcrest.NUnit.Examples\NHamcrest.NUnit.Examples.csproj", "{3047BC0C-DD71-4EC8-9835-15B9A41B2C62}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
