@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHamcrest.XUnit", "NHamcres
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHamcrest.XUnit.Examples", "NHamcrest.XUnit.Examples\NHamcrest.XUnit.Examples.csproj", "{FB567185-A872-4D8E-A4C5-CC3D4430D7DF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NUnit", "NUnit", "{9985B589-EC67-4FE7-83A1-3A68959CAAAC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "XUnit", "XUnit", "{0EE42F24-2D10-425F-814F-F2C67431C5B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -86,5 +90,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{ED5F34C9-D815-46CD-BAC2-AC62A795894B} = {9985B589-EC67-4FE7-83A1-3A68959CAAAC}
+		{3047BC0C-DD71-4EC8-9835-15B9A41B2C62} = {9985B589-EC67-4FE7-83A1-3A68959CAAAC}
+		{235F5147-DCDC-439C-9220-DF2E5FB23F66} = {0EE42F24-2D10-425F-814F-F2C67431C5B7}
+		{FB567185-A872-4D8E-A4C5-CC3D4430D7DF} = {0EE42F24-2D10-425F-814F-F2C67431C5B7}
 	EndGlobalSection
 EndGlobal
