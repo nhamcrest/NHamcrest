@@ -9,19 +9,19 @@ namespace NHamcrest.XUnit.Examples
         [Fact]
         public void Pass()
         {
-            AssertEx.That(1, Is.EqualTo(1));
+            Assert.That(1, Is.EqualTo(1));
         }
 
         [Fact]
         public void Fail()
         {
-            AssertEx.That(1, Is.EqualTo(3));
+            Assert.That(1, Is.EqualTo(3));
         }
 
         [Fact]
         public void One_more()
         {
-            AssertEx.That(() => { throw new InvalidOperationException(); }, Throws.An<AccessViolationException>());
+            Assert.That(() => { throw new InvalidOperationException(); }, Throws.An<AccessViolationException>());
         }
     }
 }
