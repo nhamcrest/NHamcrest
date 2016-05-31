@@ -1,0 +1,8 @@
+{
+  "projects": [
+    "NHamcrest",
+    "NHamcrest.XUnit",
+    "NHamcrest.NUnit",
+    "NHamcrest.Tests"
+  ]
+}

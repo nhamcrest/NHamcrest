@@ -1,0 +1,44 @@
+version: 1.3.0-b{build}
+platform: Any CPU
+
+environment:
+  matrix:
+    - CLI_VERSION: Latest
+
+init:
+  - ps: $env:PADDED_BUILD_NUMBER = ([int]$env:APPVEYOR_BUILD_NUMBER).toString("0000000")  
+ 
+install:
+  - ps: .\scripts\show-dotnet-info.ps1
+  # Download install script to install .NET cli in .dotnet dir
+  - ps: mkdir -Force ".\scripts\obtain" | Out-Null
+  - ps: Invoke-WebRequest "https://raw.githubusercontent.com/dotnet/cli/rel/1.0.0/scripts/obtain/dotnet-install.ps1" -OutFile ".\scripts\obtain\install.ps1"
+  - ps: $env:DOTNET_INSTALL_DIR = "$pwd\.dotnetcli"
+  - ps: '& .\scripts\obtain\install.ps1 -Channel "preview" -version "$env:CLI_VERSION" -InstallDir "$env:DOTNET_INSTALL_DIR" -NoPath'
+  # add dotnet to PATH
+  - ps: $env:Path = "$env:DOTNET_INSTALL_DIR;$env:Path"
+
+build_script:
+  - ps: .\scripts\show-dotnet-info.ps1
+  - ps: dotnet --info
+  - ps: dotnet restore
+  - ps: dotnet build NHamcrest NHamcrest.NUnit NHamcrest.XUnit NHamcrest.Tests
+  - ps: dotnet pack --version-suffix "b$env:PADDED_BUILD_NUMBER" -c Release NHamcrest -o artifacts 
+  - ps: dotnet pack --version-suffix "b$env:PADDED_BUILD_NUMBER" -c Release NHamcrest.NUnit -o artifacts
+  - ps: dotnet pack --version-suffix "b$env:PADDED_BUILD_NUMBER" -c Release NHamcrest.XUnit -o artifacts
+
+
+test:
+  assemblies:
+    - NHamcrest.Tests.dll
+
+artifacts:
+  - path: artifacts/*.nupkg
+
+deploy:
+  provider: NuGet
+  server: https://www.myget.org/F/nhamcrest/api/v2/package
+  api_key:
+    secure: b5oBmcZl3AXKVJ/lzr6SFRUqgUXK8V8rGmFTiIFp70UMZmuOzyJa6x/l0UTIaElq
+  skip_symbols: false
+  symbol_server: https://www.myget.org/F/nhamcrest/api/v2/package
