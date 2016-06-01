@@ -9,7 +9,7 @@ init:
   - ps: $env:PADDED_BUILD_NUMBER = ([int]$env:APPVEYOR_BUILD_NUMBER).toString("0000000")  
  
 install:
-  - ps: .\scripts\show-dotnet-info.ps1
+  - ps: .\Scripts\show-dotnet-info.ps1
   # Download install script to install .NET cli in .dotnet dir
   - ps: mkdir -Force ".\scripts\obtain" | Out-Null
   - ps: Invoke-WebRequest "https://raw.githubusercontent.com/dotnet/cli/rel/1.0.0/scripts/obtain/dotnet-install.ps1" -OutFile ".\scripts\obtain\install.ps1"
@@ -20,12 +20,12 @@ install:
 
 build_script:
   - ps: .\scripts\show-dotnet-info.ps1
-  - ps: dotnet --info
-  - ps: dotnet restore
-  - ps: dotnet build NHamcrest NHamcrest.NUnit NHamcrest.XUnit NHamcrest.Tests
-  - ps: dotnet pack --version-suffix "b$env:PADDED_BUILD_NUMBER" -c Release NHamcrest -o artifacts 
-  - ps: dotnet pack --version-suffix "b$env:PADDED_BUILD_NUMBER" -c Release NHamcrest.NUnit -o artifacts
-  - ps: dotnet pack --version-suffix "b$env:PADDED_BUILD_NUMBER" -c Release NHamcrest.XUnit -o artifacts
+  - dotnet --info
+  - dotnet restore
+  - dotnet build NHamcrest NHamcrest.NUnit NHamcrest.XUnit NHamcrest.Tests
+  - dotnet pack --version-suffix "b%PADDED_BUILD_NUMBER%" -c Release NHamcrest -o artifacts 
+  - dotnet pack --version-suffix "b%PADDED_BUILD_NUMBER%" -c Release NHamcrest.NUnit -o artifacts
+  - dotnet pack --version-suffix "b%PADDED_BUILD_NUMBER%" -c Release NHamcrest.XUnit -o artifacts
 
 
 test:
