@@ -1,0 +1,43 @@
+{
+  "version": "1.3.0-*",
+  "buildOptions": {
+    "emitEntryPoint": false,
+    "compilerName":"csc",
+    "compile": [
+      "./**/*.cs" 
+    ]
+  },
+  "dependencies": {
+    "NHamcrest": {
+      "version":"1.3.0-*",
+      "type":"build"
+    },
+    "NUnit":"3.2.0"
+  },
+  "frameworks": {
+    "net20": {
+      "dependencies": {
+        "xunit":"1.9.2"
+      }
+    },
+    "net451": {
+      "frameworkAssemblies":{
+        "System.Runtime":""
+      },
+      "imports": [
+        "portable-net451+win81+wp81"
+      ]
+    },
+    "netcoreapp1.0": {
+      "dependencies": {
+        "Microsoft.NETCore.App": {
+          "type": "platform",
+          "version": "1.0.0-rc2-3002702"
+        }
+      },
+      "imports": [
+        "portable-net451+win81+wp81"
+      ]
+    }
+  }
+}

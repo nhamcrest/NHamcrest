@@ -1,0 +1,40 @@
+{
+  "version": "1.3.0-*",
+  "buildOptions": {
+    "emitEntryPoint": false,
+    "compilerName":"csc",
+    "compile": [
+      "./**/*.cs" 
+    ]
+  },
+  "frameworks": {
+    "net20": {
+      "frameworkAssemblies":{
+        "System":"",
+        "System.Xml":"",
+        "System.Data":""
+      },
+    },
+    "net451": {
+      "frameworkAssemblies": {
+        "System":"",
+        "System.Xml":"",
+        "System.Data":""
+      },
+      "imports": [
+        "portable-net451+win8+wp8+wpa8"
+      ]
+    },
+    "netcoreapp1.0": {
+      "imports": [
+        "portable-net451+win8+wp8+wpa8"
+      ],
+      "dependencies": {
+        "Microsoft.NETCore.App": {
+          "type": "platform",
+          "version": "1.0.0-rc2-3002702"
+        }
+      }
+    }
+  }
+}
