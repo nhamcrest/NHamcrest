@@ -1,21 +1,21 @@
 using System;
-using MbUnit.Framework;
+using Xunit;
 
 namespace NHamcrest.Tests
 {
     public class NonNullDiagnosingMatcherTests
     {
-        [Test]
+        [Fact]
         public void No_match_if_object_is_null()
         {
             var matcher = new TestNonNullDiagnosingMatcher(s => true);
 
             var match = matcher.Matches(null);
 
-            Assert.IsFalse(match, "Expected no match for null.");
+            Assert.False(match, "Expected no match for null.");
         }
 
-        [Test]
+        [Fact]
         public void Pass_to_MatchesSafely_if_not_null()
         {
             var flag = false;
@@ -23,10 +23,10 @@ namespace NHamcrest.Tests
 
             matcher.Matches("");
 
-            Assert.IsTrue(flag, "Expected MatchesSafely(string, IDescription) to be called.");
+            Assert.True(flag, "Expected MatchesSafely(string, IDescription) to be called.");
         }
 
-        [Test]
+        [Fact]
         public void Use_base_mismatch_description_when_null()
         {
             var matcher = new TestNonNullDiagnosingMatcher(s => true);
@@ -34,10 +34,10 @@ namespace NHamcrest.Tests
 
             matcher.DescribeMismatch(null, description);
 
-            Assert.AreEqual("was null", description.ToString());
+            Assert.Equal("was null", description.ToString());
         }
 
-        [Test]
+        [Fact]
         public void Use_mismatch_description_when_not_null()
         {
             var matcher = new TestNonNullDiagnosingMatcher(s => false);
@@ -45,7 +45,7 @@ namespace NHamcrest.Tests
 
             matcher.DescribeMismatch("", description);
 
-            Assert.AreEqual("TestNonNullDiagnosingMatcher.MatchesSafely", description.ToString());
+            Assert.Equal("TestNonNullDiagnosingMatcher.MatchesSafely", description.ToString());
         }
 
         private class TestNonNullDiagnosingMatcher : NonNullDiagnosingMatcher<string>

@@ -1,24 +1,25 @@
-using MbUnit.Framework;
+
 using NHamcrest.Core;
+using Xunit;
 using Assert = NHamcrest.Tests.Internal.Assert;
 
 namespace NHamcrest.Tests.Core
 {
     public class StringContainsTests
     {
-        [Test]
+        [Fact]
         public void Match_if_string_contains_substring()
         {
             Assert.That("the cat sat on the mat", Contains.String("cat"));
         }
 
-        [Test]
+        [Fact]
         public void Match_if_case_insensitive_string_contains_substring()
         {
             Assert.That("the Cat sat on the mat", Contains.String("cat").CaseInsensitive());
         }
 
-        [Test]
+        [Fact]
         public void No_match_if_string_does_not_contain_substring()
         {
             var matcher = Contains.String("bob");
@@ -28,7 +29,7 @@ namespace NHamcrest.Tests.Core
             Assert.That(matches, Is.False());
         }
 
-        [Test]
+        [Fact]
         public void Describe_mismatch()
         {
             var matcher = Contains.String("bob");
@@ -39,7 +40,7 @@ namespace NHamcrest.Tests.Core
             Assert.That(description.ToString(), Is.EqualTo("was \"the cat sat on the mat\""));
         }
 
-        [Test]
+        [Fact]
         public void Describe_to()
         {
             var matcher = Contains.String("bob");

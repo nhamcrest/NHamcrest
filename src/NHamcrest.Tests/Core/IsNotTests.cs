@@ -1,6 +1,8 @@
-using MbUnit.Framework;
+
 using NHamcrest.Core;
-using Assert = NHamcrest.Tests.Internal.Assert;
+using Xunit;
+using NHamcrest.XUnit;
+using Assert = NHamcrest.XUnit.Assert;
 
 namespace NHamcrest.Tests.Core
 {
@@ -8,7 +10,7 @@ namespace NHamcrest.Tests.Core
     {
         private readonly IMatcher<string> always = new CustomMatcher<string>("Always", s => true);
 
-        [Test]
+        [Fact]
         public void No_match_if_inner_matcher_matches()
         {
             var isNot = new IsNot<string>(always);
@@ -18,13 +20,13 @@ namespace NHamcrest.Tests.Core
             Assert.That(matches, Is.EqualTo(false));
         }
 
-        [Test]
+        [Fact]
         public void Match_if_inner_matcher_does_not_match()
         {
             Assert.That("test", Is.Not("somethingelse"));
         }
 
-        [Test]
+        [Fact]
         public void Description_adds_not()
         {
             var matcher = Is.Not(always);

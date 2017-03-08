@@ -1,118 +1,117 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using MbUnit.Framework;
+using Moq;
 using NHamcrest.Internal;
-using Rhino.Mocks;
+using Xunit;
+
 
 namespace NHamcrest.Tests
 {
-    [TestsOn(typeof(Description))]
     public class DescriptionTests
     {
         private TestDescription description;
 
-        [SetUp]
-        public void SetUp()
+        public DescriptionTests()
         {
             description = new TestDescription();
         }
 
-        [Test]
+        [Fact]
         public void None_returns_a_null_description()
         {
             var nullDescription = Description.None;
 
-            Assert.IsInstanceOfType(typeof(NullDescription), nullDescription);
+            Assert.IsType(typeof(NullDescription), nullDescription);
         }
 
-        [Test]
+        [Fact]
         public void AppendDescriptionOf_asks_value_to_describe_itself()
         {
-            var selfDescribing = MockRepository.GenerateStub<ISelfDescribing>();
+            var selfDescribingMock = new Mock<ISelfDescribing>();
 
-            description.AppendDescriptionOf(selfDescribing);
+            description.AppendDescriptionOf(selfDescribingMock.Object);
 
-            selfDescribing.AssertWasCalled(sd => sd.DescribeTo(description));
+            selfDescribingMock.Verify(sd => sd.DescribeTo(description), Times.Once);
         }
 
-        [Test]
+        [Fact]
         public void Appending_a_null_value()
         {
             description.AppendValue(null);
 
-            Assert.AreEqual("null", description.ToString());
+            Assert.Equal("null", description.ToString());
         }
 
-        [Test]
+        [Fact]
         public void Appending_a_char()
         {
             description.AppendValue('c');
 
-            Assert.AreEqual("\"c\"", description.ToString());
+            Assert.Equal("\"c\"", description.ToString());
         }
 
-        [Test]
+        [Fact]
         public void Appending_a_long()
         {
             description.AppendValue(5L);
 
-            Assert.AreEqual("5L", description.ToString());
+            Assert.Equal("5L", description.ToString());
         }
 
-        [Test]
+        [Fact]
         public void Appending_a_float()
         {
             description.AppendValue(5f);
 
-            Assert.AreEqual("5f", description.ToString());
+            Assert.Equal("5f", description.ToString());
         }
 
-        [Test]
+        [Fact]
         public void Appending_a_decimal()
         {
             description.AppendValue(5m);
 
-            Assert.AreEqual("5m", description.ToString());
+            Assert.Equal("5m", description.ToString());
         }
 
-        [Test]
+        [Fact]
         public void Appending_an_array_of_values()
         {
-            description.AppendValue(new [] { "one", "two", "three" });
+            description.AppendValue(new[] { "one", "two", "three" });
 
-            Assert.AreEqual("[one, two, three]", description.ToString());
+            Assert.Equal("[one, two, three]", description.ToString());
         }
 
-        [Test]
+        [Fact]
         public void Appending_a_string()
         {
             const string value = "test";
 
             description.AppendValue(value);
 
-            Assert.AreEqual(value, description.ToString());
+            Assert.Equal(value, description.ToString());
         }
 
-        [Test]
+        [Fact]
         public void Appending_an_object()
         {
             var value = new TestObject();
 
             description.AppendValue(value);
 
-            Assert.AreEqual(value.ToString(), description.ToString());
+            Assert.Equal(value.ToString(), description.ToString());
         }
 
-        [Test]
+        [Fact]
         public void Append_enumerable()
         {
-            description.AppendValueList("(", "'", ")", new List<string>{ "a", "b", "c" });
+            description.AppendValueList("(", "'", ")", new List<string> { "a", "b", "c" });
 
-            Assert.AreEqual("(a'b'c)", description.ToString());
+            Assert.Equal("(a'b'c)", description.ToString());
         }
 
-        [Test]
+        [Fact]
         public void Append_self_describing_values()
         {
             var values = new List<ISelfDescribing>
@@ -121,10 +120,10 @@ namespace NHamcrest.Tests
                   new SelfDescribingValue<int>(2),
                   new SelfDescribingValue<int>(3),
                 };
-            
+
             description.AppendList("!", ":", "@", values);
 
-            Assert.AreEqual("!1:2:3@", description.ToString());
+            Assert.Equal("!1:2:3@", description.ToString());
         }
 
         private class TestDescription : Description

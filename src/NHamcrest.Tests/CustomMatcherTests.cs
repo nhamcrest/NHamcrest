@@ -1,31 +1,32 @@
 using System;
-using MbUnit.Framework;
-using Rhino.Mocks;
+using Moq;
+using Xunit;
+
 
 namespace NHamcrest.Tests
 {
     public class CustomMatcherTests
     {
-    	[Test]
-    	public void Ctor_throws_if_description_is_null()
-    	{
-			Assert.Throws<ArgumentNullException>(() => new CustomMatcher<string>(null, s => true));
-    	}
+        [Fact]
+        public void Ctor_throws_if_description_is_null()
+        {
+            Assert.Throws<ArgumentNullException>(() => new CustomMatcher<string>(null, s => true));
+        }
 
-        [Test]
+        [Fact]
         public void DescribeTo_appends_provided_description()
         {
             const string fixedDescription = "description";
             var matcher = new CustomMatcher<string>(fixedDescription, s => true);
-            var description = MockRepository.GenerateStub<IDescription>();
+            var descriptionMock = new Moq.Mock<IDescription>();
 
-            matcher.DescribeTo(description);
+            matcher.DescribeTo(descriptionMock.Object);
 
-            description.AssertWasCalled(d => d.AppendText(fixedDescription), 
-                o => o.Message("AppendText was not called on the provided IDescription."));
+            descriptionMock.Verify(d => d.AppendText(fixedDescription), Times.Once);
+            //o => o.Message("AppendText was not called on the provided IDescription."));
         }
 
-        [Test]
+        [Fact]
         public void Matches_uses_supplied_func()
         {
             var flag = false;
@@ -33,7 +34,7 @@ namespace NHamcrest.Tests
 
             matcher.Matches("");
 
-            Assert.IsTrue(flag, "The Func passed into the custom matcher was not called.");
+            Assert.True(flag, "The Func passed into the custom matcher was not called.");
         }
     }
 }

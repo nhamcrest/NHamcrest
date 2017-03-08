@@ -1,21 +1,23 @@
-using MbUnit.Framework;
+
+using Moq;
 using NHamcrest.Internal;
-using Rhino.Mocks;
+using Xunit;
+
 
 namespace NHamcrest.Tests.Internal
 {
     public class SelfDescribingValueTests
     {
-        [Test]
+        [Fact]
         public void Value_is_appended_to_description()
         {
             const string value = "test";
             var selfDescribingValue = new SelfDescribingValue<string>(value);
-            var description = MockRepository.GenerateStub<IDescription>();
+            var descriptionMock = new Mock<IDescription>();
 
-            selfDescribingValue.DescribeTo(description);
+            selfDescribingValue.DescribeTo(descriptionMock.Object);
 
-            description.AssertWasCalled(d => d.AppendValue(value));
+            descriptionMock.Verify(d => d.AppendValue(value), Times.Once);
         }
     }
 }

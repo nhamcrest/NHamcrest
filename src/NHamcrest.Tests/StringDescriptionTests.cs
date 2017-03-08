@@ -1,21 +1,20 @@
 ﻿using System.Text;
-using MbUnit.Framework;
 using NHamcrest.Internal;
+using Xunit;
 
 namespace NHamcrest.Tests
 {
-    [TestsOn(typeof(StringDescription))]
     public class StringDescriptionTests
     {
-        [Test]
+        [Fact]
         public void Default_ctor_provides_new_string_builder()
         {
             var desc = new StringDescription().ToString();
 
-            Assert.AreEqual("", desc);
+            Assert.Equal("", desc);
         }
 
-        [Test]
+        [Fact]
         public void StringBuilder_passed_in_to_ctor_is_used()
         {
             var stringBuilder = new StringBuilder();
@@ -24,10 +23,10 @@ namespace NHamcrest.Tests
 
             stringBuilder.Append(value);
 
-            Assert.AreEqual(value, description.ToString());
+            Assert.Equal(value, description.ToString());
         }
 
-		[Test]
+		[Fact]
 		public void Append_string()
 		{
 			var description = new StringDescription(new StringBuilder());
@@ -35,10 +34,10 @@ namespace NHamcrest.Tests
 
 			description.AppendText(value);
 
-			Assert.AreEqual(value, description.ToString());
+			Assert.Equal(value, description.ToString());
 		}
 
-		[Test]
+		[Fact]
 		public void Append_char()
 		{
 			var description = new StringDescription(new StringBuilder());
@@ -46,27 +45,27 @@ namespace NHamcrest.Tests
 
 			description.AppendValue(value);
 
-			Assert.AreEqual("\"t\"", description.ToString());
+			Assert.Equal("\"t\"", description.ToString());
 		}
 
-        [Test]
+        [Fact]
         public void Static_ToString_returns_self_described_value()
         {
             const string description = "test";
 
             var text = StringDescription.ToString(new SelfDescribingValue<string>(description));
 
-            Assert.AreEqual(description, text);
+            Assert.Equal(description, text);
         }
 
-        [Test]
+        [Fact]
         public void Static_AsString_returns_self_described_value()
         {
             const string description = "test";
 
             var text = StringDescription.AsString(new SelfDescribingValue<string>(description));
 
-            Assert.AreEqual(description, text);
+            Assert.Equal(description, text);
         }
     }
 }

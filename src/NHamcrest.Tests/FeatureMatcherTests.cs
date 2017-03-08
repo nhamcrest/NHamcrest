@@ -1,10 +1,10 @@
-using MbUnit.Framework;
+using Xunit;
 
 namespace NHamcrest.Tests
 {
     public class FeatureMatcherTests
     {
-        [Test]
+        [Fact]
         public void Match_if_submatcher_does()
         {
             const string name = "test";
@@ -13,10 +13,10 @@ namespace NHamcrest.Tests
 
             var matches = matcher.Matches(new TestObject { Name = name });
 
-            Assert.IsTrue(matches, "Expected match.");
+            Assert.True(matches, "Expected match.");
         }
 
-        [Test]
+        [Fact]
         public void No_match_if_submatcher_fails()
         {
             var subMatcher = new CustomMatcher<string>("Sub-matcher", s => s == "test");
@@ -24,10 +24,10 @@ namespace NHamcrest.Tests
 
             var matches = matcher.Matches(new TestObject { Name = "bob" });
 
-            Assert.IsFalse(matches, "Expected no match.");
+            Assert.False(matches, "Expected no match.");
         }
 
-        [Test]
+        [Fact]
         public void Describe_mismatch()
         {
             var subMatcher = new CustomMatcher<string>("Sub-matcher", s => s == "test");
@@ -36,10 +36,10 @@ namespace NHamcrest.Tests
 
             matcher.DescribeMismatch(new TestObject { Name = "bob" }, description);
 
-            Assert.AreEqual("TestObject.Name was bob", description.ToString());
+            Assert.Equal("TestObject.Name was bob", description.ToString());
         }
 
-        [Test]
+        [Fact]
         public void Describe_matcher()
         {
             var subMatcher = new CustomMatcher<string>("Sub-matcher description", s => s == "test");
@@ -48,7 +48,7 @@ namespace NHamcrest.Tests
 
             matcher.DescribeTo(description);
 
-            Assert.AreEqual("Feature description Sub-matcher description", description.ToString());
+            Assert.Equal("Feature description Sub-matcher description", description.ToString());
         }
 
         private class TestFeatureMatcher : FeatureMatcher<TestObject, string>

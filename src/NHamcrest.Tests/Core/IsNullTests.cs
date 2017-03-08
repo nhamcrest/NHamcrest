@@ -1,18 +1,19 @@
-using MbUnit.Framework;
+
 using NHamcrest.Core;
+using Xunit;
 using Assert = NHamcrest.Tests.Internal.Assert;
 
 namespace NHamcrest.Tests.Core
 {
     public class IsNullTests
     {
-        [Test]
+        [Fact]
         public void Match_if_null()
         {
             Assert.That(null, Is.Null());
         }
 
-        [Test]
+        [Fact]
         public void No_match_if_not_null()
         {
             var matcher = Is.Null<string>();
@@ -22,7 +23,7 @@ namespace NHamcrest.Tests.Core
             Assert.That(matches, Is.False());
         }
 
-        [Test]
+        [Fact]
         public void Describe_to()
         {
             var matcher = Is.Null<string>();
@@ -36,13 +37,13 @@ namespace NHamcrest.Tests.Core
 
     public class IsNotNullTests
     {
-        [Test]
+        [Fact]
         public void Match_if_not_null()
         {
             Assert.That("", Is.NotNull());
         }
 
-        [Test]
+        [Fact]
         public void No_match_if_null()
         {
             var matcher = Is.NotNull<string>();

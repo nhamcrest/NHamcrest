@@ -1,13 +1,13 @@
 using System;
-using MbUnit.Framework;
 using NHamcrest.Core;
+using Xunit;
 using NHAssert = NHamcrest.Tests.Internal.Assert;
 
 namespace NHamcrest.Tests.Core
 {
 	public class ThrowsTests
 	{
-		[Test]
+		[Fact]
 		public void Describe_matcher()
 		{
 			var matcher = new Throws<ArgumentNullException>();
@@ -18,19 +18,19 @@ namespace NHamcrest.Tests.Core
 			NHAssert.That(description.ToString(), Is.EqualTo("the block to throw an exception of type System.ArgumentNullException"));
 		}
 
-		[Test]
+		[Fact]
 		public void Match_if_action_throws_expected_exception()
 		{
 			NHAssert.That(() => DoIt(), Throws.An<ArgumentNullException>());
 		}
 
-		[Test]
+		[Fact]
 		public void Match_if_action_throws_superclass_of_expected_exception()
 		{
 			NHAssert.That(() => DoIt(), Throws.An<ArgumentException>());
 		}
 
-		[Test]
+		[Fact]
 		public void No_match_if_action_does_not_throw()
 		{
 			var matcher = new Throws<ArgumentException>();
@@ -40,7 +40,7 @@ namespace NHamcrest.Tests.Core
 			NHAssert.That(match, Is.False());
 		}
 
-		[Test]
+		[Fact]
 		public void Describe_mismatch_if_action_does_not_throw()
 		{
 			var matcher = new Throws<ArgumentException>();
@@ -51,7 +51,7 @@ namespace NHamcrest.Tests.Core
 			NHAssert.That(description.ToString(), Is.EqualTo("no exception was thrown"));
 		}
 
-		[Test]
+		[Fact]
 		public void No_match_if_action_throws_different_exception()
 		{
 			var matcher = new Throws<NullReferenceException>();
@@ -61,7 +61,7 @@ namespace NHamcrest.Tests.Core
 			NHAssert.That(match, Is.False());
 		}
 
-		[Test]
+		[Fact]
 		public void Describe_mismatch_if_action_throws_different_exception()
 		{
 			var matcher = new Throws<NullReferenceException>();
@@ -72,14 +72,14 @@ namespace NHamcrest.Tests.Core
 			NHAssert.That(description.ToString(), Starts.With("an exception of type System.ArgumentNullException was thrown"));
 		}
 
-		[Test]
+		[Fact]
 		public void Match_if_thrown_exception_matches_predicate()
 		{
 			NHAssert.That(DoIt, Throws.An<ArgumentNullException>().With(e => e.Message == "message" 
 				&& e.InnerException.GetType() == typeof(Exception)));
 		}
 
-		[Test]
+		[Fact]
 		public void No_match_if_thrown_exception_does_not_match_predicate()
 		{
 			var matcher = new Throws<ArgumentNullException>().With(e => e.Message == "something else");
@@ -89,7 +89,7 @@ namespace NHamcrest.Tests.Core
 			NHAssert.That(matches, Is.False());
 		}
 
-		[Test]
+		[Fact]
 		public void Describe_mismatch_if_thrown_exception_does_not_match_predicate()
 		{
 			var matcher = new Throws<ArgumentNullException>().With(e => e.Message == "something else");

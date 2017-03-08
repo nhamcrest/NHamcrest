@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XMatchers", "src\XMatchers\XMatchers.csproj", "{02FED65F-DB39-4724-A08F-11134F34821D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XMatchers.Tests", "src\XMatchers.Tests\XMatchers.Tests.csproj", "{F408B604-6122-40A6-9F3D-2C2B5D8C2498}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XMatchers.xUnit", "src\XMatchers.xUnit\XMatchers.xUnit.csproj", "{AD8A4B71-BA32-445F-91E3-858012F1FDF4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{02FED65F-DB39-4724-A08F-11134F34821D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02FED65F-DB39-4724-A08F-11134F34821D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02FED65F-DB39-4724-A08F-11134F34821D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02FED65F-DB39-4724-A08F-11134F34821D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F408B604-6122-40A6-9F3D-2C2B5D8C2498}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F408B604-6122-40A6-9F3D-2C2B5D8C2498}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F408B604-6122-40A6-9F3D-2C2B5D8C2498}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F408B604-6122-40A6-9F3D-2C2B5D8C2498}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD8A4B71-BA32-445F-91E3-858012F1FDF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD8A4B71-BA32-445F-91E3-858012F1FDF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD8A4B71-BA32-445F-91E3-858012F1FDF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD8A4B71-BA32-445F-91E3-858012F1FDF4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

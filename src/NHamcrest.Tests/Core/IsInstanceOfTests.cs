@@ -1,12 +1,13 @@
-using MbUnit.Framework;
+
 using NHamcrest.Core;
+using Xunit;
 using Assert = NHamcrest.Tests.Internal.Assert;
 
 namespace NHamcrest.Tests.Core
 {
     public class IsInstanceOfTests
     {
-        [Test]
+        [Fact]
         public void Match_if_instance_of_type()
         {
             var shaneLong = new ShaneLong();
@@ -14,7 +15,7 @@ namespace NHamcrest.Tests.Core
             Assert.That(shaneLong, Is.InstanceOf<ShaneLong>());
         }
 
-        [Test]
+        [Fact]
         public void Match_if_can_be_type()
         {
             var jobiMcAnuff = new JobiMcAnuff();
@@ -22,7 +23,7 @@ namespace NHamcrest.Tests.Core
             Assert.That(jobiMcAnuff, Is.Any<ShaneLong>());
         }
 
-        [Test]
+        [Fact]
         public void No_match_if_something_else()
         {
             var simonChurch = new SimonChurch();
@@ -33,7 +34,7 @@ namespace NHamcrest.Tests.Core
             Assert.That(matches, Is.False());
         }
 
-        [Test]
+        [Fact]
         public void No_match_if_null()
         {
             var matcher = Is.InstanceOf(typeof(ShaneLong));
@@ -43,7 +44,7 @@ namespace NHamcrest.Tests.Core
             Assert.That(matches, Is.False());
         }
 
-        [Test]
+        [Fact]
         public void Describe_mismatch()
         {
             var simonChurch = new SimonChurch();
@@ -57,7 +58,7 @@ namespace NHamcrest.Tests.Core
             Assert.That(description.ToString(), Is.EqualTo(errorMessage));
         }
 
-        [Test]
+        [Fact]
         public void Describe_mismatch_when_null()
         {
             var matcher = Is.InstanceOf(typeof(ShaneLong));
@@ -68,7 +69,7 @@ namespace NHamcrest.Tests.Core
             Assert.That(description.ToString(), Is.EqualTo("null"));
         }
 
-        [Test]
+        [Fact]
         public void Describe_to()
         {
             var matcher = Is.InstanceOf(typeof(ShaneLong));

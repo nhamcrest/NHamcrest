@@ -1,18 +1,19 @@
-using MbUnit.Framework;
+
 using NHamcrest.Core;
+using Xunit;
 using Assert = NHamcrest.Tests.Internal.Assert;
 
 namespace NHamcrest.Tests.Core
 {
     public class IsCollectionContainingTests
     {
-        [Test]
+        [Fact]
         public void Has_item()
         {
             Assert.That(new[] {"aaa", "bbb", "ccc"}, Has.Item("aaa"));
         }
 
-        [Test]
+        [Fact]
         public void Has_item_with_matcher()
         {
             var elementMatcher = new CustomMatcher<string>("aaa", s => s == "aaa");
@@ -20,13 +21,13 @@ namespace NHamcrest.Tests.Core
             Assert.That(new[] { "aaa", "bbb", "ccc" }, Has.Item<string>(elementMatcher));
         }
 
-        [Test]
+        [Fact]
         public void Has_items()
         {
             Assert.That(new[] { "aaa", "bbb", "ccc" }, Has.Items("aaa", "bbb"));
         }
 
-        [Test]
+        [Fact]
         public void Has_items_with_matchers()
         {
             var aaaMatcher = new CustomMatcher<string>("aaa", s => s == "aaa");
@@ -35,7 +36,7 @@ namespace NHamcrest.Tests.Core
             Assert.That(new[] { "aaa", "bbb", "ccc" }, Has.Items<string>(aaaMatcher, bbbMatcher));
         }
 
-        [Test]
+        [Fact]
         public void Describe_to_appends_matcher_description()
         {
             var matcher = Has.Item("aaa");
@@ -46,7 +47,7 @@ namespace NHamcrest.Tests.Core
             Assert.That(description.ToString(), Is.EqualTo("a collection containing aaa"));
         }
 
-		[Test]
+		[Fact]
 		public void Describe_mismatch()
 		{
 			var matcher = Has.Item("aaa");

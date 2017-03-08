@@ -1,12 +1,13 @@
-using MbUnit.Framework;
+
 using NHamcrest.Core;
+using Xunit;
 using NHAssert = NHamcrest.Tests.Internal.Assert;
 
 namespace NHamcrest.Tests.Core
 {
 	public class IsLessThanOrEqualToTests
 	{
-		[Test]
+		[Fact]
 		public void Match_if_less()
 		{
 			const int five = 5;
@@ -14,27 +15,27 @@ namespace NHamcrest.Tests.Core
 			NHAssert.That(five, Is.LessThanOrEqualTo(6));
 		}
 
-		[Test]
+		[Fact]
 		public void No_match_if_not_less()
 		{
 			var lessThanOrEqualTo = new IsLessThanOrEqualTo<int>(8);
 
 			var matches = lessThanOrEqualTo.Matches(9);
 
-			Assert.IsFalse(matches);
+			Assert.False(matches);
 		}
 
-		[Test]
+		[Fact]
 		public void Match_if_equal()
 		{
 			var isLessThanOrEqualTo = new IsLessThanOrEqualTo<int>(8);
 
 			var matches = isLessThanOrEqualTo.Matches(8);
 
-			Assert.IsTrue(matches);
+			Assert.True(matches);
 		}
 
-		[Test]
+		[Fact]
 		public void Append_description()
 		{
 			const int six = 6;
@@ -43,7 +44,7 @@ namespace NHamcrest.Tests.Core
 
 			lessThan.DescribeTo(description);
 
-			Assert.AreEqual(description.ToString(), "less than or equal to " + six);
+			Assert.Equal(description.ToString(), "less than or equal to " + six);
 		}
 	}
 }

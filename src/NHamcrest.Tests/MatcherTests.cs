@@ -1,25 +1,26 @@
-using MbUnit.Framework;
-using Rhino.Mocks;
+
+using Moq;
+using Xunit;
 
 namespace NHamcrest.Tests
 {
     public class MatcherTests
     {
-        [Test]
+        [Fact]
         public void DescribeMismatch_appends_item()
         {
             var matcher = new TestMatcher();
-            var description = MockRepository.GenerateStub<IDescription>();
-            description.Stub(d => d.AppendText(Arg<string>.Is.Anything)).Return(description);
+            var descriptionMock = new Mock<IDescription>();
+            descriptionMock.Setup(d => d.AppendText(It.IsAny<string>())).Returns(descriptionMock.Object);
             const string item = "item";
-            
-            matcher.DescribeMismatch(item, description);
 
-            description.AssertWasCalled(d => d.AppendText("was "));
-            description.AssertWasCalled(d => d.AppendValue(item));
+            matcher.DescribeMismatch(item, descriptionMock.Object);
+
+            descriptionMock.Verify(d => d.AppendText("was "), Times.Once);
+            descriptionMock.Verify(d => d.AppendValue(item), Times.Once);
         }
 
-        [Test]
+        [Fact]
         public void To_string()
         {
             const string text = "text";
@@ -27,29 +28,29 @@ namespace NHamcrest.Tests
 
             var toString = matcher.ToString();
 
-            Assert.AreEqual(text, toString);
+            Assert.Equal(text, toString);
         }
 
-		[Test]
-		public void Matches_returns_false()
-		{
-			var matcher = new TestMatcher("");
+        [Fact]
+        public void Matches_returns_false()
+        {
+            var matcher = new TestMatcher("");
 
-			var matches = matcher.Matches("");
+            var matches = matcher.Matches("");
 
-			Assert.IsFalse(matches);
-		}
+            Assert.False(matches);
+        }
 
-		[Test]
-		public void Describe_to()
-		{
-			var matcher = new TestMatcher("");
-			var description = new StringDescription();
+        [Fact]
+        public void Describe_to()
+        {
+            var matcher = new TestMatcher("");
+            var description = new StringDescription();
 
-			matcher.DescribeTo(description);
+            matcher.DescribeTo(description);
 
-			Assert.AreEqual("", description.ToString());
-		}
+            Assert.Equal("", description.ToString());
+        }
 
         private class TestMatcher : Matcher<string>
         {
@@ -64,7 +65,7 @@ namespace NHamcrest.Tests
 
             public override void DescribeTo(IDescription description)
             {
-				base.DescribeTo(description);
+                base.DescribeTo(description);
                 description.AppendText(text);
             }
         }

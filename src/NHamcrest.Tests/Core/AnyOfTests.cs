@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
-using MbUnit.Framework;
+
 using NHamcrest.Core;
+using Xunit;
 
 namespace NHamcrest.Tests.Core
 {
@@ -12,32 +13,32 @@ namespace NHamcrest.Tests.Core
         private readonly CustomMatcher<string> explodingMatcher = new CustomMatcher<string>("Exploding matcher!",
             s => { throw new Exception("BANG!!!1!. Didn't expect exploding matcher to run."); });
 
-        [Test]
+        [Fact]
         public void Match_if_any_matchers_succeed()
         {
             var matcher = Matches.AnyOf(new[] { successfulMatcher, failingMatcher });
-            Assert.AreEqual(true, matcher.Matches(""), "Expected match if any matchers succeed.");
+            Assert.Equal(true, matcher.Matches(""));
 
             matcher = Matches.AnyOf(new List<IMatcher<string>> { failingMatcher, successfulMatcher });
-            Assert.AreEqual(true, matcher.Matches(""), "Expected match if any matchers succeed.");
+            Assert.Equal(true, matcher.Matches(""));
         }
 
-        [Test]
+        [Fact]
         public void No_match_if_all_matchers_fail()
         {
             var matcher = Matches.AnyOf(new[] { failingMatcher, failingMatcher });
 
-            Assert.AreEqual(false, matcher.Matches(""), "Expected no match if all matchers fail.");
+            Assert.Equal(false, matcher.Matches(""));
         }
 
-        [Test]
+        [Fact]
         public void Shortcut_matching_when_matcher_succeeds()
         {
             var matcher = Matches.AnyOf(new[] { successfulMatcher, explodingMatcher });
-            Assert.AreEqual(true, matcher.Matches(""));
+            Assert.Equal(true, matcher.Matches(""));
         }
 
-        [Test]
+        [Fact]
         public void Description_is_concatenated_from_matchers()
         {
             var matcher = Matches.AnyOf(new[] { failingMatcher, successfulMatcher });
@@ -45,7 +46,7 @@ namespace NHamcrest.Tests.Core
 
             matcher.DescribeTo(description);
 
-            Assert.AreEqual("(Failing matcher or Successful matcher)", description.ToString());
+            Assert.Equal("(Failing matcher or Successful matcher)", description.ToString());
         }
     }
 }

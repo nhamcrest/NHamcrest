@@ -1,39 +1,40 @@
-using MbUnit.Framework;
+
 using NHamcrest.Core;
+using Xunit;
 using NHAssert = NHamcrest.Tests.Internal.Assert;
 
 namespace NHamcrest.Tests.Core
 {
     public class IsEqualTests
     {
-        [Test]
+        [Fact]
         public void Match_if_equal()
         {
             NHAssert.That(true, Is.True());
         }
 
-        [Test]
+        [Fact]
         public void No_match_if_not_equal()
         {
             var isEqual = new IsEqual<string>("test");
 
             var matches = isEqual.Matches("somethingelse");
 
-            Assert.IsFalse(matches);
+            Assert.False(matches);
         }
 
-		[Test]
+		[Fact]
 		public void No_match_if_compared_to_null()
 		{
 			var isEqual = new IsEqual<string>("test");
 
 			var matches = isEqual.Matches(null);
 
-			Assert.IsFalse(matches);
-			Assert.IsFalse(Is.EqualTo<string>(null).Matches("test"));
+			Assert.False(matches);
+			Assert.False(Is.EqualTo<string>(null).Matches("test"));
 		}
 
-        [Test]
+        [Fact]
         public void Append_description()
         {
             const string test = "test";
@@ -42,7 +43,7 @@ namespace NHamcrest.Tests.Core
 
             isEqual.DescribeTo(description);
 
-            Assert.AreEqual(description.ToString(), test);
+            Assert.Equal(description.ToString(), test);
         }
     }
 }

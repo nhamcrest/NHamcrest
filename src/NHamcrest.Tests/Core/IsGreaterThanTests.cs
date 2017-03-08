@@ -1,12 +1,13 @@
-using MbUnit.Framework;
+
 using NHamcrest.Core;
+using Xunit;
 using NHAssert = NHamcrest.Tests.Internal.Assert;
 
 namespace NHamcrest.Tests.Core
 {
 	public class IsGreaterThanTests
 	{
-		[Test]
+		[Fact]
 		public void Match_if_greater()
 		{
 			const int five = 5;
@@ -14,27 +15,27 @@ namespace NHamcrest.Tests.Core
 			NHAssert.That(five, Is.GreaterThan(3));
 		}
 
-		[Test]
+		[Fact]
 		public void No_match_if_not_greater()
 		{
 			var isGreaterThanOne = new IsGreaterThan<int>(1);
 
 			var matches = isGreaterThanOne.Matches(0);
 
-			Assert.IsFalse(matches);
+			Assert.False(matches);
 		}
 
-		[Test]
+		[Fact]
 		public void No_match_if_equal()
 		{
 			var isGreaterThanOne = new IsGreaterThan<int>(1);
 
 			var matches = isGreaterThanOne.Matches(1);
 
-			Assert.IsFalse(matches);
+			Assert.False(matches);
 		}
 
-		[Test]
+		[Fact]
 		public void Append_description()
 		{
 			const int six = 6;
@@ -43,7 +44,7 @@ namespace NHamcrest.Tests.Core
 
 			greaterThan.DescribeTo(description);
 
-			Assert.AreEqual(description.ToString(), "greater than " + six);
+			Assert.Equal(description.ToString(), "greater than " + six);
 		}
 	}
 }

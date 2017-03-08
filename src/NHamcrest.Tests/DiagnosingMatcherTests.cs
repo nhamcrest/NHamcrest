@@ -1,11 +1,12 @@
 using System;
-using MbUnit.Framework;
+using Xunit;
+
 
 namespace NHamcrest.Tests
 {
     public class DiagnosingMatcherTests
     {
-        [Test]
+        [Fact]
         public void Matches_calls_matches()
         {
             var flag = false;
@@ -13,10 +14,10 @@ namespace NHamcrest.Tests
 
             matcher.Matches("");
 
-            Assert.IsTrue(flag, "Expected Matches(T, IDescription) to be called.");
+            Assert.True(flag, "Expected Matches(T, IDescription) to be called.");
         }
 
-        [Test]
+        [Fact]
         public void Matches_uses_a_null_description()
         {
             var matcher = new TestDiagnosingMatcher(s => true);
@@ -24,7 +25,7 @@ namespace NHamcrest.Tests
             matcher.Matches("");
         }
 
-        [Test]
+        [Fact]
         public void DescribeMismatch_calls_matches()
         {
             var flag = false;
@@ -32,7 +33,7 @@ namespace NHamcrest.Tests
 
             matcher.DescribeMismatch("", Description.None);
 
-            Assert.IsTrue(flag, "Expected Matches(T, IDescription) to be called.");
+            Assert.True(flag, "Expected Matches(T, IDescription) to be called.");
         }
 
         private class TestDiagnosingMatcher : DiagnosingMatcher<string>

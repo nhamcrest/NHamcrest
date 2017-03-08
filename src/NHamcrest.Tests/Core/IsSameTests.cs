@@ -1,12 +1,13 @@
-using MbUnit.Framework;
+
 using NHamcrest.Core;
+using Xunit;
 using Assert = NHamcrest.Tests.Internal.Assert;
 
 namespace NHamcrest.Tests.Core
 {
     public class IsSameTests
     {
-        [Test]
+        [Fact]
         public void Match_if_same_object()
         {
             var a = new A();
@@ -14,7 +15,7 @@ namespace NHamcrest.Tests.Core
             Assert.That(a, Is.SameAs(a));
         }
 
-        [Test]
+        [Fact]
         public void No_match_if_different_object()
         {
             var a = new A();
@@ -26,7 +27,7 @@ namespace NHamcrest.Tests.Core
             Assert.That(matches, Is.False());
         }
 
-        [Test]
+        [Fact]
         public void Describe_to()
         {
             var a = new A();

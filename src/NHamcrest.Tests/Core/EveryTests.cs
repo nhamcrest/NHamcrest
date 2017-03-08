@@ -1,5 +1,6 @@
-using MbUnit.Framework;
+
 using NHamcrest.Core;
+using Xunit;
 using Assert = NHamcrest.Tests.Internal.Assert;
 
 namespace NHamcrest.Tests.Core
@@ -9,7 +10,7 @@ namespace NHamcrest.Tests.Core
         private readonly IMatcher<string> startsWithA = new CustomMatcher<string>("starts with an A", 
             s => s.StartsWith("A"));
 
-        [Test]
+        [Fact]
         public void Match_if_all_elements_match()
         {
             var strings = new[] {"Aaaa", "Abbbb", "Acccc"};
@@ -17,7 +18,7 @@ namespace NHamcrest.Tests.Core
             Assert.That(strings, Every.Item(startsWithA));
         }
 
-        [Test]
+        [Fact]
         public void No_match_if_any_element_does_not_match()
         {
             var strings = new[] { "Aaaa", "Bbbbb", "Acccc" };
@@ -25,7 +26,7 @@ namespace NHamcrest.Tests.Core
             Assert.That(strings, NotEvery.Item(startsWithA));
         }
 
-		[Test]
+		[Fact]
 		public void Describe_to()
 		{
 			var matcher = Every.Item(startsWithA);

@@ -1,24 +1,25 @@
-using MbUnit.Framework;
+
 using NHamcrest.Core;
+using Xunit;
 using Assert = NHamcrest.Tests.Internal.Assert;
 
 namespace NHamcrest.Tests.Core
 {
     public class StringStartsWithTests
     {
-        [Test]
+        [Fact]
         public void Match_if_string_ends_with_substring()
         {
             Assert.That("the cat sat on the mat", Starts.With("the"));
         }
 
-        [Test]
+        [Fact]
         public void Case_insensitive_match_if_string_ends_with_substring()
         {
             Assert.That("the cat sat on the mat", Starts.With("The").CaseInsensitive());
         }
 
-        [Test]
+        [Fact]
         public void No_match_if_string_does_not_end_with_substring()
         {
             var matcher = Starts.With("bob");
@@ -28,7 +29,7 @@ namespace NHamcrest.Tests.Core
             Assert.That(matches, Is.False());
         }
 
-        [Test]
+        [Fact]
         public void Describe_mismatch()
         {
             var matcher = Starts.With("bob");
@@ -39,7 +40,7 @@ namespace NHamcrest.Tests.Core
             Assert.That(description.ToString(), Is.EqualTo("was \"the cat sat on the mat\""));
         }
 
-        [Test]
+        [Fact]
         public void Describe_to()
         {
             var matcher = Starts.With("bob");

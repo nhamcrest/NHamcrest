@@ -1,4 +1,6 @@
-using MbUnit.Framework;
+
+
+using Xunit;
 
 namespace NHamcrest.Tests.Core
 {
@@ -6,7 +8,7 @@ namespace NHamcrest.Tests.Core
     {
         private readonly Matcher<string> originalMatcher = new CustomMatcher<string>("originalDescription", s => true);
 
-        [Test]
+        [Fact]
         public void Description_is_overridden()
         {
             const string newDescription = "newDescription";
@@ -15,10 +17,10 @@ namespace NHamcrest.Tests.Core
 
             matcher.DescribeTo(description);
 
-            Assert.AreEqual(newDescription, description.ToString());
+            Assert.Equal(newDescription, description.ToString());
         }
 
-        [Test]
+        [Fact]
         public void Description_can_be_formatted()
         {
             var matcher = originalMatcher.DescribedAs("{0}, {1}", "Hello", "World!");
@@ -26,10 +28,10 @@ namespace NHamcrest.Tests.Core
 
             matcher.DescribeTo(description);
 
-            Assert.AreEqual("Hello, World!", description.ToString());
+            Assert.Equal("Hello, World!", description.ToString());
         }
 
-        [Test]
+        [Fact]
         public void Matching_is_delegated()
         {
             var flag = false;
@@ -38,7 +40,7 @@ namespace NHamcrest.Tests.Core
 
             matcher.Matches("");
 
-            Assert.AreEqual(true, flag);
+            Assert.Equal(true, flag);
         }
     }
 }
