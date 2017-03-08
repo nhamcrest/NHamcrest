@@ -2,31 +2,31 @@ namespace NHamcrest.Core
 {
     public class CombinableMatcher<T> : Matcher<T>
     {
-        private readonly IMatcher<T> matcher;
+        private readonly IMatcher<T> _matcher;
 
         public CombinableMatcher(IMatcher<T> matcher)
         {
-            this.matcher = matcher;
+            _matcher = matcher;
         }
 
         public override bool Matches(T item)
         {
-            return matcher.Matches(item);
+            return _matcher.Matches(item);
         }
 
         public override void DescribeTo(IDescription description)
         {
-            description.AppendDescriptionOf(matcher);
+            description.AppendDescriptionOf(_matcher);
         }
 
         public CombinableMatcher<T> And(IMatcher<T> other)
         {
-            return new CombinableMatcher<T>(new AllOf<T>(new[] { matcher, other }));
+            return new CombinableMatcher<T>(new AllOf<T>(new[] { _matcher, other }));
         }
 
         public CombinableMatcher<T> Or(IMatcher<T> other)
         {
-            return new CombinableMatcher<T>(new AnyOf<T>(new[] { matcher, other }));
+            return new CombinableMatcher<T>(new AnyOf<T>(new[] { _matcher, other }));
         }
     }
 

@@ -2,22 +2,22 @@ namespace NHamcrest.Core
 {
     public class IsSame<T> : Matcher<T>
     {
-        private readonly T @object;
+        private readonly T _object;
 
         public IsSame(T @object)
         {
-            this.@object = @object;
+            _object = @object;
         }
 
         public override bool Matches(T arg)
         {
-            return ReferenceEquals(arg, @object);
+            return ReferenceEquals(arg, _object);
         }
 
         public override void DescribeTo(IDescription description)
         {
             description.AppendText("SameAs(")
-                    .AppendValue(@object)
+                    .AppendValue(_object)
                     .AppendText(")");
         }
     }

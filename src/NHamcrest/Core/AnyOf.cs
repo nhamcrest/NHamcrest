@@ -4,16 +4,16 @@ namespace NHamcrest.Core
 {
     public class AnyOf<T> : Matcher<T>
     {
-        private readonly IEnumerable<IMatcher<T>> matchers;
+        private readonly IEnumerable<IMatcher<T>> _matchers;
 
         public AnyOf(IEnumerable<IMatcher<T>> matchers)
         {
-            this.matchers = matchers;
+            _matchers = matchers;
         }
 
         public override bool Matches(T item)
         {
-            foreach (var matcher in matchers)
+            foreach (var matcher in _matchers)
             {
                 if (matcher.Matches(item))
                     return true;
@@ -23,7 +23,7 @@ namespace NHamcrest.Core
 
         public override void DescribeTo(IDescription description)
         {
-            description.AppendList("(", " " + "or" + " ", ")", FakeLinq.Cast<ISelfDescribing>(matchers));
+            description.AppendList("(", " " + "or" + " ", ")", FakeLinq.Cast<ISelfDescribing>(_matchers));
         }
     }
 

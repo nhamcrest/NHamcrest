@@ -10,11 +10,11 @@ namespace NHamcrest.Tests
 {
     public class DescriptionTests
     {
-        private TestDescription description;
+        private TestDescription _description;
 
         public DescriptionTests()
         {
-            description = new TestDescription();
+            _description = new TestDescription();
         }
 
         [Fact]
@@ -30,57 +30,57 @@ namespace NHamcrest.Tests
         {
             var selfDescribingMock = new Mock<ISelfDescribing>();
 
-            description.AppendDescriptionOf(selfDescribingMock.Object);
+            _description.AppendDescriptionOf(selfDescribingMock.Object);
 
-            selfDescribingMock.Verify(sd => sd.DescribeTo(description), Times.Once);
+            selfDescribingMock.Verify(sd => sd.DescribeTo(_description), Times.Once);
         }
 
         [Fact]
         public void Appending_a_null_value()
         {
-            description.AppendValue(null);
+            _description.AppendValue(null);
 
-            Assert.Equal("null", description.ToString());
+            Assert.Equal("null", _description.ToString());
         }
 
         [Fact]
         public void Appending_a_char()
         {
-            description.AppendValue('c');
+            _description.AppendValue('c');
 
-            Assert.Equal("\"c\"", description.ToString());
+            Assert.Equal("\"c\"", _description.ToString());
         }
 
         [Fact]
         public void Appending_a_long()
         {
-            description.AppendValue(5L);
+            _description.AppendValue(5L);
 
-            Assert.Equal("5L", description.ToString());
+            Assert.Equal("5L", _description.ToString());
         }
 
         [Fact]
         public void Appending_a_float()
         {
-            description.AppendValue(5f);
+            _description.AppendValue(5f);
 
-            Assert.Equal("5f", description.ToString());
+            Assert.Equal("5f", _description.ToString());
         }
 
         [Fact]
         public void Appending_a_decimal()
         {
-            description.AppendValue(5m);
+            _description.AppendValue(5m);
 
-            Assert.Equal("5m", description.ToString());
+            Assert.Equal("5m", _description.ToString());
         }
 
         [Fact]
         public void Appending_an_array_of_values()
         {
-            description.AppendValue(new[] { "one", "two", "three" });
+            _description.AppendValue(new[] { "one", "two", "three" });
 
-            Assert.Equal("[one, two, three]", description.ToString());
+            Assert.Equal("[one, two, three]", _description.ToString());
         }
 
         [Fact]
@@ -88,9 +88,9 @@ namespace NHamcrest.Tests
         {
             const string value = "test";
 
-            description.AppendValue(value);
+            _description.AppendValue(value);
 
-            Assert.Equal(value, description.ToString());
+            Assert.Equal(value, _description.ToString());
         }
 
         [Fact]
@@ -98,17 +98,17 @@ namespace NHamcrest.Tests
         {
             var value = new TestObject();
 
-            description.AppendValue(value);
+            _description.AppendValue(value);
 
-            Assert.Equal(value.ToString(), description.ToString());
+            Assert.Equal(value.ToString(), _description.ToString());
         }
 
         [Fact]
         public void Append_enumerable()
         {
-            description.AppendValueList("(", "'", ")", new List<string> { "a", "b", "c" });
+            _description.AppendValueList("(", "'", ")", new List<string> { "a", "b", "c" });
 
-            Assert.Equal("(a'b'c)", description.ToString());
+            Assert.Equal("(a'b'c)", _description.ToString());
         }
 
         [Fact]
@@ -121,24 +121,24 @@ namespace NHamcrest.Tests
                   new SelfDescribingValue<int>(3),
                 };
 
-            description.AppendList("!", ":", "@", values);
+            _description.AppendList("!", ":", "@", values);
 
-            Assert.Equal("!1:2:3@", description.ToString());
+            Assert.Equal("!1:2:3@", _description.ToString());
         }
 
         private class TestDescription : Description
         {
-            private readonly StringBuilder stringBuilder = new StringBuilder();
+            private readonly StringBuilder _stringBuilder = new StringBuilder();
 
             protected override void Append(string str)
             {
                 Console.WriteLine("Appended string: {0}", str);
-                stringBuilder.Append(str);
+                _stringBuilder.Append(str);
             }
 
             public override string ToString()
             {
-                return stringBuilder.ToString();
+                return _stringBuilder.ToString();
             }
         }
 

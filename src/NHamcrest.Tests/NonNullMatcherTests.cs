@@ -1,4 +1,5 @@
 
+using System;
 using Xunit;
 
 namespace NHamcrest.Tests
@@ -61,16 +62,16 @@ namespace NHamcrest.Tests
 
         private class TestNonNullMatcher : NonNullMatcher<string>
         {
-            private readonly Func<string, bool> match;
+            private readonly Func<string, bool> _match;
 
             public TestNonNullMatcher(Func<string, bool> match)
             {
-                this.match = match;
+                _match = match;
             }
 
             protected override bool MatchesSafely(string item)
             {
-                return match(item);
+                return _match(item);
             }
 
             public override void DescribeMismatchSafely(string item, IDescription mismatchDescription)

@@ -4,22 +4,22 @@ namespace NHamcrest.Core
 {
     public class Every<T> : NonNullDiagnosingMatcher<IEnumerable<T>>
     {
-        private readonly IMatcher<T> matcher;
+        private readonly IMatcher<T> _matcher;
 
         public Every(IMatcher<T> matcher)
         {
-            this.matcher = matcher;
+            _matcher = matcher;
         }
 
         protected override bool MatchesSafely(IEnumerable<T> collection, IDescription mismatchDescription)
         {
             foreach (var item in collection)
             {
-                if (matcher.Matches(item))
+                if (_matcher.Matches(item))
                     continue;
 
                 mismatchDescription.AppendText("an item ");
-                matcher.DescribeMismatch(item, mismatchDescription);
+                _matcher.DescribeMismatch(item, mismatchDescription);
                 return false;
             }
             return true;
@@ -27,7 +27,7 @@ namespace NHamcrest.Core
 
         public override void DescribeTo(IDescription description)
         {
-            description.AppendText("every item ").AppendDescriptionOf(matcher);
+            description.AppendText("every item ").AppendDescriptionOf(_matcher);
         }
     }
 

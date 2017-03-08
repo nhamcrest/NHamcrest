@@ -2,13 +2,13 @@ namespace NHamcrest.Core
 {
     public class IsAnything<T> : Matcher<T>
     {
-        private readonly string message;
+        private readonly string _message;
 
         public IsAnything() : this("ANYTHING") { }
 
         public IsAnything(string message)
         {
-            this.message = message;
+            _message = message;
         }
 
         public override bool Matches(T item)
@@ -18,7 +18,7 @@ namespace NHamcrest.Core
 
         public override void DescribeTo(IDescription description)
         {
-            description.AppendText(message);
+            description.AppendText(_message);
         }
     }
 

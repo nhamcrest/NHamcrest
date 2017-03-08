@@ -10,8 +10,8 @@ namespace NHamcrest
     /// </summary>
     public sealed class CustomMatcher<T> : Matcher<T>
     {
-        private readonly string fixedDescription;
-        private readonly Func<T, bool> matches;
+        private readonly string _fixedDescription;
+        private readonly Func<T, bool> _matches;
 
         public CustomMatcher(string description, Func<T, bool> matches)
         {
@@ -19,18 +19,18 @@ namespace NHamcrest
             {
                 throw new ArgumentNullException("description");
             }
-            fixedDescription = description;
-            this.matches = matches;
+            _fixedDescription = description;
+            _matches = matches;
         }
 
         public override bool Matches(T item)
         {
-            return matches(item);
+            return _matches(item);
         }
 
         public override void DescribeTo(IDescription description)
         {
-            description.AppendText(fixedDescription);
+            description.AppendText(_fixedDescription);
         }
     }
 }

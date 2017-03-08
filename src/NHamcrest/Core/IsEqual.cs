@@ -2,21 +2,21 @@ namespace NHamcrest.Core
 {
     public class IsEqual<T> : Matcher<T>
     {
-        private readonly T @object;
+        private readonly T _object;
 
         public IsEqual(T equalArg)
         {
-            @object = equalArg;
+            _object = equalArg;
         }
 
         public override bool Matches(T arg)
         {
-            return AreEqual(arg, @object);
+            return AreEqual(arg, _object);
         }
 
         public override void DescribeTo(IDescription description)
         {
-            description.AppendValue(@object);
+            description.AppendValue(_object);
         }
 
         private static bool AreEqual(T left, T right)

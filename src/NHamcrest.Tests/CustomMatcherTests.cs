@@ -18,7 +18,7 @@ namespace NHamcrest.Tests
         {
             const string fixedDescription = "description";
             var matcher = new CustomMatcher<string>(fixedDescription, s => true);
-            var descriptionMock = new Moq.Mock<IDescription>();
+            var descriptionMock = new Mock<IDescription>();
 
             matcher.DescribeTo(descriptionMock.Object);
 

@@ -50,16 +50,16 @@ namespace NHamcrest.Tests
 
         private class TestNonNullDiagnosingMatcher : NonNullDiagnosingMatcher<string>
         {
-            private readonly Func<string, bool> match;
+            private readonly Func<string, bool> _match;
 
             public TestNonNullDiagnosingMatcher(Func<string, bool> match)
             {
-                this.match = match;
+                _match = match;
             }
 
             protected override bool MatchesSafely(string collection, IDescription mismatchDescription)
             {
-                if (match(collection))
+                if (_match(collection))
                     return true;
 
                 mismatchDescription.AppendText("TestNonNullDiagnosingMatcher.MatchesSafely");

@@ -8,12 +8,12 @@ namespace NHamcrest.Tests.Core
 {
     public class IsNotTests
     {
-        private readonly IMatcher<string> always = new CustomMatcher<string>("Always", s => true);
+        private readonly IMatcher<string> _always = new CustomMatcher<string>("Always", s => true);
 
         [Fact]
         public void No_match_if_inner_matcher_matches()
         {
-            var isNot = new IsNot<string>(always);
+            var isNot = new IsNot<string>(_always);
 
             var matches = isNot.Matches("test");
 
@@ -29,7 +29,7 @@ namespace NHamcrest.Tests.Core
         [Fact]
         public void Description_adds_not()
         {
-            var matcher = Is.Not(always);
+            var matcher = Is.Not(_always);
             var description = new StringDescription();
 
             matcher.DescribeTo(description);

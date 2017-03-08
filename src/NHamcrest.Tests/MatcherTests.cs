@@ -54,19 +54,19 @@ namespace NHamcrest.Tests
 
         private class TestMatcher : Matcher<string>
         {
-            private readonly string text;
+            private readonly string _text;
 
             public TestMatcher() : this("") { }
 
             public TestMatcher(string text)
             {
-                this.text = text;
+                _text = text;
             }
 
             public override void DescribeTo(IDescription description)
             {
                 base.DescribeTo(description);
-                description.AppendText(text);
+                description.AppendText(_text);
             }
         }
     }

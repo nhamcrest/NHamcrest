@@ -6,13 +6,13 @@ namespace NHamcrest.Tests.Core
 {
     public class DescribedAsTests
     {
-        private readonly Matcher<string> originalMatcher = new CustomMatcher<string>("originalDescription", s => true);
+        private readonly Matcher<string> _originalMatcher = new CustomMatcher<string>("originalDescription", s => true);
 
         [Fact]
         public void Description_is_overridden()
         {
             const string newDescription = "newDescription";
-            var matcher = originalMatcher.DescribedAs(newDescription);
+            var matcher = _originalMatcher.DescribedAs(newDescription);
             var description = new StringDescription();
 
             matcher.DescribeTo(description);
@@ -23,7 +23,7 @@ namespace NHamcrest.Tests.Core
         [Fact]
         public void Description_can_be_formatted()
         {
-            var matcher = originalMatcher.DescribedAs("{0}, {1}", "Hello", "World!");
+            var matcher = _originalMatcher.DescribedAs("{0}, {1}", "Hello", "World!");
             var description = new StringDescription();
 
             matcher.DescribeTo(description);

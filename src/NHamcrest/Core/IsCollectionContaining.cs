@@ -4,11 +4,11 @@ namespace NHamcrest.Core
 {
     public class IsCollectionContaining<T> : NonNullDiagnosingMatcher<IEnumerable<T>>
     {
-        private readonly IMatcher<T> elementMatcher;
+        private readonly IMatcher<T> _elementMatcher;
 
         public IsCollectionContaining(IMatcher<T> elementMatcher)
         {
-            this.elementMatcher = elementMatcher;
+            _elementMatcher = elementMatcher;
         }
 
         protected override bool MatchesSafely(IEnumerable<T> collection, IDescription mismatchDescription)
@@ -16,7 +16,7 @@ namespace NHamcrest.Core
             var isPastFirst = false;
             foreach (var item in collection)
             {
-                if (elementMatcher.Matches(item))
+                if (_elementMatcher.Matches(item))
                 {
                     return true;
                 }
@@ -24,7 +24,7 @@ namespace NHamcrest.Core
                 {
                     mismatchDescription.AppendText(", ");
                 }
-                elementMatcher.DescribeMismatch(item, mismatchDescription);
+                _elementMatcher.DescribeMismatch(item, mismatchDescription);
                 isPastFirst = true;
             }
             return false;
@@ -33,7 +33,7 @@ namespace NHamcrest.Core
         public override void DescribeTo(IDescription description)
         {
             description.AppendText("a collection containing ")
-                .AppendDescriptionOf(elementMatcher);
+                .AppendDescriptionOf(_elementMatcher);
         }
     }
 

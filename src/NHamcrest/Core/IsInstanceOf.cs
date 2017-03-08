@@ -4,13 +4,13 @@ namespace NHamcrest.Core
 {
     public class IsInstanceOf<T> : DiagnosingMatcher<T>
     {
-        private readonly Type expectedType;
+        private readonly Type _expectedType;
 
         public IsInstanceOf() : this(typeof(T)) { }
 
         protected IsInstanceOf(Type expectedType)
         {
-            this.expectedType = expectedType;
+            _expectedType = expectedType;
         }
         
         protected override bool Matches(T item, IDescription mismatchDescription)
@@ -21,10 +21,10 @@ namespace NHamcrest.Core
                 return false;
             }
 
-            if (expectedType.IsInstanceOfType(item) == false)
+            if (_expectedType.IsInstanceOfType(item) == false)
             {
                 mismatchDescription.AppendValue(item).AppendText(" is an instance of {0} not {1}", item.GetType().FullName, 
-                    expectedType.FullName);
+                    _expectedType.FullName);
                 return false;
             }
 
@@ -33,7 +33,7 @@ namespace NHamcrest.Core
 
         public override void DescribeTo(IDescription description)
         {
-            description.AppendText("an instance of ").AppendText(expectedType.FullName);
+            description.AppendText("an instance of ").AppendText(_expectedType.FullName);
         }
     }
 

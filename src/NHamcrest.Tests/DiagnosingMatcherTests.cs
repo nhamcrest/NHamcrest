@@ -38,11 +38,11 @@ namespace NHamcrest.Tests
 
         private class TestDiagnosingMatcher : DiagnosingMatcher<string>
         {
-            private readonly Func<string, bool> match;
+            private readonly Func<string, bool> _match;
 
             public TestDiagnosingMatcher(Func<string, bool> match)
             {
-                this.match = match;
+                _match = match;
             }
 
             protected override bool Matches(string item, IDescription mismatchDescription)
@@ -50,7 +50,7 @@ namespace NHamcrest.Tests
                 if (mismatchDescription.GetType() != typeof(NullDescription))
                     throw new Exception("Expected null description");
 
-                return match(item);
+                return _match(item);
             }
         }
     }

@@ -2,15 +2,15 @@ namespace NHamcrest
 {
     public abstract class FeatureMatcher<T, U> : NonNullDiagnosingMatcher<T> where T : class
     {
-        private readonly IMatcher<U> subMatcher;
-        private readonly string featureDescription;
-        private readonly string featureName;
+        private readonly IMatcher<U> _subMatcher;
+        private readonly string _featureDescription;
+        private readonly string _featureName;
 
         protected FeatureMatcher(IMatcher<U> subMatcher, string featureDescription, string featureName)
         {
-            this.subMatcher = subMatcher;
-            this.featureDescription = featureDescription;
-            this.featureName = featureName;
+            _subMatcher = subMatcher;
+            _featureDescription = featureDescription;
+            _featureName = featureName;
         }
 
         /// <summary>
@@ -24,10 +24,10 @@ namespace NHamcrest
         {
             var featureValue = FeatureValueOf(collection);
             
-            if (subMatcher.Matches(featureValue) == false)
+            if (_subMatcher.Matches(featureValue) == false)
             {
-                mismatchDescription.AppendText(featureName).AppendText(" ");
-                subMatcher.DescribeMismatch(featureValue, mismatchDescription);
+                mismatchDescription.AppendText(_featureName).AppendText(" ");
+                _subMatcher.DescribeMismatch(featureValue, mismatchDescription);
                 return false;
             }
             
@@ -36,9 +36,9 @@ namespace NHamcrest
 
         public sealed override void DescribeTo(IDescription description)
         {
-            description.AppendText(featureDescription)
+            description.AppendText(_featureDescription)
                 .AppendText(" ")
-                .AppendDescriptionOf(subMatcher);
+                .AppendDescriptionOf(_subMatcher);
         }
     }
 }

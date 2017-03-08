@@ -4,7 +4,7 @@ namespace NHamcrest.Core
 {
 	public class Throws<T> : DiagnosingMatcher<Action> where T : Exception
 	{
-		private Func<T, bool> predicate = e => true;
+		private Func<T, bool> _predicate = e => true;
 
 		public override void DescribeTo(IDescription description)
 		{
@@ -20,7 +20,7 @@ namespace NHamcrest.Core
 			}
 			catch (T ex)
 			{
-				if (predicate(ex))
+				if (_predicate(ex))
 					return true;
 
 				mismatchDescription.AppendText("the exception was of the correct type, but did not match the predicate")
@@ -38,7 +38,7 @@ namespace NHamcrest.Core
 
 		public Throws<T> With(Func<T, bool> predicate)
 		{
-			this.predicate = predicate;
+			_predicate = predicate;
 			return this;
 		}
 	}

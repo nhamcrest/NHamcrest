@@ -5,13 +5,13 @@ namespace NHamcrest
 {
     public class StringDescription : Description
     {
-        private readonly StringBuilder @out;
+        private readonly StringBuilder _out;
 
         public StringDescription() : this(new StringBuilder()) { }
 
         public StringDescription(StringBuilder @out)
         {
-            this.@out = @out;
+            _out = @out;
         }
 
         /// <summary>
@@ -34,12 +34,12 @@ namespace NHamcrest
 
         protected override void Append(string str)
         {
-            @out.Append(str);
+            _out.Append(str);
         }
 
         public override string ToString()
         {
-            return @out.ToString();
+            return _out.ToString();
         }
     }
 }

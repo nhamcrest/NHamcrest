@@ -2,21 +2,21 @@ namespace NHamcrest.Core
 {
     public class IsNot<T> : Matcher<T>
     {
-        private readonly IMatcher<T> matcher;
+        private readonly IMatcher<T> _matcher;
 
         public IsNot(IMatcher<T> matcher)
         {
-            this.matcher = matcher;
+            _matcher = matcher;
         }
 
         public override bool Matches(T arg)
         {
-            return matcher.Matches(arg) == false;
+            return _matcher.Matches(arg) == false;
         }
 
         public override void DescribeTo(IDescription description)
         {
-            description.AppendText("not ").AppendDescriptionOf(matcher);
+            description.AppendText("not ").AppendDescriptionOf(_matcher);
         }
     }
 

@@ -5,25 +5,25 @@ namespace NHamcrest.Core
     /// </summary>
     public class DescribedAs<T> : Matcher<T>
     {
-        private readonly string descriptionTemplate;
-        private readonly IMatcher<T> matcher;
-        private readonly object[] values;
+        private readonly string _descriptionTemplate;
+        private readonly IMatcher<T> _matcher;
+        private readonly object[] _values;
 
         public DescribedAs(string descriptionTemplate, IMatcher<T> matcher, object[] values)
         {
-            this.descriptionTemplate = descriptionTemplate;
-            this.matcher = matcher;
-            this.values = values;
+            _descriptionTemplate = descriptionTemplate;
+            _matcher = matcher;
+            _values = values;
         }
 
         public override bool Matches(T item)
         {
-            return matcher.Matches(item);
+            return _matcher.Matches(item);
         }
 
         public override void DescribeTo(IDescription description)
         {
-            description.AppendText(string.Format(descriptionTemplate, values));
+            description.AppendText(string.Format(_descriptionTemplate, _values));
         }
     }
 }

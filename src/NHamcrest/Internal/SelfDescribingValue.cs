@@ -2,16 +2,16 @@
 {
     public class SelfDescribingValue<T> : ISelfDescribing
     {
-        private readonly T value;
+        private readonly T _value;
 
         public SelfDescribingValue(T value)
         {
-            this.value = value;
+            _value = value;
         }
 
         public void DescribeTo(IDescription description)
         {
-            description.AppendValue(value);
+            description.AppendValue(_value);
         }
     }
 }
