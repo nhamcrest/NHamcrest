@@ -10,7 +10,7 @@ namespace NHamcrest.Tests.Core
 		[Fact]
 		public void Describe_matcher()
 		{
-			var matcher = new Throws<ArgumentNullException>();
+			var matcher = new ThrowsMatcher<ArgumentNullException>();
 			var description = new StringDescription();
 
 			matcher.DescribeTo(description);
@@ -33,7 +33,7 @@ namespace NHamcrest.Tests.Core
 		[Fact]
 		public void No_match_if_action_does_not_throw()
 		{
-			var matcher = new Throws<ArgumentException>();
+			var matcher = new ThrowsMatcher<ArgumentException>();
 
 			var match = matcher.Matches(() => { });
 
@@ -43,7 +43,7 @@ namespace NHamcrest.Tests.Core
 		[Fact]
 		public void Describe_mismatch_if_action_does_not_throw()
 		{
-			var matcher = new Throws<ArgumentException>();
+			var matcher = new ThrowsMatcher<ArgumentException>();
 			var description = new StringDescription();
 
 			matcher.DescribeMismatch(() => { }, description);
@@ -54,7 +54,7 @@ namespace NHamcrest.Tests.Core
 		[Fact]
 		public void No_match_if_action_throws_different_exception()
 		{
-			var matcher = new Throws<NullReferenceException>();
+			var matcher = new ThrowsMatcher<NullReferenceException>();
 
 			var match = matcher.Matches(DoIt);
 
@@ -64,7 +64,7 @@ namespace NHamcrest.Tests.Core
 		[Fact]
 		public void Describe_mismatch_if_action_throws_different_exception()
 		{
-			var matcher = new Throws<NullReferenceException>();
+			var matcher = new ThrowsMatcher<NullReferenceException>();
 			var description = new StringDescription();
 
 			matcher.DescribeMismatch(DoIt, description);
@@ -82,7 +82,7 @@ namespace NHamcrest.Tests.Core
 		[Fact]
 		public void No_match_if_thrown_exception_does_not_match_predicate()
 		{
-			var matcher = new Throws<ArgumentNullException>().With(e => e.Message == "something else");
+			var matcher = new ThrowsMatcher<ArgumentNullException>().With(e => e.Message == "something else");
 
 			var matches = matcher.Matches(DoIt);
 
@@ -92,7 +92,7 @@ namespace NHamcrest.Tests.Core
 		[Fact]
 		public void Describe_mismatch_if_thrown_exception_does_not_match_predicate()
 		{
-			var matcher = new Throws<ArgumentNullException>().With(e => e.Message == "something else");
+			var matcher = new ThrowsMatcher<ArgumentNullException>().With(e => e.Message == "something else");
 			var description = new StringDescription();
 
 			matcher.DescribeMismatch(DoIt, description);

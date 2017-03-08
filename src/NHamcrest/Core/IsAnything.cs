@@ -21,25 +21,4 @@ namespace NHamcrest.Core
             description.AppendText(_message);
         }
     }
-
-    public partial class Is
-    {
-        // This matcher always evaluates to true.
-        [Factory]
-        public static Matcher<object> Anything()
-        {
-            return new IsAnything<object>();
-        }
-
-        /// <summary>
-        /// This matcher always evaluates to true.
-        /// </summary>
-        /// <param name="description">A meaningful string used when describing itself.</param>
-        /// <returns>A matcher.</returns>
-        [Factory]
-        public static Matcher<object> Anything(string description)
-        {
-            return new IsAnything<object>(description);
-        }        
-    }
 }

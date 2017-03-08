@@ -2,11 +2,11 @@ using System.Collections.Generic;
 
 namespace NHamcrest.Core
 {
-    public class AllOf<T> : DiagnosingMatcher<T>
+    public class AllOfMatcher<T> : DiagnosingMatcher<T>
     {
         private readonly IEnumerable<IMatcher<T>> _matchers;
 
-        public AllOf(IEnumerable<IMatcher<T>> matchers)
+        public AllOfMatcher(IEnumerable<IMatcher<T>> matchers)
         {
             _matchers = matchers;
         }
@@ -30,20 +30,5 @@ namespace NHamcrest.Core
         {
             description.AppendList("(", " " + "and" + " ", ")", FakeLinq.Cast<ISelfDescribing>(_matchers));
         }        
-    }
-
-    public static partial class Matches
-    {
-        [Factory]
-        public static IMatcher<T> AllOf<T>(IEnumerable<IMatcher<T>> matchers)
-        {
-            return new AllOf<T>(matchers);
-        }
-
-        [Factory]
-        public static IMatcher<T> AllOf<T>(params IMatcher<T>[] matchers)
-        {
-            return new AllOf<T>(matchers);
-        }
     }
 }

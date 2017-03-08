@@ -16,12 +16,4 @@ namespace NHamcrest.Core
             return "ending with";
         }
     }
-
-    public static class Ends
-    {
-        public static StringEndsWith With(string substring)
-        {
-            return new StringEndsWith(substring);
-        }
-    }
 }

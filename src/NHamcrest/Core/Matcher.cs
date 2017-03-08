@@ -1,6 +1,4 @@
-﻿using NHamcrest.Core;
-
-namespace NHamcrest
+﻿namespace NHamcrest.Core
 {
     public abstract class Matcher<T> : IMatcher<T>
     {
@@ -21,7 +19,6 @@ namespace NHamcrest
         /// <summary>
         /// Wraps an existing matcher and overrides the description when it fails.
         /// </summary>
-        [Factory]
         public IMatcher<T> DescribedAs(string description, params object[] values)
         {
             return new DescribedAs<T>(description, this, values);

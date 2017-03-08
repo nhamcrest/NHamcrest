@@ -1,5 +1,6 @@
 
 
+using NHamcrest.Core;
 using Xunit;
 
 namespace NHamcrest.Tests.Core

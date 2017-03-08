@@ -11,7 +11,7 @@ namespace NHamcrest.Tests.Core
         [Fact]
         public void Match_if_all_matchers_succeed()
         {
-            var matcher = Matches.AllOf(new[] { _successfulMatcher, _successfulMatcher });
+            var matcher = Matches.AllOf(_successfulMatcher, _successfulMatcher);
 
             Assert.Equal(true, matcher.Matches(""));
         }
@@ -27,7 +27,7 @@ namespace NHamcrest.Tests.Core
         [Fact]
         public void Mismatch_description_appended_if_matcher_fails()
         {
-            var matcher = Matches.AllOf(new[] { _failingMatcher });
+            var matcher = Matches.AllOf(_failingMatcher);
             var description = new StringDescription();
 
             matcher.DescribeMismatch("bob", description);
@@ -38,7 +38,7 @@ namespace NHamcrest.Tests.Core
         [Fact]
         public void Description_is_concatenated_from_matchers()
         {
-            var matcher = Matches.AllOf(new[] { _failingMatcher, _successfulMatcher });
+            var matcher = Matches.AllOf(_failingMatcher, _successfulMatcher);
             var description = new StringDescription();
 
             matcher.DescribeTo(description);

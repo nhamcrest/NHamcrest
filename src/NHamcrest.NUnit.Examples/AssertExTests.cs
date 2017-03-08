@@ -1,6 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
-using Is = NHamcrest.Core.Is;
+using Is = NHamcrest.Is;
 using Throws = NHamcrest.Core.Throws;
 
 namespace NHamcrest.NUnit.Tests

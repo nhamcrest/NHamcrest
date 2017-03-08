@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace NHamcrest
+namespace NHamcrest.Core
 {
     public class StringDescription : Description
     {

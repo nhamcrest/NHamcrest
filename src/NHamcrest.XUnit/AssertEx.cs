@@ -1,4 +1,6 @@
-﻿namespace NHamcrest.XUnit
+﻿using NHamcrest.Core;
+
+namespace NHamcrest.XUnit
 {
     public class Assert : Xunit.Assert
     {

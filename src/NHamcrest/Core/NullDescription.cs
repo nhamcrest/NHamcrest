@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace NHamcrest
+namespace NHamcrest.Core
 {
     public class NullDescription : IDescription
     {

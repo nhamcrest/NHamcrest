@@ -1,3 +1,5 @@
+using NHamcrest.Core;
+
 namespace NHamcrest
 {
     /// <summary>

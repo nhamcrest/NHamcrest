@@ -1,3 +1,5 @@
+using NHamcrest.Core;
+
 namespace NHamcrest.Tests.Internal
 {
     public static class Assert

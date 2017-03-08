@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using NHamcrest.Internal;
 
-namespace NHamcrest
+namespace NHamcrest.Core
 {
     public abstract class Description : IDescription
     {
@@ -112,5 +111,20 @@ namespace NHamcrest
     	/// </summary>
     	/// <param name="str">The string to append.</param>
     	protected abstract void Append(string str);
+
+        private class SelfDescribingValue<T> : ISelfDescribing
+        {
+            private readonly T _value;
+
+            public SelfDescribingValue(T value)
+            {
+                _value = value;
+            }
+
+            public void DescribeTo(IDescription description)
+            {
+                description.AppendValue(_value);
+            }
+        }
     }
 }

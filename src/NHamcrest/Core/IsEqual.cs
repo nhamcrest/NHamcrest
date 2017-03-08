@@ -30,28 +30,9 @@ namespace NHamcrest.Core
             return left.Equals(right);
         }
 
-        [Factory]
         public static IMatcher<T> EqualTo(T operand)
         {
             return new IsEqual<T>(operand);
-        }
-    }
-
-    public static partial class Is
-    {
-        public static IMatcher<T> EqualTo<T>(T value)
-        {
-            return IsEqual<T>.EqualTo(value);
-        }
-
-        public static IMatcher<bool> True()
-        {
-            return IsEqual<bool>.EqualTo(true);
-        }
-
-        public static IMatcher<bool> False()
-        {
-            return IsEqual<bool>.EqualTo(false);
         }
     }
 }

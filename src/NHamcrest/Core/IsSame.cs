@@ -1,10 +1,10 @@
 namespace NHamcrest.Core
 {
-    public class IsSame<T> : Matcher<T>
+    public class IsSameMatcher<T> : Matcher<T>
     {
         private readonly T _object;
 
-        public IsSame(T @object)
+        public IsSameMatcher(T @object)
         {
             _object = @object;
         }
@@ -19,15 +19,6 @@ namespace NHamcrest.Core
             description.AppendText("SameAs(")
                     .AppendValue(_object)
                     .AppendText(")");
-        }
-    }
-
-    public static partial class Is
-    {
-        [Factory]
-        public static IMatcher<T> SameAs<T>(T @object)
-        {
-            return new IsSame<T>(@object);
         }
     }
 }

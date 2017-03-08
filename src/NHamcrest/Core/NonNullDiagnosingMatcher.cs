@@ -1,4 +1,4 @@
-namespace NHamcrest
+namespace NHamcrest.Core
 {
     public abstract class NonNullDiagnosingMatcher<T> : Matcher<T>
     {

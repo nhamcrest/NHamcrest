@@ -1,5 +1,6 @@
 using System;
 using Moq;
+using NHamcrest.Core;
 using Xunit;
 
 
@@ -10,7 +11,7 @@ namespace NHamcrest.Tests
         [Fact]
         public void Ctor_throws_if_description_is_null()
         {
-            Assert.Throws<ArgumentNullException>(() => new CustomMatcher<string>(null, s => true));
+            Assert.Throws<ArgumentNullException>(() => new NHamcrest.Core.CustomMatcher<string>(null, s => true));
         }
 
         [Fact]

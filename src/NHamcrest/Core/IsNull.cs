@@ -1,6 +1,6 @@
 namespace NHamcrest.Core
 {
-    public class IsNull<T> : Matcher<T>
+    public class IsNullMatcher<T> : Matcher<T>
     {
         public override bool Matches(T item)
         {
@@ -13,32 +13,5 @@ namespace NHamcrest.Core
         }
     }
 
-    public class IsNull : IsNull<object> { }
-
-    public static partial class Is
-    {
-        [Factory]
-        public static IMatcher<T> Null<T>()
-        {
-            return new IsNull<T>();
-        }
-
-        [Factory]
-        public static IMatcher<object> Null()
-        {
-            return new IsNull();
-        }
-
-        [Factory]
-        public static IMatcher<T> NotNull<T>()
-        {
-            return Not(Null<T>());
-        }
-
-        [Factory]
-        public static IMatcher<object> NotNull()
-        {
-            return Not(Null());
-        }
-    }
+    public class IsNullMatcher : IsNullMatcher<object> { }
 }

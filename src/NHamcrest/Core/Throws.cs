@@ -2,52 +2,11 @@ using System;
 
 namespace NHamcrest.Core
 {
-	public class Throws<T> : DiagnosingMatcher<Action> where T : Exception
+    public static class Throws
 	{
-		private Func<T, bool> _predicate = e => true;
-
-		public override void DescribeTo(IDescription description)
+		public static ThrowsMatcher<T> An<T>() where T : Exception
 		{
-			description.AppendText("the block to throw an exception of type {0}", typeof(T));
-		}
-
-		protected override bool Matches(Action action, IDescription mismatchDescription)
-		{
-			try
-			{
-				action();
-				mismatchDescription.AppendText("no exception was thrown");
-			}
-			catch (T ex)
-			{
-				if (_predicate(ex))
-					return true;
-
-				mismatchDescription.AppendText("the exception was of the correct type, but did not match the predicate")
-					.AppendNewLine()
-					.AppendValue(ex);
-			}
-			catch (Exception ex)
-			{
-				mismatchDescription.AppendText("an exception of type {0} was thrown", ex.GetType())
-					.AppendNewLine()
-					.AppendValue(ex);
-			}
-			return false;
-		}
-
-		public Throws<T> With(Func<T, bool> predicate)
-		{
-			_predicate = predicate;
-			return this;
-		}
-	}
-
-	public static class Throws
-	{
-		public static Throws<T> An<T>() where T : Exception
-		{
-			return new Throws<T>();
+			return new ThrowsMatcher<T>();
 		}
 	}
 }

@@ -14,13 +14,4 @@ namespace NHamcrest.Core
             return "containing";
         }
     }
-
-    public static class Contains
-    {
-        [Factory]
-        public static StringContains String(string substring)
-        {
-            return new StringContains(substring);
-        }
-    }
 }

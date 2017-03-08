@@ -1,4 +1,4 @@
-namespace NHamcrest
+namespace NHamcrest.Core
 {
     public abstract class NonNullMatcher<T> : Matcher<T> where T : class
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace NHamcrest
+namespace NHamcrest.Core
 {
     /// <summary>
     /// Utility class for writing one off matchers.

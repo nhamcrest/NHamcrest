@@ -101,7 +101,6 @@
     <Compile Include="CustomMatcherTests.cs" />
     <Compile Include="DescriptionTests.cs" />
     <Compile Include="DiagnosingMatcherTests.cs" />
-    <Compile Include="FeatureMatcherTests.cs" />
     <Compile Include="MatcherTests.cs" />
     <Compile Include="NonNullDiagnosingMatcherTests.cs" />
     <Compile Include="NonNullMatcherTests.cs" />

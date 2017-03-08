@@ -1,5 +1,6 @@
 
 using Moq;
+using NHamcrest.Core;
 using Xunit;
 
 namespace NHamcrest.Tests

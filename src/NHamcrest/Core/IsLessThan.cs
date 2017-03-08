@@ -21,12 +21,4 @@ namespace NHamcrest.Core
 			return arg.CompareTo(_object) < 0;
 		}
 	}
-
-	public static partial class Is
-	{
-		public static IMatcher<T> LessThan<T>(T value) where T : IComparable<T>
-		{
-			return new IsLessThan<T>(value);
-		}
-	}
 }

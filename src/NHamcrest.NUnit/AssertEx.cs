@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using NHamcrest.Core;
 using NUnit.Framework;
 using NUnit.Framework.Internal;
 

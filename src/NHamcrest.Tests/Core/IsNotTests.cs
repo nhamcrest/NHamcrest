@@ -13,7 +13,7 @@ namespace NHamcrest.Tests.Core
         [Fact]
         public void No_match_if_inner_matcher_matches()
         {
-            var isNot = new IsNot<string>(_always);
+            var isNot = new IsNotMatcher<string>(_always);
 
             var matches = isNot.Matches("test");
 

@@ -16,7 +16,7 @@ namespace NHamcrest.Tests.Core
         [Fact]
         public void Match_if_any_matchers_succeed()
         {
-            var matcher = Matches.AnyOf(new[] { _successfulMatcher, _failingMatcher });
+            var matcher = Matches.AnyOf(_successfulMatcher, _failingMatcher);
             Assert.Equal(true, matcher.Matches(""));
 
             matcher = Matches.AnyOf(new List<IMatcher<string>> { _failingMatcher, _successfulMatcher });
@@ -26,7 +26,7 @@ namespace NHamcrest.Tests.Core
         [Fact]
         public void No_match_if_all_matchers_fail()
         {
-            var matcher = Matches.AnyOf(new[] { _failingMatcher, _failingMatcher });
+            var matcher = Matches.AnyOf(_failingMatcher, _failingMatcher);
 
             Assert.Equal(false, matcher.Matches(""));
         }
@@ -34,14 +34,14 @@ namespace NHamcrest.Tests.Core
         [Fact]
         public void Shortcut_matching_when_matcher_succeeds()
         {
-            var matcher = Matches.AnyOf(new[] { _successfulMatcher, _explodingMatcher });
+            var matcher = Matches.AnyOf(_successfulMatcher, _explodingMatcher);
             Assert.Equal(true, matcher.Matches(""));
         }
 
         [Fact]
         public void Description_is_concatenated_from_matchers()
         {
-            var matcher = Matches.AnyOf(new[] { _failingMatcher, _successfulMatcher });
+            var matcher = Matches.AnyOf(_failingMatcher, _successfulMatcher);
             var description = new StringDescription();
 
             matcher.DescribeTo(description);
