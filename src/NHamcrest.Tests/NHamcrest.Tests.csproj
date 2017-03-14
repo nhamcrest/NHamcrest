@@ -76,6 +76,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssertExtensions.cs" />
     <Compile Include="Core\IsLessThanOrEqualToTests.cs" />
     <Compile Include="Core\IsGreaterThanOrEqualToTests.cs" />
     <Compile Include="Core\IsLessThanTests.cs" />
@@ -91,6 +92,8 @@
     <Compile Include="Core\StringContainsTests.cs" />
     <Compile Include="Core\StringEndsWithTests.cs" />
     <Compile Include="Core\ThrowsTests.cs" />
+    <Compile Include="FakeMatcher.cs" />
+    <Compile Include="FeatureMatcherDescriptionTests.cs" />
     <Compile Include="Internal\Assert.cs" />
     <Compile Include="Internal\AssertionError.cs" />
     <Compile Include="Core\AllOfTests.cs" />
@@ -108,6 +111,18 @@
     <Compile Include="Internal\SelfDescribingValueTests.cs" />
     <Compile Include="StringDescriptionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StructuralComparisonMatcherFactoryFailureTest.cs" />
+    <Compile Include="StructuralComparisonMatcherFactorySuccessTest.cs" />
+    <Compile Include="StructuralComparisonTests.cs" />
+    <Compile Include="TestClasses\AnotherFlatClass.cs" />
+    <Compile Include="TestClasses\ClassWithArrayOfClasses.cs" />
+    <Compile Include="TestClasses\ClassWithDictionaryOfClasses.cs" />
+    <Compile Include="TestClasses\ClassWithEnumerableOfClasses.cs" />
+    <Compile Include="TestClasses\ClassWithListOfClasses.cs" />
+    <Compile Include="TestClasses\DerivedFlatClass.cs" />
+    <Compile Include="TestClasses\DoubleNestedClass.cs" />
+    <Compile Include="TestClasses\NestedClass.cs" />
+    <Compile Include="TestClasses\SimpleFlatClass.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NHamcrest.XUnit\NHamcrest.XUnit.csproj">

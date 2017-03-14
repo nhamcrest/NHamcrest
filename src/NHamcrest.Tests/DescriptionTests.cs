@@ -108,7 +108,7 @@ namespace NHamcrest.Tests
         {
             _description.AppendValueList("(", "'", ")", new List<string> { "a", "b", "c" });
 
-            Assert.Equal("(a'b'c)", _description.ToString());
+            Assert.Equal("(\"a\"'\"b\"'\"c\")", _description.ToString());
         }
 
         [Fact(Skip="Requires to solve self describing values issue")]

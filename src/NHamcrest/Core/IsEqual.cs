@@ -1,10 +1,10 @@
 namespace NHamcrest.Core
 {
-    public class IsEqual<T> : Matcher<T>
+    public class IsEqualMatcher<T> : Matcher<T>
     {
         private readonly T _object;
 
-        public IsEqual(T equalArg)
+        public IsEqualMatcher(T equalArg)
         {
             _object = equalArg;
         }
@@ -32,7 +32,7 @@ namespace NHamcrest.Core
 
         public static IMatcher<T> EqualTo(T operand)
         {
-            return new IsEqual<T>(operand);
+            return new IsEqualMatcher<T>(operand);
         }
     }
 }

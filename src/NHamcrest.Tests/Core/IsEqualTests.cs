@@ -16,34 +16,34 @@ namespace NHamcrest.Tests.Core
         [Fact]
         public void No_match_if_not_equal()
         {
-            var isEqual = new IsEqual<string>("test");
+            var isEqual = new IsEqualMatcher<string>("test");
 
             var matches = isEqual.Matches("somethingelse");
 
             Assert.False(matches);
         }
 
-		[Fact]
-		public void No_match_if_compared_to_null()
-		{
-			var isEqual = new IsEqual<string>("test");
+        [Fact]
+        public void No_match_if_compared_to_null()
+        {
+            var isEqual = new IsEqualMatcher<string>("test");
 
-			var matches = isEqual.Matches(null);
+            var matches = isEqual.Matches(null);
 
-			Assert.False(matches);
-			Assert.False(Is.EqualTo<string>(null).Matches("test"));
-		}
+            Assert.False(matches);
+            Assert.False(Is.EqualTo<string>(null).Matches("test"));
+        }
 
         [Fact]
         public void Append_description()
         {
             const string test = "test";
-            var isEqual = IsEqual<string>.EqualTo(test);
+            var isEqual = IsEqualMatcher<string>.EqualTo(test);
             var description = new StringDescription();
 
             isEqual.DescribeTo(description);
 
-            Assert.Equal(description.ToString(), test);
+            Assert.Equal("\"" + test + "\"", description.ToString());
         }
     }
 }

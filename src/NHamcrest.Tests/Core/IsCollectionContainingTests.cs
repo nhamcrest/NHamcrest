@@ -27,7 +27,7 @@ namespace NHamcrest.Tests.Core
 
             matcher.DescribeTo(description);
 
-            Assert.That(description.ToString(), Is.EqualTo("a collection containing aaa"));
+            Assert.That(description.ToString(), Is.EqualTo("a collection containing \"aaa\""));
         }
 
 		[Fact]
@@ -38,7 +38,7 @@ namespace NHamcrest.Tests.Core
 
 			matcher.DescribeMismatch(new [] { "bbb", "ddd" }, description);
 
-			Assert.That(description.ToString(), Is.EqualTo("was bbb, was ddd"));
+			Assert.That(description.ToString(), Is.EqualTo("was \"bbb\", was \"ddd\""));
 		}
     }
 }

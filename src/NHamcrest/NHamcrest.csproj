@@ -50,10 +50,23 @@
   <ItemGroup>
     <Compile Include="Core\AllOf.cs" />
     <Compile Include="Core\AnyOf.cs" />
+    <Compile Include="Core\CastMatcher.cs" />
     <Compile Include="Core\CombinableMatcher.cs" />
     <Compile Include="Contains.cs" />
+    <Compile Include="Core\EntryDescriptor.cs" />
     <Compile Include="Core\EveryMatcher.cs" />
+    <Compile Include="Core\IsEquivalentDictionaryMatcher.cs" />
+    <Compile Include="Core\IsEquivalentListMatcher.cs" />
+    <Compile Include="Core\IsEquivalentSetMatcher.cs" />
+    <Compile Include="Core\LengthMatcher.cs" />
+    <Compile Include="Core\ObjectFeatureMatcher.cs" />
+    <Compile Include="Core\PropertyMatcher.cs" />
+    <Compile Include="Core\StructuralComparisonMatcher.cs" />
+    <Compile Include="Core\TypedLengthMatcher.cs" />
+    <Compile Include="Core\TypeExtensions.cs" />
+    <Compile Include="Describe.cs" />
     <Compile Include="Ends.cs" />
+    <Compile Include="IObjectFeatureMatcher.cs" />
     <Compile Include="Is.cs" />
     <Compile Include="Matches.cs" />
     <Compile Include="Core\ThrowsMatcher.cs" />

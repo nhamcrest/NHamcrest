@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using NHamcrest.Core;
 
 namespace NHamcrest
@@ -73,17 +75,17 @@ namespace NHamcrest
 
         public static IMatcher<T> EqualTo<T>(T value)
         {
-            return IsEqual<T>.EqualTo(value);
+            return IsEqualMatcher<T>.EqualTo(value);
         }
 
         public static IMatcher<bool> True()
         {
-            return IsEqual<bool>.EqualTo(true);
+            return IsEqualMatcher<bool>.EqualTo(true);
         }
 
         public static IMatcher<bool> False()
         {
-            return IsEqual<bool>.EqualTo(false);
+            return IsEqualMatcher<bool>.EqualTo(false);
         }
 
         // This matcher always evaluates to true.
@@ -119,6 +121,21 @@ namespace NHamcrest
         public static IMatcher<T> SameAs<T>(T @object)
         {
             return new IsSameMatcher<T>(@object);
+        }
+
+        public static IMatcher<T> StructurallyEqualTo<T>(T exampleValue)
+        {
+            return new StructuralComparisonMatcher<T>(exampleValue);
+        }
+
+        public static IMatcher<ICollection> OfLength(int length)
+        {
+            return new LengthMatcher<ICollection>(length);
+        }
+
+        public static IMatcher<IEnumerable<T>> OfLength<T>(int length)
+        {
+            return new TypedLengthMatcher<T>(length);
         }
     }
 }

@@ -19,13 +19,12 @@ namespace NHamcrest.Core
 
         public override void DescribeMismatchSafely(string item, IDescription mismatchDescription)
         {
-            mismatchDescription.AppendText("was \"").AppendText(item).AppendText("\"");
+            mismatchDescription.AppendText("was ").AppendValue(item).AppendText("");
         }
 
         public override void DescribeTo(IDescription description)
         {
-            description.AppendText("a string ").AppendText(Relationship()).AppendText(" \"")
-                .AppendValue(Substring).AppendText("\"");
+            description.AppendText("a string ").AppendText(Relationship()).AppendText(" ").AppendValue(Substring);
         }
 
         protected abstract bool EvalSubstringOf(string @string);

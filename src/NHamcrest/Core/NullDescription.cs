@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace NHamcrest.Core
 {
@@ -24,12 +25,12 @@ namespace NHamcrest.Core
             return this;
         }
 
-    	public IDescription AppendNewLine()
-    	{
-    		return this;
-    	}
+        public IDescription AppendNewLine()
+        {
+            return this;
+        }
 
-    	public IDescription AppendValueList<T>(string start, string separator, string end, params T[] values)
+        public IDescription AppendValueList<T>(string start, string separator, string end, params T[] values)
         {
             return this;
         }
@@ -44,9 +45,22 @@ namespace NHamcrest.Core
             return this;
         }
 
+        public IDisposable IndentBy(int numberOfSpaces)
+        {
+            return new NullDisposable();
+        }
+
         public override string ToString()
         {
             return "";
+        }
+
+        private class NullDisposable : IDisposable
+        {
+            public void Dispose()
+            {
+
+            }
         }
     }
 }

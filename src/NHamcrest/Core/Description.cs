@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace NHamcrest.Core
 {
@@ -9,6 +10,8 @@ namespace NHamcrest.Core
         /// A description that consumes input but does nothing.
         /// </summary>
         public static readonly IDescription None = new NullDescription();
+
+        private int _currentIdent = 0;
 
         public IDescription AppendText(string text)
         {
@@ -34,25 +37,29 @@ namespace NHamcrest.Core
             {
                 Append("null");
             }
-            else if (value is char)
+            else if (value is char || value is string)
             {
                 Append('"' + value.ToString() + '"');
             }
             else if (value is long)
             {
-                Append(value + "L");
+                Append(((long)value).ToString(CultureInfo.InvariantCulture) + "L");
             }
             else if (value is float)
             {
-                Append(value + "f");
+                Append(((float)value).ToString(CultureInfo.InvariantCulture) + "f");
+            }
+            else if (value is double)
+            {
+                Append(((double)value).ToString(CultureInfo.InvariantCulture) + "d");
             }
             else if (value is decimal)
             {
-                Append(value + "m");
+                Append(((decimal)value).ToString(CultureInfo.InvariantCulture) + "m");
             }
             else if (value.GetType().IsArray)
             {
-                AppendValueList("[", ", ", "]", IterateArray((Array) value));
+                AppendValueList("[", ", ", "]", IterateArray((Array)value));
             }
             else
             {
@@ -61,13 +68,14 @@ namespace NHamcrest.Core
             return this;
         }
 
-    	public IDescription AppendNewLine()
-    	{
-    		Append(Environment.NewLine);
-    		return this;
-    	}
+        public IDescription AppendNewLine()
+        {
+            Append(Environment.NewLine);
+            ApplyIdent();
+            return this;
+        }
 
-    	private static IEnumerable<object> IterateArray(Array array)
+        private static IEnumerable<object> IterateArray(Array array)
         {
             for (var i = 0; i < array.Length; i++)
             {
@@ -104,7 +112,18 @@ namespace NHamcrest.Core
             return this;
         }
 
-    	/// <summary>
+        private void ApplyIdent()
+        {
+            Append(new string(' ', _currentIdent));
+        }
+
+        public IDisposable IndentBy(int numberOfSpaces)
+        {
+            _currentIdent += numberOfSpaces;
+            return new Nesting(() => _currentIdent -= numberOfSpaces);
+        }
+
+        /// <summary>
     	/// Append a string to the description.  
     	/// The default implementation passes every character to Append(char).
     	/// Override in subclasses to provide an efficient implementation.
@@ -124,6 +143,21 @@ namespace NHamcrest.Core
             public void DescribeTo(IDescription description)
             {
                 description.AppendValue(_value);
+            }
+        }
+
+        private class Nesting : IDisposable
+        {
+            private readonly Action _disposeAction;
+
+            public Nesting(Action disposeAction)
+            {
+                _disposeAction = disposeAction;
+            }
+
+            public void Dispose()
+            {
+                _disposeAction();
             }
         }
     }

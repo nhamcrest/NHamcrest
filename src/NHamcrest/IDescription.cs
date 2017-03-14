@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace NHamcrest
 {
@@ -63,5 +64,7 @@ namespace NHamcrest
         /// <param name="values"></param>
         /// <returns></returns>
         IDescription AppendList(string start, string separator, string end, IEnumerable<ISelfDescribing> values);
+
+        IDisposable IndentBy(int numberOfSpaces);
     }
 }

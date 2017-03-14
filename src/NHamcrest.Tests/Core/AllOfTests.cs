@@ -32,7 +32,7 @@ namespace NHamcrest.Tests.Core
 
             matcher.DescribeMismatch("bob", description);
 
-            Assert.Equal("Failing matcher was bob", description.ToString());
+            Assert.Equal("Failing matcher was \"bob\"", description.ToString());
         }
 
         [Fact]
