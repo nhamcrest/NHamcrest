@@ -29,6 +29,6 @@ namespace NHamcrest.Core
         public override void DescribeTo(IDescription description)
         {
             description.AppendList("(", " " + "and" + " ", ")", FakeLinq.Cast<ISelfDescribing>(_matchers));
-        }        
+        }
     }
 }

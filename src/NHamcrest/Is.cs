@@ -137,5 +137,30 @@ namespace NHamcrest
         {
             return new TypedLengthMatcher<T>(length);
         }
+
+        public static IMatcher<IEnumerable<T>> SetOf<T>(IEnumerable<IMatcher<T>> elementMatchers)
+        {
+            return new IsEquivalentSetMatcher<T>(elementMatchers);
+        }
+
+        public static IMatcher<IEnumerable<T>> SetOf<T>(params IMatcher<T>[] elementMatchers)
+        {
+            return new IsEquivalentSetMatcher<T>(elementMatchers);
+        }
+
+        public static IMatcher<IEnumerable<T>> ListOf<T>(IEnumerable<IMatcher<T>> elementMatchers)
+        {
+            return new IsEquivalentListMatcher<T>(elementMatchers);
+        }
+
+        public static IMatcher<IEnumerable<T>> ListOf<T>(params IMatcher<T>[] elementMatchers)
+        {
+            return new IsEquivalentListMatcher<T>(elementMatchers);
+        }
+
+        public static IMatcher<T> OfType<T, TDest>(IMatcher<TDest> exampleValue)
+        {
+            return new CastMatcher<T, TDest>(exampleValue);
+        }
     }
 }

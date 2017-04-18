@@ -48,7 +48,7 @@ namespace NHamcrest.Tests
         {
             _description.AppendValue('c');
 
-            Assert.Equal("\"c\"", _description.ToString());
+            Assert.Equal("'c'", _description.ToString());
         }
 
         [Fact]
@@ -76,11 +76,19 @@ namespace NHamcrest.Tests
         }
 
         [Fact]
-        public void Appending_an_array_of_values()
+        public void Appending_an_array_of_string_values()
         {
             _description.AppendValue(new[] { "one", "two", "three" });
 
-            Assert.Equal("[one, two, three]", _description.ToString());
+            Assert.Equal("[\"one\", \"two\", \"three\"]", _description.ToString());
+        }
+
+        [Fact]
+        public void Appending_an_array_of_number_values()
+        {
+            _description.AppendValue(new[] { 1, 2, 3 });
+
+            Assert.Equal("[1, 2, 3]", _description.ToString());
         }
 
         [Fact]
@@ -90,7 +98,7 @@ namespace NHamcrest.Tests
 
             _description.AppendValue(value);
 
-            Assert.Equal(value, _description.ToString());
+            Assert.Equal("\"" + value + "\"", _description.ToString());
         }
 
         [Fact]
@@ -111,7 +119,7 @@ namespace NHamcrest.Tests
             Assert.Equal("(\"a\"'\"b\"'\"c\")", _description.ToString());
         }
 
-        [Fact(Skip="Requires to solve self describing values issue")]
+        [Fact(Skip = "Requires to solve self describing values issue")]
         public void Append_self_describing_values()
         {
             //var values = new List<ISelfDescribing>

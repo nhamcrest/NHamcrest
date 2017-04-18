@@ -26,27 +26,27 @@ namespace NHamcrest.Tests
             Assert.Equal(value, description.ToString());
         }
 
-		[Fact]
-		public void Append_string()
-		{
-			var description = new StringDescription(new StringBuilder());
-			const string value = "test";
+        [Fact]
+        public void Append_string()
+        {
+            var description = new StringDescription(new StringBuilder());
+            const string value = "test";
 
-			description.AppendText(value);
+            description.AppendText(value);
 
-			Assert.Equal(value, description.ToString());
-		}
+            Assert.Equal(value, description.ToString());
+        }
 
-		[Fact]
-		public void Append_char()
-		{
-			var description = new StringDescription(new StringBuilder());
-			const char value = 't';
+        [Fact]
+        public void Append_char()
+        {
+            var description = new StringDescription(new StringBuilder());
+            const char value = 't';
 
-			description.AppendValue(value);
+            description.AppendValue(value);
 
-			Assert.Equal("\"t\"", description.ToString());
-		}
+            Assert.Equal("'t'", description.ToString());
+        }
 
         [Fact(Skip = "Self describing values")]
         public void Static_ToString_returns_self_described_value()

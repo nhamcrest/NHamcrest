@@ -13,7 +13,7 @@ namespace NHamcrest
     /// methods in CoreMatchers.
     /// </summary>
     /// <typeparam name="T">The type of object to match against.</typeparam>
-    public interface IMatcher<T> : ISelfDescribing
+    public interface IMatcher<in T> : ISelfDescribing
     {
         /// <summary>
         /// Evaluates the matcher.

@@ -37,9 +37,17 @@ namespace NHamcrest.Core
             {
                 Append("null");
             }
-            else if (value is char || value is string)
+            else if (value is char)
             {
-                Append('"' + value.ToString() + '"');
+                Append("'");
+                Append(value.ToString());
+                Append("'");
+            }
+            else if (value is string)
+            {
+                Append("\"");
+                Append(value.ToString());
+                Append("\"");
             }
             else if (value is long)
             {

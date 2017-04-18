@@ -50,16 +50,16 @@ namespace NHamcrest.Tests
             Assert.Equal("TestNonNullMatcher.DescribeMismatchSafely", description.ToString());
         }
 
-		[Fact]
-		public void Describe_mismatch_safely()
-		{
-			var matcher = new TestNonNullMatcher(s => false);
-			var description = new StringDescription();
+        [Fact]
+        public void Describe_mismatch_safely()
+        {
+            var matcher = new TestNonNullMatcher(s => false);
+            var description = new StringDescription();
 
-			matcher.DescribeMismatchSafely2("something", description);
+            matcher.DescribeMismatchSafely2("something", description);
 
-			Assert.Equal("was something", description.ToString());
-		}
+            Assert.Equal("was \"something\"", description.ToString());
+        }
 
         private class TestNonNullMatcher : NonNullMatcher<string>
         {
@@ -80,10 +80,10 @@ namespace NHamcrest.Tests
                 mismatchDescription.AppendText("TestNonNullMatcher.DescribeMismatchSafely");
             }
 
-			public void DescribeMismatchSafely2(string item, IDescription mismatchDescription)
-			{
-				base.DescribeMismatchSafely(item, mismatchDescription);
-			}
+            public void DescribeMismatchSafely2(string item, IDescription mismatchDescription)
+            {
+                base.DescribeMismatchSafely(item, mismatchDescription);
+            }
         }
     }
 }
