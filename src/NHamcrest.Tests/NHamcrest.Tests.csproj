@@ -1,148 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{368D7391-0C63-4F48-8D8C-3942E0693B92}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NHamcrest.Tests</RootNamespace>
-    <AssemblyName>NHamcrest.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <OldToolsVersion>3.5</OldToolsVersion>
-    <UpgradeBackupLocation />
-    <TargetFrameworkProfile />
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <Prefer32Bit>false</Prefer32Bit>
+    <TargetFramework>net461</TargetFramework>
+    <Version>2.0.0</Version>
+    <Description />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Castle.Core.4.0.0\lib\net45\Castle.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Moq, Version=4.7.1.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Moq.4.7.1\lib\net45\Moq.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.ComponentModel.Composition" />
-    <Reference Include="System.Core">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Data" />
-    <Reference Include="System.IO.Compression" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Numerics" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="xunit.abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\xunit.abstractions.2.0.0\lib\net35\xunit.abstractions.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="xunit.assert, Version=2.1.0.3179, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\xunit.assert.2.1.0\lib\dotnet\xunit.assert.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="xunit.core, Version=2.1.0.3179, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\xunit.extensibility.core.2.1.0\lib\dotnet\xunit.core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="xunit.execution.desktop, Version=2.1.0.3179, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\xunit.extensibility.execution.2.1.0\lib\net45\xunit.execution.desktop.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
+    <Compile Remove="FeatureMatcherTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssertExtensions.cs" />
-    <Compile Include="Core\IsLessThanOrEqualToTests.cs" />
-    <Compile Include="Core\IsGreaterThanOrEqualToTests.cs" />
-    <Compile Include="Core\IsLessThanTests.cs" />
-    <Compile Include="Core\IsGreaterThanTests.cs" />
-    <Compile Include="Core\StringStartsWithTests.cs" />
-    <Compile Include="Core\IsAnythingTests.cs" />
-    <Compile Include="Core\IsCollectionContainingTests.cs" />
-    <Compile Include="Core\IsEqualTests.cs" />
-    <Compile Include="Core\IsInstanceOfTests.cs" />
-    <Compile Include="Core\IsNotTests.cs" />
-    <Compile Include="Core\IsNullTests.cs" />
-    <Compile Include="Core\IsSameTests.cs" />
-    <Compile Include="Core\StringContainsTests.cs" />
-    <Compile Include="Core\StringEndsWithTests.cs" />
-    <Compile Include="Core\ThrowsTests.cs" />
-    <Compile Include="FakeMatcher.cs" />
-    <Compile Include="FeatureMatcherDescriptionTests.cs" />
-    <Compile Include="Internal\Assert.cs" />
-    <Compile Include="Internal\AssertionError.cs" />
-    <Compile Include="Core\AllOfTests.cs" />
-    <Compile Include="Core\AnyOfTests.cs" />
-    <Compile Include="Core\CombinableMatcherTests.cs" />
-    <Compile Include="Core\DescribedAsTests.cs" />
-    <Compile Include="Core\EveryTests.cs" />
-    <Compile Include="CustomMatcherTests.cs" />
-    <Compile Include="DescriptionTests.cs" />
-    <Compile Include="DiagnosingMatcherTests.cs" />
-    <Compile Include="MatcherTests.cs" />
-    <Compile Include="NonNullDiagnosingMatcherTests.cs" />
-    <Compile Include="NonNullMatcherTests.cs" />
-    <Compile Include="NullDescriptionTests.cs" />
-    <Compile Include="Internal\SelfDescribingValueTests.cs" />
-    <Compile Include="StringDescriptionTests.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StructuralComparisonMatcherFactoryFailureTest.cs" />
-    <Compile Include="StructuralComparisonMatcherFactorySuccessTest.cs" />
-    <Compile Include="StructuralComparisonTests.cs" />
-    <Compile Include="TestClasses\AnotherFlatClass.cs" />
-    <Compile Include="TestClasses\ClassWithArrayOfClasses.cs" />
-    <Compile Include="TestClasses\ClassWithDictionaryOfClasses.cs" />
-    <Compile Include="TestClasses\ClassWithEnumerableOfClasses.cs" />
-    <Compile Include="TestClasses\ClassWithListOfClasses.cs" />
-    <Compile Include="TestClasses\DerivedFlatClass.cs" />
-    <Compile Include="TestClasses\DoubleNestedClass.cs" />
-    <Compile Include="TestClasses\NestedClass.cs" />
-    <Compile Include="TestClasses\SimpleFlatClass.cs" />
+    <PackageReference Include="xunit" Version="2.2.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.2.0" />
+    <PackageReference Include="Castle.Core" Version="4.0.0" />
+    <PackageReference Include="Moq" Version="4.7.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NHamcrest.XUnit\NHamcrest.XUnit.csproj">
-      <Project>{235f5147-dcdc-439c-9220-df2e5fb23f66}</Project>
-      <Name>NHamcrest.XUnit</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NHamcrest\NHamcrest.csproj">
-      <Project>{BF7E7EB3-0C15-4F55-85F9-B2A7564D98D4}</Project>
-      <Name>NHamcrest</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\NHamcrest.XUnit\NHamcrest.XUnit.csproj" />
+    <ProjectReference Include="..\NHamcrest\NHamcrest.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

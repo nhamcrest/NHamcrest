@@ -1,115 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{BF7E7EB3-0C15-4F55-85F9-B2A7564D98D4}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NHamcrest</RootNamespace>
-    <AssemblyName>NHamcrest</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <SignAssembly>false</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\Key.snk</AssemblyOriginatorKeyFile>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <OldToolsVersion>3.5</OldToolsVersion>
-    <UpgradeBackupLocation />
-    <TargetFrameworkProfile />
+    <TargetFramework>net461</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <Copyright>Copyright © 2017</Copyright>
+    <Version>2.0.0</Version>
+    <Description />
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <Prefer32Bit>false</Prefer32Bit>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>1701;1702;1705;1591</NoWarn>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.ComponentModel.Composition" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Numerics" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Core\AllOf.cs" />
-    <Compile Include="Core\AnyOf.cs" />
-    <Compile Include="Core\CastMatcher.cs" />
-    <Compile Include="Core\CombinableMatcher.cs" />
-    <Compile Include="Contains.cs" />
-    <Compile Include="Core\EntryDescriptor.cs" />
-    <Compile Include="Core\EveryMatcher.cs" />
-    <Compile Include="Core\IsEquivalentDictionaryMatcher.cs" />
-    <Compile Include="Core\IsEquivalentListMatcher.cs" />
-    <Compile Include="Core\IsEquivalentSetMatcher.cs" />
-    <Compile Include="Core\LengthMatcher.cs" />
-    <Compile Include="Core\ObjectFeatureMatcher.cs" />
-    <Compile Include="Core\PropertyMatcher.cs" />
-    <Compile Include="Core\StructuralComparisonMatcher.cs" />
-    <Compile Include="Core\TypedLengthMatcher.cs" />
-    <Compile Include="Core\TypeExtensions.cs" />
-    <Compile Include="Describe.cs" />
-    <Compile Include="Ends.cs" />
-    <Compile Include="IObjectFeatureMatcher.cs" />
-    <Compile Include="Is.cs" />
-    <Compile Include="Matches.cs" />
-    <Compile Include="Core\ThrowsMatcher.cs" />
-    <Compile Include="Has.cs" />
-    <Compile Include="Core\IsLessThanOrEqualTo.cs" />
-    <Compile Include="Core\IsGreaterThanOrEqualTo.cs" />
-    <Compile Include="Core\IsLessThan.cs" />
-    <Compile Include="Core\FakeLinq.cs" />
-    <Compile Include="Core\IsGreaterThan.cs" />
-    <Compile Include="Starts.cs" />
-    <Compile Include="Core\StringStartsWith.cs" />
-    <Compile Include="Core\DescribedAs.cs" />
-    <Compile Include="Every.cs" />
-    <Compile Include="Core\IsAnything.cs" />
-    <Compile Include="Core\IsCollectionContaining.cs" />
-    <Compile Include="Core\IsEqual.cs" />
-    <Compile Include="Core\IsInstanceOf.cs" />
-    <Compile Include="Core\IsNotMatcher.cs" />
-    <Compile Include="Core\IsNull.cs" />
-    <Compile Include="Core\IsSame.cs" />
-    <Compile Include="Core\StringContains.cs" />
-    <Compile Include="Core\StringEndsWith.cs" />
-    <Compile Include="Core\SubstringMatcher.cs" />
-    <Compile Include="Core\Throws.cs" />
-    <Compile Include="Core\NonNullDiagnosingMatcher.cs" />
-    <Compile Include="Core\CustomMatcher.cs" />
-    <Compile Include="Core\Description.cs" />
-    <Compile Include="Core\DiagnosingMatcher.cs" />
-    <Compile Include="IMatcher.cs" />
-    <Compile Include="ISelfDescribing.cs" />
-    <Compile Include="IDescription.cs" />
-    <Compile Include="Core\Matcher.cs" />
-    <Compile Include="Core\NonNullMatcher.cs" />
-    <Compile Include="Core\NullDescription.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Core\StringDescription.cs" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>
