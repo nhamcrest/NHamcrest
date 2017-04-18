@@ -8,11 +8,7 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.2.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NHamcrest.XUnit\NHamcrest.XUnit.csproj"/>
-    <ProjectReference Include="..\NHamcrest\NHamcrest.csproj"/>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="**\*.cs" />
-    <EmbeddedResource Include="**\*.resx" />
+    <ProjectReference Include="..\NHamcrest.XUnit\NHamcrest.XUnit.csproj" />
+    <ProjectReference Include="..\NHamcrest\NHamcrest.csproj" />
   </ItemGroup>
 </Project>
