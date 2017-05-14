@@ -19,7 +19,7 @@ namespace NHamcrest.Core
 
         private object CreateMatcherForExampleValueUntyped(object value, Type valueType)
         {
-            var methodToCall = GetType().GetMethod("CreateMatcherForExampleValue", BindingFlags.Instance | BindingFlags.NonPublic)
+            var methodToCall = GetType().GetTypeInfo().GetMethod("CreateMatcherForExampleValue", BindingFlags.Instance | BindingFlags.NonPublic)
                 .MakeGenericMethod(valueType);
 
             return methodToCall.Invoke(this, new[] { value });
@@ -27,32 +27,32 @@ namespace NHamcrest.Core
 
         private bool IsIList(Type t)
         {
-            return t.IsGenericType && t.GetGenericTypeDefinition() == typeof(IList<>);
+            return t.GetTypeInfo().IsGenericType && t.GetGenericTypeDefinition() == typeof(IList<>);
         }
 
         private bool ImplementsIList(Type t)
         {
-            return IsIList(t) || t.GetInterfaces().Any(IsIList);
+            return IsIList(t) || t.GetTypeInfo().GetInterfaces().Any(IsIList);
         }
 
         private bool IsIEnumerable(Type t)
         {
-            return t.IsGenericType && t.GetGenericTypeDefinition() == typeof(IEnumerable<>);
+            return t.GetTypeInfo().IsGenericType && t.GetGenericTypeDefinition() == typeof(IEnumerable<>);
         }
 
         private bool ImplementsIEnumerable(Type t)
         {
-            return IsIEnumerable(t) || t.GetInterfaces().Any(IsIEnumerable);
+            return IsIEnumerable(t) || t.GetTypeInfo().GetInterfaces().Any(IsIEnumerable);
         }
 
         private bool IsIDictionary(Type t)
         {
-            return t.IsGenericType && t.GetGenericTypeDefinition() == typeof(IDictionary<,>);
+            return t.GetTypeInfo().IsGenericType && t.GetGenericTypeDefinition() == typeof(IDictionary<,>);
         }
 
         private bool ImplementsIDictionary(Type t)
         {
-            return IsIDictionary(t) || t.GetInterfaces().Any(IsIDictionary);
+            return IsIDictionary(t) || t.GetTypeInfo().GetInterfaces().Any(IsIDictionary);
         }
 
         private IMatcher<TMatched> CreateMatcherForExampleValue<TMatched>(TMatched value)
@@ -116,19 +116,19 @@ namespace NHamcrest.Core
         private static Type[] GetDictionaryElementTypes(IDictionary dictionary)
         {
             var dictionaryGenericInterface = dictionary.GetType()
-                .GetInterfaces()
-                .Single(x => x.IsGenericType && x.GetGenericTypeDefinition() == typeof(IDictionary<,>));
+                .GetTypeInfo().GetInterfaces()
+                .Single(x => x.IsConstructedGenericType && x.GetGenericTypeDefinition() == typeof(IDictionary<,>));
 
-            return dictionaryGenericInterface.GetGenericArguments();
+            return dictionaryGenericInterface.GenericTypeArguments;
         }
 
         private static Type GetEnumerableElementType(IEnumerable list)
         {
             var listGenericInterface = list.GetType()
-                .GetInterfaces()
-                .Single(x => x.IsGenericType && x.GetGenericTypeDefinition() == typeof(IEnumerable<>));
+                .GetTypeInfo().GetInterfaces()
+                .Single(x => x.IsConstructedGenericType && x.GetGenericTypeDefinition() == typeof(IEnumerable<>));
 
-            var elementType = listGenericInterface.GetGenericArguments()[0];
+            var elementType = listGenericInterface.GenericTypeArguments[0];
             return elementType;
         }
 
@@ -189,7 +189,7 @@ namespace NHamcrest.Core
 
         private static IEnumerable<PropertyInfo> GetComparedProperties(Type type)
         {
-            return type
+            return type.GetTypeInfo()
                 .GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.GetProperty)
                 .OrderBy(x => x.Name);
         }

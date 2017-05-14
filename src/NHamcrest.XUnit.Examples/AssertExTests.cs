@@ -70,7 +70,7 @@ namespace NHamcrest.XUnit.Examples
         [Fact]
         public void One_more()
         {
-            Assert.That(() => { throw new InvalidOperationException(); }, Throws.An<AccessViolationException>());
+            Assert.That(() => { throw new InvalidOperationException(); }, Throws.An<NotSupportedException>());
         }
     }
 }

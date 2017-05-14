@@ -1,0 +1,23 @@
+version: 2.0.0.{build}-{branch}
+configuration:
+- Debug
+- Release
+environment:
+  # Don't report back to the mothership
+  DOTNET_CLI_TELEMETRY_OPTOUT: 1
+init:
+- ps: $Env:LABEL = "CI" + $Env:APPVEYOR_BUILD_NUMBER.PadLeft(5, "0")
+before_build:
+#- ps: 'Get-ChildItem Env:'
+- ps: dotnet --info
+- appveyor-retry dotnet restore -v Minimal
+
+build_script:
+- ps: dotnet build -c $Env:CONFIGURATION --version-suffix $Env:LABEL -v minimal
+after_build:
+- ps: dotnet pack "src\NHamcrest" -c $Env:CONFIGURATION --no-build --include-symbols --version-suffix $Env:LABEL -o artifacts
+- ps: dotnet pack "src\NHamcrest.XUnit" -c $Env:CONFIGURATION --no-build --include-symbols --version-suffix $Env:LABEL -o artifacts
+test_script:
+- ps: dotnet test -c $Env:CONFIGURATION --no-build "src\NHamcrest.Tests\NHamcrest.Tests.csproj"
+artifacts:
+- path: src/**/artifacts/**/*.nupkg

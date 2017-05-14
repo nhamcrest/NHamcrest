@@ -1,4 +1,5 @@
 using System;
+using System.Reflection;
 
 namespace NHamcrest.Core
 {
@@ -12,7 +13,7 @@ namespace NHamcrest.Core
         {
             _expectedType = expectedType;
         }
-        
+
         protected override bool Matches(T item, IDescription mismatchDescription)
         {
             if (ReferenceEquals(item, null))
@@ -21,9 +22,9 @@ namespace NHamcrest.Core
                 return false;
             }
 
-            if (_expectedType.IsInstanceOfType(item) == false)
+            if (!_expectedType.GetTypeInfo().IsInstanceOfType(item))
             {
-                mismatchDescription.AppendValue(item).AppendText(" is an instance of {0} not {1}", item.GetType().FullName, 
+                mismatchDescription.AppendValue(item).AppendText(" is an instance of {0} not {1}", item.GetType().FullName,
                     _expectedType.FullName);
                 return false;
             }

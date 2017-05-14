@@ -22,7 +22,7 @@ namespace NHamcrest.NUnit.Tests
         [Test]
         public void One_more()
         {
-            AssertEx.That(() => { throw new InvalidOperationException(); }, Throws.An<AccessViolationException>());
+            AssertEx.That(() => { throw new InvalidOperationException(); }, Throws.An<InvalidOperationException>());
         }
     }
 }

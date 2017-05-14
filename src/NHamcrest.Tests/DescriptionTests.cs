@@ -140,7 +140,6 @@ namespace NHamcrest.Tests
 
             protected override void Append(string str)
             {
-                Console.WriteLine("Appended string: {0}", str);
                 _stringBuilder.Append(str);
             }
 

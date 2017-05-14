@@ -1,14 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net461</TargetFramework>
+    <TargetFramework>netstandard1.5</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <Copyright>Copyright © 2017</Copyright>
-    <Version>2.0.0</Version>
-    <Description />
+    <Version Condition="'$(VersionSuffix)' == ''">2.0.0</Version>
+    <Version Condition="'$(VersionSuffix)' != ''">2.0.0-$(VersionSuffix)</Version>
+    <Description>.NET port of Hamcrest, a matcher library with some extra matchers</Description>
+    <Authors>Graham Hay, Algirdas Lašas</Authors>
+    <Company />
+    <Product />
+    <PackageLicenseUrl>https://github.com/nhamcrest/NHamcrest/blob/master/LICENCE.txt</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/nhamcrest/NHamcrest</PackageProjectUrl>
+    <PackageTags>unittesting hamcrest matcher test</PackageTags>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <FileVersion>2.0.0.0</FileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>1701;1702;1705;1591</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <NoWarn>1701;1702;1705;1591</NoWarn>
   </PropertyGroup>
 </Project>

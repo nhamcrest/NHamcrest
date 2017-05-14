@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.3
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NUnit", "NUnit", "{9985B589-EC67-4FE7-83A1-3A68959CAAAC}"
 EndProject
@@ -21,6 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHamcrest.Tests", "src\NHam
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6554B7FF-2FE4-44AC-A33A-730FC30A0728}"
 	ProjectSection(SolutionItems) = preProject
+		appveyor.yml = appveyor.yml
 		LICENCE.txt = LICENCE.txt
 		README.md = README.md
 	EndProjectSection
