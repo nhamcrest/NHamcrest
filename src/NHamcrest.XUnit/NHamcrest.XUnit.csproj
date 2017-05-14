@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard1.5</TargetFramework>
+    <TargetFrameworks>netstandard1.5;net451</TargetFrameworks>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
 	<Copyright>Copyright © 2017</Copyright>
     <Version Condition="'$(VersionSuffix)' == ''">2.0.0</Version>
