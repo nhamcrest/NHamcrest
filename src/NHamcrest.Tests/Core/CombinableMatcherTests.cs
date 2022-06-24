@@ -14,7 +14,7 @@ namespace NHamcrest.Tests.Core
         {
             var matcher = Matches.Both(new CombinableMatcher<string>(_successfulMatcher).And(_successfulMatcher));
 
-            Assert.Equal(true, matcher.Matches(""));
+            Assert.True(matcher.Matches(""));
         }
 
         [Fact]
@@ -22,20 +22,20 @@ namespace NHamcrest.Tests.Core
         {
             var matcher = Matches.Both(new CombinableMatcher<string>(_successfulMatcher).And(_failingMatcher));
 
-            Assert.Equal(false, matcher.Matches(""));
+            Assert.False(matcher.Matches(""));
         }
 
         [Fact]
         public void Either_returns_match_if_any_succeeds()
         {
             var matcher = Matches.Either(new CombinableMatcher<string>(_successfulMatcher).Or(_successfulMatcher));
-            Assert.Equal(true, matcher.Matches(""));
+            Assert.True(matcher.Matches(""));
 
             matcher = Matches.Either(new CombinableMatcher<string>(_successfulMatcher).Or(_failingMatcher));
-            Assert.Equal(true, matcher.Matches(""));
+            Assert.True(matcher.Matches(""));
 
             matcher = Matches.Either(new CombinableMatcher<string>(_failingMatcher).Or(_successfulMatcher));
-            Assert.Equal(true, matcher.Matches(""));
+            Assert.True(matcher.Matches(""));
         }
 
         [Fact]
@@ -43,7 +43,7 @@ namespace NHamcrest.Tests.Core
         {
             var matcher = Matches.Either(new CombinableMatcher<string>(_failingMatcher).And(_failingMatcher));
 
-            Assert.Equal(false, matcher.Matches(""));
+            Assert.False(matcher.Matches(""));
         }
 
 		[Fact]

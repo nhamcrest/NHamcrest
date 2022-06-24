@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.5;net451</TargetFrameworks>
+    <TargetFramework>net6.0</TargetFramework>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
 	<Copyright>Copyright © 2017</Copyright>
     <Version Condition="'$(VersionSuffix)' == ''">2.0.1</Version>
@@ -15,7 +15,7 @@
     <FileVersion>2.0.1.0</FileVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="xunit.assert" Version="[2.2,3)" />
+    <PackageReference Include="xunit.assert" Version="2.4.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NHamcrest\NHamcrest.csproj" />

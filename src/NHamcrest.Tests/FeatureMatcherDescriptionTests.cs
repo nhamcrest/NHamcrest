@@ -143,10 +143,7 @@ namespace NHamcrest.Tests
         [Theory]
         [InlineData(1, 17, "foo")]
         [InlineData(3, 24, "bar")]
-        public void FeatureMatcherGeneratesNestedPropertyMismatchDescriptionsCorrectly(
-            int intVal,
-            int mismatchedIntVal,
-            string mismatchIntDescription)
+        public void FeatureMatcherGeneratesNestedPropertyMismatchDescriptionsCorrectly(int intVal, int mismatchedIntVal, string mismatchIntDescription)
         {
             var sut = Describe.Object<NestedClass>()
                 .Property(x => x.InnerClass.IntProperty, new FakeMatcher<int>(false, "", i => i == mismatchedIntVal ? mismatchIntDescription : i.ToString()));
