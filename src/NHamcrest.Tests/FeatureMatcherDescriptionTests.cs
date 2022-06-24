@@ -26,11 +26,11 @@ namespace NHamcrest.Tests
         [InlineData(1, "foo", 2, "qux", "failed to match one", "boom!")]
         [InlineData(3, "bar", 17, "baz", "the world exploded", "stack overflow")]
         public void FeatureMatcherGeneratesCorrectMismatchDescriptionForAllFailedProperties(
-            int intVal, 
-            string stringVal, 
-            int mismatchedIntVal, 
-            string mismatchedStringVal, 
-            string mismatchedIntDescription, 
+            int intVal,
+            string stringVal,
+            int mismatchedIntVal,
+            string mismatchedStringVal,
+            string mismatchedIntDescription,
             string mismatchedStringDescription)
         {
             var sut = Describe.Object<SimpleFlatClass>()
@@ -143,7 +143,10 @@ namespace NHamcrest.Tests
         [Theory]
         [InlineData(1, 17, "foo")]
         [InlineData(3, 24, "bar")]
-        public void FeatureMatcherGeneratesNestedPropertyMismatchDescriptionsCorrectly(int intVal, int mismatchedIntVal, string mismatchIntDescription)
+        public void FeatureMatcherGeneratesNestedPropertyMismatchDescriptionsCorrectly(
+            int intVal,
+            int mismatchedIntVal,
+            string mismatchIntDescription)
         {
             var sut = Describe.Object<NestedClass>()
                 .Property(x => x.InnerClass.IntProperty, new FakeMatcher<int>(false, "", i => i == mismatchedIntVal ? mismatchIntDescription : i.ToString()));
