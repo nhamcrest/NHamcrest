@@ -17,10 +17,10 @@ namespace NHamcrest.Tests.Core
         public void Match_if_any_matchers_succeed()
         {
             var matcher = Matches.AnyOf(_successfulMatcher, _failingMatcher);
-            Assert.Equal(true, matcher.Matches(""));
+            Assert.True(matcher.Matches(""));
 
             matcher = Matches.AnyOf(new List<IMatcher<string>> { _failingMatcher, _successfulMatcher });
-            Assert.Equal(true, matcher.Matches(""));
+            Assert.True(matcher.Matches(""));
         }
 
         [Fact]
@@ -28,14 +28,14 @@ namespace NHamcrest.Tests.Core
         {
             var matcher = Matches.AnyOf(_failingMatcher, _failingMatcher);
 
-            Assert.Equal(false, matcher.Matches(""));
+            Assert.False(matcher.Matches(""));
         }
 
         [Fact]
         public void Shortcut_matching_when_matcher_succeeds()
         {
             var matcher = Matches.AnyOf(_successfulMatcher, _explodingMatcher);
-            Assert.Equal(true, matcher.Matches(""));
+            Assert.True(matcher.Matches(""));
         }
 
         [Fact]

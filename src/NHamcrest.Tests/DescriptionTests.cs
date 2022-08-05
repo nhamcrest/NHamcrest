@@ -22,7 +22,7 @@ namespace NHamcrest.Tests
         {
             var nullDescription = Description.None;
 
-            Assert.IsType(typeof(NullDescription), nullDescription);
+            Assert.IsType<NullDescription>(nullDescription);
         }
 
         [Fact]

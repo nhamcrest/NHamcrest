@@ -26,11 +26,11 @@ namespace NHamcrest.Tests
         [InlineData(1, "foo", 2, "qux", "failed to match one", "boom!")]
         [InlineData(3, "bar", 17, "baz", "the world exploded", "stack overflow")]
         public void FeatureMatcherGeneratesCorrectMismatchDescriptionForAllFailedProperties(
-            int intVal, 
-            string stringVal, 
-            int mismatchedIntVal, 
-            string mismatchedStringVal, 
-            string mismatchedIntDescription, 
+            int intVal,
+            string stringVal,
+            int mismatchedIntVal,
+            string mismatchedStringVal,
+            string mismatchedIntDescription,
             string mismatchedStringDescription)
         {
             var sut = Describe.Object<SimpleFlatClass>()

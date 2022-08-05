@@ -13,7 +13,7 @@ namespace NHamcrest.Tests.Core
         {
             var matcher = Matches.AllOf(_successfulMatcher, _successfulMatcher);
 
-            Assert.Equal(true, matcher.Matches(""));
+            Assert.True(matcher.Matches(""));
         }
 
         [Fact]
@@ -21,7 +21,7 @@ namespace NHamcrest.Tests.Core
         {
             var matcher = Matches.AllOf(_failingMatcher, _successfulMatcher);
 
-            Assert.Equal(false, matcher.Matches(""));
+            Assert.False(matcher.Matches(""));
         }
 
         [Fact]
