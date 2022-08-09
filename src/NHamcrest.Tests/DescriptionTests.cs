@@ -119,9 +119,9 @@ namespace NHamcrest.Tests
             Assert.Equal("(\"a\"'\"b\"'\"c\")", _description.ToString());
         }
 
-        [Fact(Skip = "Requires to solve self describing values issue")]
-        public void Append_self_describing_values()
-        {
+        //[Fact(Skip = "Requires to solve self describing values issue")]
+        //public void Append_self_describing_values()
+        //{
             //var values = new List<ISelfDescribing>
             //{
             //    new SelfDescribingValue<int>(1),
@@ -132,7 +132,7 @@ namespace NHamcrest.Tests
             //_description.AppendList("!", ":", "@", values);
 
             //Assert.Equal("!1:2:3@", _description.ToString());
-        }
+        //}
 
         private class TestDescription : Description
         {

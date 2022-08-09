@@ -21,13 +21,13 @@ namespace NHamcrest.Tests
             Assert.Equal(_description, returnedDescription);
         }
 
-        [Fact(Skip = "Self describing values")]
-        public void AppendDescriptionOf_returns_itself()
-        {
+        //[Fact(Skip = "Self describing values")]
+        //public void AppendDescriptionOf_returns_itself()
+        //{
             //var returnedDescription = _description.AppendDescriptionOf(new SelfDescribingValue<string>(""));
 
             //Assert.Equal(_description, returnedDescription);
-        }
+        //}
 
         [Fact]
         public void AppendValue_returns_itself()

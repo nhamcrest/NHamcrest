@@ -48,24 +48,24 @@ namespace NHamcrest.Tests
             Assert.Equal("'t'", description.ToString());
         }
 
-        [Fact(Skip = "Self describing values")]
-        public void Static_ToString_returns_self_described_value()
-        {
+        //[Fact(Skip = "Self describing values")]
+        //public void Static_ToString_returns_self_described_value()
+        //{
             //const string description = "test";
 
             //var text = StringDescription.ToString(new SelfDescribingValue<string>(description));
 
             //Assert.Equal(description, text);
-        }
+        //}
 
-        [Fact(Skip = "Self describing values")]
-        public void Static_AsString_returns_self_described_value()
-        {
+        //[Fact(Skip = "Self describing values")]
+        //public void Static_AsString_returns_self_described_value()
+        //{
             //const string description = "test";
 
             //var text = StringDescription.AsString(new SelfDescribingValue<string>(description));
 
             //Assert.Equal(description, text);
-        }
+        //}
     }
 }

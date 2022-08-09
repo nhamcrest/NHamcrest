@@ -15,8 +15,8 @@ namespace NHamcrest.Tests
                 .Property(x => x.IntProperty, new FakeMatcher<int>(true, intDescription, i => ""))
                 .Property(x => x.StringProperty, new FakeMatcher<string>(true, stringDescription, i => ""));
 
-            var expectedDescription = "a(n) SimpleFlatClass where:\r\n" +
-                                      "    member IntProperty value is " + intDescription + "\r\n" +
+            var expectedDescription = $"a(n) SimpleFlatClass where:{Environment.NewLine}" +
+                                      "    member IntProperty value is " + intDescription + Environment.NewLine +
                                       "    member StringProperty value is " + stringDescription;
 
             sut.ShouldHaveDescription(expectedDescription);
@@ -37,8 +37,8 @@ namespace NHamcrest.Tests
                 .Property(x => x.IntProperty, new FakeMatcher<int>(false, "", i => i == mismatchedIntVal ? mismatchedIntDescription : i.ToString()))
                 .Property(x => x.StringProperty, new FakeMatcher<string>(false, "", i => i == mismatchedStringVal ? mismatchedStringDescription : i));
 
-            var expectedDescription = "was a(n) SimpleFlatClass where:\r\n" +
-                                      "    member IntProperty value " + mismatchedIntDescription + "\r\n" +
+            var expectedDescription = $"was a(n) SimpleFlatClass where:{Environment.NewLine}" +
+                                      "    member IntProperty value " + mismatchedIntDescription + Environment.NewLine +
                                       "    member StringProperty value " + mismatchedStringDescription;
 
             var mismatched = new SimpleFlatClass
@@ -58,7 +58,7 @@ namespace NHamcrest.Tests
             var sut = Describe.Object<SimpleFlatClass>()
                 .Property(x => x.IntProperty, new FakeMatcher<int>(true, intDescription, i => ""));
 
-            var expectedDescription = "a(n) SimpleFlatClass where:\r\n" +
+            var expectedDescription = $"a(n) SimpleFlatClass where:{Environment.NewLine}" +
                                       "    member IntProperty value is " + intDescription;
 
             sut.ShouldHaveDescription(expectedDescription);
@@ -78,7 +78,7 @@ namespace NHamcrest.Tests
                 .Property(x => x.IntProperty, new FakeMatcher<int>(true, "", i => ""))
                 .Property(x => x.StringProperty, new FakeMatcher<string>(false, "", i => i == mismatchedStringVal ? mismatchedStringDescription : i));
 
-            var expectedDescription = "was a(n) SimpleFlatClass where:\r\n" +
+            var expectedDescription = $"was a(n) SimpleFlatClass where:{Environment.NewLine}" +
                                       "    member StringProperty value " + mismatchedStringDescription;
 
             var mismatched = new SimpleFlatClass
@@ -134,7 +134,7 @@ namespace NHamcrest.Tests
             var sut = Describe.Object<NestedClass>()
                 .Property(x => x.InnerClass.IntProperty, new FakeMatcher<int>(true, intDescription, i => ""));
 
-            var expectedDescription = "a(n) NestedClass where:\r\n" +
+            var expectedDescription = $"a(n) NestedClass where:{Environment.NewLine}" +
                                       "    member InnerClass.IntProperty value is " + intDescription;
 
             sut.ShouldHaveDescription(expectedDescription);
@@ -151,7 +151,7 @@ namespace NHamcrest.Tests
             var sut = Describe.Object<NestedClass>()
                 .Property(x => x.InnerClass.IntProperty, new FakeMatcher<int>(false, "", i => i == mismatchedIntVal ? mismatchIntDescription : i.ToString()));
 
-            var expectedDescription = "was a(n) NestedClass where:\r\n" +
+            var expectedDescription = $"was a(n) NestedClass where:{Environment.NewLine}" +
                                       "    member InnerClass.IntProperty value " + mismatchIntDescription;
 
             var mismatched = new NestedClass
@@ -177,9 +177,9 @@ namespace NHamcrest.Tests
                     .Property(x => x.InnerClass, Describe.Object<SimpleFlatClass>()
                         .Property(x => x.IntProperty, new FakeMatcher<int>(true, intDescription, i => ""))));
 
-            var expectedDescription = "a(n) DoubleNestedClass where:\r\n" +
-                                      "    member Nested value is a(n) NestedClass where:\r\n" +
-                                      "        member InnerClass value is a(n) SimpleFlatClass where:\r\n" +
+            var expectedDescription = $"a(n) DoubleNestedClass where:{Environment.NewLine}" +
+                                      $"    member Nested value is a(n) NestedClass where:{Environment.NewLine}" +
+                                      $"        member InnerClass value is a(n) SimpleFlatClass where:{Environment.NewLine}" +
                                       "            member IntProperty value is " + intDescription;
 
             sut.ShouldHaveDescription(expectedDescription);
@@ -198,9 +198,9 @@ namespace NHamcrest.Tests
                     .Property(x => x.InnerClass, Describe.Object<SimpleFlatClass>()
                         .Property(x => x.IntProperty, new FakeMatcher<int>(false, "", i => i == mismatchedIntVal ? mismatchIntDescription : i.ToString()))));
 
-            var expectedDescription = "was a(n) DoubleNestedClass where:\r\n" +
-                                      "    member Nested value was a(n) NestedClass where:\r\n" +
-                                      "        member InnerClass value was a(n) SimpleFlatClass where:\r\n" +
+            var expectedDescription = $"was a(n) DoubleNestedClass where:{Environment.NewLine}" +
+                                      $"    member Nested value was a(n) NestedClass where:{Environment.NewLine}" +
+                                      $"        member InnerClass value was a(n) SimpleFlatClass where:{Environment.NewLine}" +
                                       "            member IntProperty value " + mismatchIntDescription;
 
             var mismatched = new DoubleNestedClass()
@@ -227,8 +227,8 @@ namespace NHamcrest.Tests
             var sut = Describe.Object<SimpleFlatClass>()
                 .Cast<DerivedFlatClass>(c => c.Property(x => x.AnotherIntProperty, new FakeMatcher<int>(true, intDescription, i => "")));
 
-            var expectedDescription = "a(n) SimpleFlatClass where:\r\n" +
-                                      "    subtype DerivedFlatClass where:\r\n" +
+            var expectedDescription = $"a(n) SimpleFlatClass where:{Environment.NewLine}" +
+                                      $"    subtype DerivedFlatClass where:{Environment.NewLine}" +
                                       "        member AnotherIntProperty value is " + intDescription;
 
             sut.ShouldHaveDescription(expectedDescription);
@@ -245,8 +245,8 @@ namespace NHamcrest.Tests
             var sut = Describe.Object<SimpleFlatClass>()
                 .Cast<DerivedFlatClass>(c => c.Property(x => x.AnotherIntProperty, new FakeMatcher<int>(false, "", i => i == mismatchedIntVal ? mismatchIntDescription : i.ToString())));
 
-            var expectedDescription = "was a(n) SimpleFlatClass {DerivedFlatClass} where:\r\n" +
-                                      "    subtype DerivedFlatClass where:\r\n" +
+            var expectedDescription = $"was a(n) SimpleFlatClass {{DerivedFlatClass}} where:{Environment.NewLine}" +
+                                      $"    subtype DerivedFlatClass where:{Environment.NewLine}" +
                                       "        member AnotherIntProperty value " + mismatchIntDescription;
 
             var mismatched = new DerivedFlatClass
@@ -263,7 +263,7 @@ namespace NHamcrest.Tests
             var sut = Describe.Object<SimpleFlatClass>()
                 .Cast<DerivedFlatClass>(c => c.Property(x => x.AnotherIntProperty, new FakeMatcher<int>(true, "", i => "")));
 
-            var expectedDescription = "was a(n) SimpleFlatClass where:\r\n" +
+            var expectedDescription = $"was a(n) SimpleFlatClass where:{Environment.NewLine}" +
                                       "    it was not of type DerivedFlatClass";
 
             var mismatched = new SimpleFlatClass();
