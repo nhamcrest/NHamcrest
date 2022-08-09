@@ -1,0 +1,34 @@
+name: Build and Test
+
+on:
+  push:
+    branches: 
+    - master
+  pull_request:
+    branches: 
+    - master
+
+jobs:
+  build:
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, maxOs-latest, ubuntu-latest]
+        dotnet: [6.0.302]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: ${{ matrix.dotnet }}
+        
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore
+    - name: Test
+      run: dotnet test --no-build --verbosity normal
