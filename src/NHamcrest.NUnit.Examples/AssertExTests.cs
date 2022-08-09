@@ -1,6 +1,5 @@
 ﻿using System;
 using NUnit.Framework;
-using Is = NHamcrest.Is;
 using Throws = NHamcrest.Core.Throws;
 
 namespace NHamcrest.NUnit.Tests
@@ -16,13 +15,13 @@ namespace NHamcrest.NUnit.Tests
         [Test]
         public void Fail()
         {
-            AssertEx.That(1, Is.EqualTo(3));
+            AssertEx.That(1 == 3, Is.False());
         }
 
         [Test]
         public void One_more()
         {
-            AssertEx.That(() => { throw new InvalidOperationException(); }, Throws.An<InvalidOperationException>());
+            AssertEx.That(() => throw new InvalidOperationException(), Throws.An<InvalidOperationException>());
         }
     }
 }

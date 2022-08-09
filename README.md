@@ -1,6 +1,6 @@
 NHamcrest
 =============
-
-[![Build status](https://ci.appveyor.com/api/projects/status/d3mr2mg068n4fqcb/branch/master?svg=true)](https://ci.appveyor.com/project/Lashas83/nhamcrest)
+[![Build and Test](https://github.com/nhamcrest/NHamcrest/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/nhamcrest/NHamcrest/actions/workflows/main.yml)
+[![NuGet Status](https://buildstats.info/nuget/NHamcrest)](https://www.nuget.org/packages/NHamcrest/)
 
 This is idiomatic C# port of (http://code.google.com/p/hamcrest/), specifically the Java version.

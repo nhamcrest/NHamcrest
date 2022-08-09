@@ -1,5 +1,3 @@
-
-
 using NHamcrest.Core;
 using Xunit;
 
@@ -41,7 +39,7 @@ namespace NHamcrest.Tests.Core
 
             matcher.Matches("");
 
-            Assert.Equal(true, flag);
+            Assert.True(flag);
         }
     }
 }
