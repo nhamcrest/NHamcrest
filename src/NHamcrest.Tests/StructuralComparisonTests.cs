@@ -89,8 +89,8 @@ namespace NHamcrest.Tests
 
         protected override string ExpectMatcherDescription()
         {
-            return "a(n) ISimpleFlatClass {SimpleFlatClass} where:\r\n" +
-                "    member IntProperty value is 14\r\n" +
+            return $"a(n) ISimpleFlatClass {{SimpleFlatClass}} where:{Environment.NewLine}" +
+                $"    member IntProperty value is 14{Environment.NewLine}" +
                 "    member StringProperty value is \"foo\"";
         }
     }
@@ -108,8 +108,8 @@ namespace NHamcrest.Tests
 
         protected override string ExpectMatcherDescription()
         {
-            return "a(n) SimpleFlatClass where:\r\n" +
-                "    member IntProperty value is 14\r\n" +
+            return $"a(n) SimpleFlatClass where:{Environment.NewLine}" +
+                $"    member IntProperty value is 14{Environment.NewLine}" +
                 "    member StringProperty value is \"foo\"";
         }
     }
@@ -137,8 +137,8 @@ namespace NHamcrest.Tests
 
         protected override string ExpectMatcherDescription()
         {
-            return "a(n) ISimpleFlatClass {SimpleFlatClass} where:\r\n" +
-                "    member IntProperty value is 14\r\n" +
+            return $"a(n) ISimpleFlatClass {{SimpleFlatClass}} where:{Environment.NewLine}" +
+                $"    member IntProperty value is 14{Environment.NewLine}" +
                 "    member StringProperty value is \"foo\"";
         }
     }
@@ -156,8 +156,8 @@ namespace NHamcrest.Tests
 
         protected override string ExpectMatcherDescription()
         {
-            return "a(n) SimpleFlatClass where:\r\n" +
-                "    member IntProperty value is 14\r\n" +
+            return $"a(n) SimpleFlatClass where:{Environment.NewLine}" +
+                $"    member IntProperty value is 14{Environment.NewLine}" +
                 "    member StringProperty value is \"foo\"";
         }
 
@@ -172,8 +172,8 @@ namespace NHamcrest.Tests
 
         protected override string ExpectMismatchDescription()
         {
-            return "was a(n) SimpleFlatClass where:\r\n" +
-                "    member IntProperty value was 1\r\n" +
+            return $"was a(n) SimpleFlatClass where:{Environment.NewLine}" +
+                $"    member IntProperty value was 1{Environment.NewLine}" +
                 "    member StringProperty value was \"bar\"";
         }
     }
@@ -195,10 +195,10 @@ namespace NHamcrest.Tests
 
         protected override string ExpectMatcherDescription()
         {
-            return "a(n) NestedClass where:\r\n" +
-                "    member InnerClass value is a(n) SimpleFlatClass where:\r\n" +
-                "        member IntProperty value is 14\r\n" +
-                "        member StringProperty value is \"foo\"\r\n" +
+            return $"a(n) NestedClass where:{Environment.NewLine}" +
+                $"    member InnerClass value is a(n) SimpleFlatClass where:{Environment.NewLine}" +
+                $"        member IntProperty value is 14{Environment.NewLine}" +
+                $"        member StringProperty value is \"foo\"{Environment.NewLine}" +
                 "    member SomeNumber value is 14.3m";
         }
     }
@@ -220,10 +220,10 @@ namespace NHamcrest.Tests
 
         protected override string ExpectMatcherDescription()
         {
-            return "a(n) NestedClass where:\r\n" +
-                "    member InnerClass value is a(n) SimpleFlatClass where:\r\n" +
-                "        member IntProperty value is 14\r\n" +
-                "        member StringProperty value is \"foo\"\r\n" +
+            return $"a(n) NestedClass where:{Environment.NewLine}" +
+                $"    member InnerClass value is a(n) SimpleFlatClass where:{Environment.NewLine}" +
+                $"        member IntProperty value is 14{Environment.NewLine}" +
+                $"        member StringProperty value is \"foo\"{Environment.NewLine}" +
                 "    member SomeNumber value is 14.3m";
         }
 
@@ -242,8 +242,8 @@ namespace NHamcrest.Tests
 
         protected override string ExpectMismatchDescription()
         {
-            return "was a(n) NestedClass where:\r\n" +
-                "    member InnerClass value was a(n) SimpleFlatClass where:\r\n" +
+            return $"was a(n) NestedClass where:{Environment.NewLine}" +
+                $"    member InnerClass value was a(n) SimpleFlatClass where:{Environment.NewLine}" +
                 "        member StringProperty value was \"bar\"";
         }
     }
@@ -273,14 +273,14 @@ namespace NHamcrest.Tests
 
         protected override string ExpectMatcherDescription()
         {
-            return "a(n) ClassWithArrayOfClasses where:\r\n" +
-                "    member Id value is 3617cbea-bc78-4aa6-84a5-8364234a2c67\r\n" +
-                "    member OtherThings value is a list containing:\r\n" +
-                "        a(n) SimpleFlatClass where:\r\n" +
-                "            member IntProperty value is 3\r\n" +
-                "            member StringProperty value is \"foo\",\r\n" +
-                "        a(n) SimpleFlatClass where:\r\n" +
-                "            member IntProperty value is 7\r\n" +
+            return $"a(n) ClassWithArrayOfClasses where:{Environment.NewLine}" +
+                $"    member Id value is 3617cbea-bc78-4aa6-84a5-8364234a2c67{Environment.NewLine}" +
+                $"    member OtherThings value is a list containing:{Environment.NewLine}" +
+                $"        a(n) SimpleFlatClass where:{Environment.NewLine}" +
+                $"            member IntProperty value is 3{Environment.NewLine}" +
+                $"            member StringProperty value is \"foo\",{Environment.NewLine}" +
+                $"        a(n) SimpleFlatClass where:{Environment.NewLine}" +
+                $"            member IntProperty value is 7{Environment.NewLine}" +
                 "            member StringProperty value is null";
         }
     }
@@ -310,14 +310,14 @@ namespace NHamcrest.Tests
 
         protected override string ExpectMatcherDescription()
         {
-            return "a(n) ClassWithArrayOfClasses where:\r\n" +
-                "    member Id value is 3617cbea-bc78-4aa6-84a5-8364234a2c67\r\n" +
-                "    member OtherThings value is a list containing:\r\n" +
-                "        a(n) SimpleFlatClass where:\r\n" +
-                "            member IntProperty value is 3\r\n" +
-                "            member StringProperty value is \"foo\",\r\n" +
-                "        a(n) SimpleFlatClass where:\r\n" +
-                "            member IntProperty value is 7\r\n" +
+            return $"a(n) ClassWithArrayOfClasses where:{Environment.NewLine}" +
+                $"    member Id value is 3617cbea-bc78-4aa6-84a5-8364234a2c67{Environment.NewLine}" +
+                $"    member OtherThings value is a list containing:{Environment.NewLine}" +
+                $"        a(n) SimpleFlatClass where:{Environment.NewLine}" +
+                $"            member IntProperty value is 3{Environment.NewLine}" +
+                $"            member StringProperty value is \"foo\",{Environment.NewLine}" +
+                $"        a(n) SimpleFlatClass where:{Environment.NewLine}" +
+                $"            member IntProperty value is 7{Environment.NewLine}" +
                 "            member StringProperty value is null";
         }
 
@@ -339,7 +339,7 @@ namespace NHamcrest.Tests
 
         protected override string ExpectMismatchDescription()
         {
-            return "was a(n) ClassWithArrayOfClasses where:\r\n" +
+            return $"was a(n) ClassWithArrayOfClasses where:{Environment.NewLine}" +
                 "    member OtherThings value was too short (expected to be of length 2, was 1)";
         }
     }
@@ -369,14 +369,14 @@ namespace NHamcrest.Tests
 
         protected override string ExpectMatcherDescription()
         {
-            return "a(n) ClassWithListOfClasses where:\r\n" +
-                "    member IntValue value is 7\r\n" +
-                "    member OtherThings value is a list containing:\r\n" +
-                "        a(n) SimpleFlatClass where:\r\n" +
-                "            member IntProperty value is 3\r\n" +
-                "            member StringProperty value is \"foo\",\r\n" +
-                "        a(n) SimpleFlatClass where:\r\n" +
-                "            member IntProperty value is 7\r\n" +
+            return $"a(n) ClassWithListOfClasses where:{Environment.NewLine}" +
+                $"    member IntValue value is 7{Environment.NewLine}" +
+                $"    member OtherThings value is a list containing:{Environment.NewLine}" +
+                $"        a(n) SimpleFlatClass where:{Environment.NewLine}" +
+                $"            member IntProperty value is 3{Environment.NewLine}" +
+                $"            member StringProperty value is \"foo\",{Environment.NewLine}" +
+                $"        a(n) SimpleFlatClass where:{Environment.NewLine}" +
+                $"            member IntProperty value is 7{Environment.NewLine}" +
                 "            member StringProperty value is null";
         }
     }
@@ -406,14 +406,14 @@ namespace NHamcrest.Tests
 
         protected override string ExpectMatcherDescription()
         {
-            return "a(n) ClassWithListOfClasses where:\r\n" +
-                "    member IntValue value is 45\r\n" +
-                "    member OtherThings value is a list containing:\r\n" +
-                "        a(n) SimpleFlatClass where:\r\n" +
-                "            member IntProperty value is 3\r\n" +
-                "            member StringProperty value is \"foo\",\r\n" +
-                "        a(n) SimpleFlatClass where:\r\n" +
-                "            member IntProperty value is 7\r\n" +
+            return $"a(n) ClassWithListOfClasses where:{Environment.NewLine}" +
+                $"    member IntValue value is 45{Environment.NewLine}" +
+                $"    member OtherThings value is a list containing:{Environment.NewLine}" +
+                $"        a(n) SimpleFlatClass where:{Environment.NewLine}" +
+                $"            member IntProperty value is 3{Environment.NewLine}" +
+                $"            member StringProperty value is \"foo\",{Environment.NewLine}" +
+                $"        a(n) SimpleFlatClass where:{Environment.NewLine}" +
+                $"            member IntProperty value is 7{Environment.NewLine}" +
                 "            member StringProperty value is null";
         }
 
@@ -440,12 +440,12 @@ namespace NHamcrest.Tests
 
         protected override string ExpectMismatchDescription()
         {
-            return "was a(n) ClassWithListOfClasses where:\r\n" +
-                "    member OtherThings value was not matched at position 1:\r\n" +
-                "        expected: a(n) SimpleFlatClass where:\r\n" +
-                "            member IntProperty value is 7\r\n" +
-                "            member StringProperty value is null\r\n" +
-                "        but: was a(n) SimpleFlatClass where:\r\n" +
+            return $"was a(n) ClassWithListOfClasses where:{Environment.NewLine}" +
+                $"    member OtherThings value was not matched at position 1:{Environment.NewLine}" +
+                $"        expected: a(n) SimpleFlatClass where:{Environment.NewLine}" +
+                $"            member IntProperty value is 7{Environment.NewLine}" +
+                $"            member StringProperty value is null{Environment.NewLine}" +
+                $"        but: was a(n) SimpleFlatClass where:{Environment.NewLine}" +
                 "            member StringProperty value was \"bar\"";
         }
     }
@@ -475,14 +475,14 @@ namespace NHamcrest.Tests
 
         protected override string ExpectMatcherDescription()
         {
-            return "a(n) ClassWithEnumerableOfClasses where:\r\n" +
-                "    member IntValue value is 7\r\n" +
-                "    member OtherThings value is a list containing:\r\n" +
-                "        a(n) SimpleFlatClass where:\r\n" +
-                "            member IntProperty value is 3\r\n" +
-                "            member StringProperty value is \"foo\",\r\n" +
-                "        a(n) SimpleFlatClass where:\r\n" +
-                "            member IntProperty value is 7\r\n" +
+            return $"a(n) ClassWithEnumerableOfClasses where:{Environment.NewLine}" +
+                $"    member IntValue value is 7{Environment.NewLine}" +
+                $"    member OtherThings value is a list containing:{Environment.NewLine}" +
+                $"        a(n) SimpleFlatClass where:{Environment.NewLine}" +
+                $"            member IntProperty value is 3{Environment.NewLine}" +
+                $"            member StringProperty value is \"foo\",{Environment.NewLine}" +
+                $"        a(n) SimpleFlatClass where:{Environment.NewLine}" +
+                $"            member IntProperty value is 7{Environment.NewLine}" +
                 "            member StringProperty value is null";
         }
     }
@@ -512,14 +512,14 @@ namespace NHamcrest.Tests
 
         protected override string ExpectMatcherDescription()
         {
-            return "a(n) ClassWithEnumerableOfClasses where:\r\n" +
-                "    member IntValue value is 45\r\n" +
-                "    member OtherThings value is a list containing:\r\n" +
-                "        a(n) SimpleFlatClass where:\r\n" +
-                "            member IntProperty value is 3\r\n" +
-                "            member StringProperty value is \"foo\",\r\n" +
-                "        a(n) SimpleFlatClass where:\r\n" +
-                "            member IntProperty value is 7\r\n" +
+            return $"a(n) ClassWithEnumerableOfClasses where:{Environment.NewLine}" +
+                $"    member IntValue value is 45{Environment.NewLine}" +
+                $"    member OtherThings value is a list containing:{Environment.NewLine}" +
+                $"        a(n) SimpleFlatClass where:{Environment.NewLine}" +
+                $"            member IntProperty value is 3{Environment.NewLine}" +
+                $"            member StringProperty value is \"foo\",{Environment.NewLine}" +
+                $"        a(n) SimpleFlatClass where:{Environment.NewLine}" +
+                $"            member IntProperty value is 7{Environment.NewLine}" +
                 "            member StringProperty value is null";
         }
 
@@ -551,7 +551,7 @@ namespace NHamcrest.Tests
 
         protected override string ExpectMismatchDescription()
         {
-            return "was a(n) ClassWithEnumerableOfClasses where:\r\n" +
+            return $"was a(n) ClassWithEnumerableOfClasses where:{Environment.NewLine}" +
                 "    member OtherThings value was too long (expected to be of length 2, was 3)";
         }
     }
@@ -585,18 +585,18 @@ namespace NHamcrest.Tests
 
         protected override string ExpectMatcherDescription()
         {
-            return "a(n) ClassWithDictionaryOfClasses where:\r\n" +
-                "    member Map value is a dictionary consisting of:\r\n" +
-                "        an entry where:\r\n" +
-                "            key: \"bar\"\r\n" +
-                "            value: a(n) SimpleFlatClass where:\r\n" +
-                "                member IntProperty value is 2\r\n" +
-                "                member StringProperty value is \"baz\",\r\n" +
-                "        an entry where:\r\n" +
-                "            key: \"quux\"\r\n" +
-                "            value: a(n) SimpleFlatClass where:\r\n" +
-                "                member IntProperty value is 1\r\n" +
-                "                member StringProperty value is null\r\n" +
+            return $"a(n) ClassWithDictionaryOfClasses where:{Environment.NewLine}" +
+                $"    member Map value is a dictionary consisting of:{Environment.NewLine}" +
+                $"        an entry where:{Environment.NewLine}" +
+                $"            key: \"bar\"{Environment.NewLine}" +
+                $"            value: a(n) SimpleFlatClass where:{Environment.NewLine}" +
+                $"                member IntProperty value is 2{Environment.NewLine}" +
+                $"                member StringProperty value is \"baz\",{Environment.NewLine}" +
+                $"        an entry where:{Environment.NewLine}" +
+                $"            key: \"quux\"{Environment.NewLine}" +
+                $"            value: a(n) SimpleFlatClass where:{Environment.NewLine}" +
+                $"                member IntProperty value is 1{Environment.NewLine}" +
+                $"                member StringProperty value is null{Environment.NewLine}" +
                 "    member StringValue value is \"foo\"";
         }
     }
@@ -630,18 +630,18 @@ namespace NHamcrest.Tests
 
         protected override string ExpectMatcherDescription()
         {
-            return "a(n) ClassWithDictionaryOfClasses where:\r\n" +
-                "    member Map value is a dictionary consisting of:\r\n" +
-                "        an entry where:\r\n" +
-                "            key: \"key2\"\r\n" +
-                "            value: a(n) SimpleFlatClass where:\r\n" +
-                "                member IntProperty value is 7\r\n" +
-                "                member StringProperty value is \"anything\",\r\n" +
-                "        an entry where:\r\n" +
-                "            key: \"key1\"\r\n" +
-                "            value: a(n) SimpleFlatClass where:\r\n" +
-                "                member IntProperty value is 44\r\n" +
-                "                member StringProperty value is \"baz\"\r\n" +
+            return $"a(n) ClassWithDictionaryOfClasses where:{Environment.NewLine}" +
+                $"    member Map value is a dictionary consisting of:{Environment.NewLine}" +
+                $"        an entry where:{Environment.NewLine}" +
+                $"            key: \"key2\"{Environment.NewLine}" +
+                $"            value: a(n) SimpleFlatClass where:{Environment.NewLine}" +
+                $"                member IntProperty value is 7{Environment.NewLine}" +
+                $"                member StringProperty value is \"anything\",{Environment.NewLine}" +
+                $"        an entry where:{Environment.NewLine}" +
+                $"            key: \"key1\"{Environment.NewLine}" +
+                $"            value: a(n) SimpleFlatClass where:{Environment.NewLine}" +
+                $"                member IntProperty value is 44{Environment.NewLine}" +
+                $"                member StringProperty value is \"baz\"{Environment.NewLine}" +
                 "    member StringValue value is \"whatever\"";
         }
 
@@ -665,16 +665,16 @@ namespace NHamcrest.Tests
 
         protected override string ExpectMismatchDescription()
         {
-            return "was a(n) ClassWithDictionaryOfClasses where:\r\n" +
-                "    member Map value was a dictionary that:\r\n" +
-                "        had a different entry where:\r\n" +
-                "            key: \"key1\"\r\n" +
-                "            value: was a(n) SimpleFlatClass where:\r\n" +
-                "                member IntProperty value was 43,\r\n" +
-                "        did not have an entry where:\r\n" +
-                "            key: \"key2\"\r\n" +
-                "            value: a(n) SimpleFlatClass where:\r\n" +
-                "                member IntProperty value is 7\r\n" +
+            return $"was a(n) ClassWithDictionaryOfClasses where:{Environment.NewLine}" +
+                $"    member Map value was a dictionary that:{Environment.NewLine}" +
+                $"        had a different entry where:{Environment.NewLine}" +
+                $"            key: \"key1\"{Environment.NewLine}" +
+                $"            value: was a(n) SimpleFlatClass where:{Environment.NewLine}" +
+                $"                member IntProperty value was 43,{Environment.NewLine}" +
+                $"        did not have an entry where:{Environment.NewLine}" +
+                $"            key: \"key2\"{Environment.NewLine}" +
+                $"            value: a(n) SimpleFlatClass where:{Environment.NewLine}" +
+                $"                member IntProperty value is 7{Environment.NewLine}" +
                 "                member StringProperty value is \"anything\"";
         }
     }
