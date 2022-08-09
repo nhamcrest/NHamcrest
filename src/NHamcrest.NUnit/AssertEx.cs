@@ -5,18 +5,43 @@ using NUnit.Framework.Internal;
 
 namespace NHamcrest.NUnit
 {
+    /// <summary>
+    /// Assert extension for NUnit.
+    /// </summary>
     public class AssertEx
     {
+        /// <summary>
+        /// Checks if actual matches in IMatcher.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="actual"></param>
+        /// <param name="matcher"></param>
         public static void That<T>(T actual, IMatcher<T> matcher)
         {
             That(actual, matcher, null, null);
         }
 
+        /// <summary>
+        /// Checks if actual matches in IMatcher.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="actual"></param>
+        /// <param name="matcher"></param>
+        /// <param name="message"></param>
         public static void That<T>(T actual, IMatcher<T> matcher, string message)
         {
             That(actual, matcher, message, null);
         }
 
+        /// <summary>
+        /// Checks if actual matches in IMatcher.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="actual"></param>
+        /// <param name="matcher"></param>
+        /// <param name="message"></param>
+        /// <param name="args"></param>
+        /// <exception cref="AssertionException"></exception>
         public static void That<T>(T actual, IMatcher<T> matcher, string message, params object[] args)
         {
             if (matcher.Matches(actual))
