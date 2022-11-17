@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <Version>3.0.1</Version>
+    <TargetFramework>net7.0</TargetFramework>
+    <Version>3.1.0</Version>
     <Description />
   </PropertyGroup>
   <ItemGroup>
@@ -16,7 +16,7 @@
     </PackageReference>
     <PackageReference Include="Castle.Core" Version="5.1.0" />
     <PackageReference Include="Moq" Version="4.18.2" />
-    <PackageReference Include="Microsoft.NET.TEST.Sdk" Version="17.2.0" />
+    <PackageReference Include="Microsoft.NET.TEST.Sdk" Version="17.4.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NHamcrest.XUnit\NHamcrest.XUnit.csproj" />
