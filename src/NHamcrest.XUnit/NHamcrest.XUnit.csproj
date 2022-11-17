@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net6.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net7.0</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <Copyright>Copyright © 2022</Copyright>
-    <Version Condition="'$(VersionSuffix)' == ''">3.0.1</Version>
-    <Version Condition="'$(VersionSuffix)' != ''">3.0.1-$(VersionSuffix)</Version>
+    <Version Condition="'$(VersionSuffix)' == ''">3.1.0</Version>
+    <Version Condition="'$(VersionSuffix)' != ''">3.1.0-$(VersionSuffix)</Version>
     <Description>Adapter for xunit for using NHamcrest library</Description>
     <Authors>Graham Hay, Algirdas Lašas</Authors>
     <PackageLicenseUrl>https://github.com/nhamcrest/NHamcrest/blob/master/LICENCE.txt</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/nhamcrest/NHamcrest</PackageProjectUrl>
     <PackageTags>unittesting hamcrest matcher test</PackageTags>
-    <AssemblyVersion>3.0.1.0</AssemblyVersion>
-    <FileVersion>3.0.1.0</FileVersion>
+    <AssemblyVersion>3.1.0.0</AssemblyVersion>
+    <FileVersion>3.1.0.0</FileVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="xunit.assert" Version="2.4.2" />
