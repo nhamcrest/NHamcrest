@@ -46,7 +46,7 @@ namespace NHamcrest.NUnit
         {
             if (matcher.Matches(actual))
                 return;
-            
+
             var writer = new TextMessageWriter(message, args);
 
             WriteExpected(matcher, writer);
@@ -67,7 +67,7 @@ namespace NHamcrest.NUnit
 
         private static void WriteActual<T>(T actual, IMatcher<T> matcher, TextWriter writer)
         {
-            writer.Write("  But ");
+            writer.Write(TextMessageWriter.Pfx_Actual);
             var mismatchDescription = new StringDescription();
             matcher.DescribeMismatch(actual, mismatchDescription);
             writer.Write(mismatchDescription.ToString());
