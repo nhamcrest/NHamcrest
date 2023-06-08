@@ -1,4 +1,3 @@
-
 using NHamcrest.Core;
 using Xunit;
 using NHAssert = NHamcrest.Tests.Internal.Assert;
@@ -43,7 +42,7 @@ namespace NHamcrest.Tests.Core
 
             isEqual.DescribeTo(description);
 
-            Assert.Equal("\"" + test + "\"", description.ToString());
+            Assert.Equal($"\"{test}\"", description.ToString());
         }
     }
 }
