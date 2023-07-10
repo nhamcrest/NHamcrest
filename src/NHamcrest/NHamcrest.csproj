@@ -5,15 +5,15 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <Copyright>Copyright © 2023</Copyright>
-    <Version Condition="'$(VersionSuffix)' == ''">3.2.0</Version>
-    <Version Condition="'$(VersionSuffix)' != ''">3.2.0-$(VersionSuffix)</Version>
+    <Version Condition="'$(VersionSuffix)' == ''">3.3.0</Version>
+    <Version Condition="'$(VersionSuffix)' != ''">3.3.0-$(VersionSuffix)</Version>
     <Description>.NET port of Hamcrest, a matcher library with some extra matchers</Description>
     <Authors>Graham Hay, Algirdas Lašas, Constantin Tews</Authors>
     <PackageLicenseUrl>https://github.com/nhamcrest/NHamcrest/blob/master/LICENCE.txt</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/nhamcrest/NHamcrest</PackageProjectUrl>
     <PackageTags>unittesting hamcrest matcher test</PackageTags>
-    <AssemblyVersion>3.2.0.0</AssemblyVersion>
-    <FileVersion>3.2.0.0</FileVersion>
+    <AssemblyVersion>3.3.0.0</AssemblyVersion>
+    <FileVersion>3.3.0.0</FileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;1705;1591</NoWarn>
