@@ -1,4 +1,5 @@
-﻿using NHamcrest.Core;
+﻿using Xunit.Sdk;
+using NHamcrest.Core;
 
 namespace NHamcrest.XUnit
 {
@@ -13,7 +14,7 @@ namespace NHamcrest.XUnit
         /// <typeparam name="T"></typeparam>
         /// <param name="actual"></param>
         /// <param name="matcher"></param>
-        /// <exception cref="MatchException"></exception>
+        /// <exception cref="EqualException"></exception>
         public static void That<T>(T actual, IMatcher<T> matcher)
         {
             That(actual, matcher, null);
@@ -26,6 +27,7 @@ namespace NHamcrest.XUnit
         /// <param name="actual"></param>
         /// <param name="matcher"></param>
         /// <param name="message"></param>
+        /// <exception cref="EqualException"></exception>
         public static void That<T>(T actual, IMatcher<T> matcher, string message)
         {
             That(actual, matcher, message, null);
@@ -39,7 +41,7 @@ namespace NHamcrest.XUnit
         /// <param name="matcher"></param>
         /// <param name="message"></param>
         /// <param name="args"></param>
-        /// <exception cref="MatchException"></exception>
+        /// <exception cref="EqualException"></exception>
         public static void That<T>(T actual, IMatcher<T> matcher, string message, params object[] args)
         {
             if (matcher.Matches(actual))
@@ -55,7 +57,7 @@ namespace NHamcrest.XUnit
                 ? string.Format(message, args)
                 : message;
 
-            throw new MatchException(description.ToString(), mismatchDescription.ToString(), userMessage);
+            throw EqualException.ForMismatchedValues(description.ToString(), mismatchDescription.ToString(), userMessage);
         }
     }
 }
