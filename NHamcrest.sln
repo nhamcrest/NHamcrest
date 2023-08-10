@@ -1,23 +1,23 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26403.7
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34003.232
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NUnit", "NUnit", "{9985B589-EC67-4FE7-83A1-3A68959CAAAC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "XUnit", "XUnit", "{0EE42F24-2D10-425F-814F-F2C67431C5B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHamcrest.NUnit", "src\NHamcrest.NUnit\NHamcrest.NUnit.csproj", "{ED5F34C9-D815-46CD-BAC2-AC62A795894B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NHamcrest.NUnit", "src\NHamcrest.NUnit\NHamcrest.NUnit.csproj", "{ED5F34C9-D815-46CD-BAC2-AC62A795894B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHamcrest.NUnit.Examples", "src\NHamcrest.NUnit.Examples\NHamcrest.NUnit.Examples.csproj", "{3047BC0C-DD71-4EC8-9835-15B9A41B2C62}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NHamcrest.NUnit.Examples", "src\NHamcrest.NUnit.Examples\NHamcrest.NUnit.Examples.csproj", "{3047BC0C-DD71-4EC8-9835-15B9A41B2C62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHamcrest.XUnit", "src\NHamcrest.XUnit\NHamcrest.XUnit.csproj", "{235F5147-DCDC-439C-9220-DF2E5FB23F66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NHamcrest.XUnit", "src\NHamcrest.XUnit\NHamcrest.XUnit.csproj", "{235F5147-DCDC-439C-9220-DF2E5FB23F66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHamcrest.XUnit.Examples", "src\NHamcrest.XUnit.Examples\NHamcrest.XUnit.Examples.csproj", "{FB567185-A872-4D8E-A4C5-CC3D4430D7DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NHamcrest.XUnit.Examples", "src\NHamcrest.XUnit.Examples\NHamcrest.XUnit.Examples.csproj", "{FB567185-A872-4D8E-A4C5-CC3D4430D7DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHamcrest", "src\NHamcrest\NHamcrest.csproj", "{BF7E7EB3-0C15-4F55-85F9-B2A7564D98D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NHamcrest", "src\NHamcrest\NHamcrest.csproj", "{BF7E7EB3-0C15-4F55-85F9-B2A7564D98D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHamcrest.Tests", "src\NHamcrest.Tests\NHamcrest.Tests.csproj", "{368D7391-0C63-4F48-8D8C-3942E0693B92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NHamcrest.Tests", "src\NHamcrest.Tests\NHamcrest.Tests.csproj", "{368D7391-0C63-4F48-8D8C-3942E0693B92}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6554B7FF-2FE4-44AC-A33A-730FC30A0728}"
 	ProjectSection(SolutionItems) = preProject

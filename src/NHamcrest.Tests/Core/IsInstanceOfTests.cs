@@ -1,4 +1,3 @@
-
 using NHamcrest.Core;
 using Xunit;
 using Assert = NHamcrest.Tests.Internal.Assert;
@@ -53,7 +52,7 @@ namespace NHamcrest.Tests.Core
 
             matcher.DescribeMismatch(simonChurch, description);
 
-            const string errorMessage = "Simon Church is an instance of NHamcrest.Tests.Core.IsInstanceOfTests+SimonChurch not" + 
+            const string errorMessage = "Simon Church is an instance of NHamcrest.Tests.Core.IsInstanceOfTests+SimonChurch not" +
                                         " NHamcrest.Tests.Core.IsInstanceOfTests+ShaneLong";
             Assert.That(description.ToString(), Is.EqualTo(errorMessage));
         }

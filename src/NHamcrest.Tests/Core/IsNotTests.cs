@@ -1,7 +1,5 @@
-
 using NHamcrest.Core;
 using Xunit;
-using NHamcrest.XUnit;
 using Assert = NHamcrest.XUnit.Assert;
 
 namespace NHamcrest.Tests.Core

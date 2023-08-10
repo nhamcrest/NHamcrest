@@ -1,4 +1,3 @@
-
 using NHamcrest.Core;
 using Xunit;
 
@@ -46,15 +45,15 @@ namespace NHamcrest.Tests.Core
             Assert.False(matcher.Matches(""));
         }
 
-		[Fact]
-		public void DescribeTo()
-		{
-			var matcher = new CombinableMatcher<string>(_failingMatcher);
-			var description = new StringDescription();
+        [Fact]
+        public void DescribeTo()
+        {
+            var matcher = new CombinableMatcher<string>(_failingMatcher);
+            var description = new StringDescription();
 
-			matcher.DescribeTo(description);
+            matcher.DescribeTo(description);
 
-			Assert.Equal("Failing matcher", description.ToString());
-		}
+            Assert.Equal("Failing matcher", description.ToString());
+        }
     }
 }

@@ -1,4 +1,3 @@
-
 using NHamcrest.Core;
 using Xunit;
 using Assert = NHamcrest.Tests.Internal.Assert;
@@ -10,7 +9,7 @@ namespace NHamcrest.Tests.Core
         [Fact]
         public void Has_item()
         {
-            Assert.That(new[] {"aaa", "bbb", "ccc"}, Has.Item(Is.EqualTo("aaa")));
+            Assert.That(new[] { "aaa", "bbb", "ccc" }, Has.Item(Is.EqualTo("aaa")));
         }
 
         [Fact]
@@ -30,15 +29,15 @@ namespace NHamcrest.Tests.Core
             Assert.That(description.ToString(), Is.EqualTo("a collection containing \"aaa\""));
         }
 
-		[Fact]
-		public void Describe_mismatch()
-		{
-			var matcher = Has.Item(Is.EqualTo("aaa"));
-			var description = new StringDescription();
+        [Fact]
+        public void Describe_mismatch()
+        {
+            var matcher = Has.Item(Is.EqualTo("aaa"));
+            var description = new StringDescription();
 
-			matcher.DescribeMismatch(new [] { "bbb", "ddd" }, description);
+            matcher.DescribeMismatch(new[] { "bbb", "ddd" }, description);
 
-			Assert.That(description.ToString(), Is.EqualTo("was \"bbb\", was \"ddd\""));
-		}
+            Assert.That(description.ToString(), Is.EqualTo("was \"bbb\", was \"ddd\""));
+        }
     }
 }

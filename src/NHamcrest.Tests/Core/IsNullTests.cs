@@ -1,4 +1,3 @@
-
 using NHamcrest.Core;
 using Xunit;
 using Assert = NHamcrest.Tests.Internal.Assert;

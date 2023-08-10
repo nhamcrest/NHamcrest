@@ -1,7 +1,6 @@
+using NHamcrest.Core;
 using System;
 using System.Collections.Generic;
-
-using NHamcrest.Core;
 using Xunit;
 
 namespace NHamcrest.Tests.Core
@@ -11,7 +10,7 @@ namespace NHamcrest.Tests.Core
         private readonly CustomMatcher<string> _failingMatcher = new CustomMatcher<string>("Failing matcher", s => false);
         private readonly CustomMatcher<string> _successfulMatcher = new CustomMatcher<string>("Successful matcher", s => true);
         private readonly CustomMatcher<string> _explodingMatcher = new CustomMatcher<string>("Exploding matcher!",
-            s => { throw new Exception("BANG!!!1!. Didn't expect exploding matcher to run."); });
+            s => throw new Exception("BANG!!!1!. Didn't expect exploding matcher to run."));
 
         [Fact]
         public void Match_if_any_matchers_succeed()

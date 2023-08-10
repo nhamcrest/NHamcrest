@@ -12,8 +12,10 @@ namespace NHamcrest.Tests.Internal
         private static void That<T>(T actual, IMatcher<T> matcher, string reason)
         {
             if (matcher.Matches(actual))
+            {
                 return;
-            
+            }
+
             var description = new StringDescription();
             description.AppendText(reason)
                 .AppendText("\nExpected: ")

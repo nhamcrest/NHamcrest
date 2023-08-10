@@ -1,6 +1,4 @@
-using Moq;
 using Xunit;
-
 
 namespace NHamcrest.Tests.Internal
 {
