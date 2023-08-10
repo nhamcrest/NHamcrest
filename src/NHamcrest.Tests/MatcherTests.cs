@@ -1,6 +1,5 @@
-
-using Moq;
 using NHamcrest.Core;
+using NSubstitute;
 using Xunit;
 
 namespace NHamcrest.Tests
@@ -10,15 +9,15 @@ namespace NHamcrest.Tests
         [Fact]
         public void DescribeMismatch_appends_item()
         {
-            var matcher = new TestMatcher();
-            var descriptionMock = new Mock<IDescription>();
-            descriptionMock.Setup(d => d.AppendText(It.IsAny<string>())).Returns(descriptionMock.Object);
             const string item = "item";
+            var matcher = new TestMatcher();
+            var descriptionMock = Substitute.For<IDescription>();
+            descriptionMock.AppendText(Arg.Any<string>()).Returns(descriptionMock);
 
-            matcher.DescribeMismatch(item, descriptionMock.Object);
+            matcher.DescribeMismatch(item, descriptionMock);
 
-            descriptionMock.Verify(d => d.AppendText("was "), Times.Once);
-            descriptionMock.Verify(d => d.AppendValue(item), Times.Once);
+            descriptionMock.AppendText("was ").Received();
+            descriptionMock.AppendValue(item).Received();
         }
 
         [Fact]

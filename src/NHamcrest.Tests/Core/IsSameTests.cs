@@ -1,4 +1,3 @@
-
 using NHamcrest.Core;
 using Xunit;
 using Assert = NHamcrest.Tests.Internal.Assert;
@@ -11,7 +10,7 @@ namespace NHamcrest.Tests.Core
         public void Match_if_same_object()
         {
             var a = new A();
-            
+
             Assert.That(a, Is.SameAs(a));
         }
 

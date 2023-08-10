@@ -3,6 +3,7 @@
     public class NestedClass
     {
         public decimal SomeNumber { get; set; }
+
         public SimpleFlatClass InnerClass { get; set; }
     }
 }

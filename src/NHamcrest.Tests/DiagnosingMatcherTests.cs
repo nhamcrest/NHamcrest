@@ -1,7 +1,6 @@
-using System;
 using NHamcrest.Core;
+using System;
 using Xunit;
-
 
 namespace NHamcrest.Tests
 {
@@ -48,10 +47,9 @@ namespace NHamcrest.Tests
 
             protected override bool Matches(string item, IDescription mismatchDescription)
             {
-                if (mismatchDescription.GetType() != typeof(NullDescription))
-                    throw new Exception("Expected null description");
-
-                return _match(item);
+                return mismatchDescription.GetType() != typeof(NullDescription) 
+                    ? throw new Exception("Expected null description") 
+                    : _match(item);
             }
         }
     }

@@ -1,8 +1,7 @@
-using System;
-using Moq;
 using NHamcrest.Core;
+using NSubstitute;
+using System;
 using Xunit;
-
 
 namespace NHamcrest.Tests
 {
@@ -19,12 +18,11 @@ namespace NHamcrest.Tests
         {
             const string fixedDescription = "description";
             var matcher = new CustomMatcher<string>(fixedDescription, s => true);
-            var descriptionMock = new Mock<IDescription>();
+            var descriptionMock = Substitute.For<IDescription>();
 
-            matcher.DescribeTo(descriptionMock.Object);
+            matcher.DescribeTo(descriptionMock);
 
-            descriptionMock.Verify(d => d.AppendText(fixedDescription), Times.Once);
-            //o => o.Message("AppendText was not called on the provided IDescription."));
+            descriptionMock.Received().AppendText(fixedDescription);
         }
 
         [Fact]

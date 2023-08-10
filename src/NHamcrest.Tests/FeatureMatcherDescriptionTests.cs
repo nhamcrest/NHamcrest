@@ -1,5 +1,5 @@
-﻿using System;
-using NHamcrest.Tests.TestClasses;
+﻿using NHamcrest.Tests.TestClasses;
+using System;
 using Xunit;
 
 namespace NHamcrest.Tests

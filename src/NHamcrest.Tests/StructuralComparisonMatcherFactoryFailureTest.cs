@@ -31,9 +31,11 @@ namespace NHamcrest.Tests
         public void MismatchDescriptionMustBeCorrect()
         {
             var description = new StringDescription();
-            _matcher.DescribeMismatch(_matched, description);
             var expected = ExpectMismatchDescription();
+
+            _matcher.DescribeMismatch(_matched, description);
             var actual = description.ToString();
+
             Xunit.Assert.Equal(expected, actual);
         }
 
@@ -42,6 +44,7 @@ namespace NHamcrest.Tests
         {
             var expected = ExpectMatcherDescription();
             var description = new StringDescription();
+
             _matcher.DescribeTo(description);
             var actual = description.ToString();
 

@@ -35,6 +35,7 @@ namespace NHamcrest.Tests
         {
             var expected = ExpectMatcherDescription();
             var description = new StringDescription();
+
             _matcher.DescribeTo(description);
             var actual = description.ToString();
 

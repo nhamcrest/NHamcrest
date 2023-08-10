@@ -1,10 +1,8 @@
-using System;
+using NHamcrest.Core;
+using NSubstitute;
 using System.Collections.Generic;
 using System.Text;
-using Moq;
-using NHamcrest.Core;
 using Xunit;
-
 
 namespace NHamcrest.Tests
 {
@@ -28,11 +26,11 @@ namespace NHamcrest.Tests
         [Fact]
         public void AppendDescriptionOf_asks_value_to_describe_itself()
         {
-            var selfDescribingMock = new Mock<ISelfDescribing>();
+            var selfDescribingMock = Substitute.For<ISelfDescribing>();
 
-            _description.AppendDescriptionOf(selfDescribingMock.Object);
+            _description.AppendDescriptionOf(selfDescribingMock);
 
-            selfDescribingMock.Verify(sd => sd.DescribeTo(_description), Times.Once);
+            selfDescribingMock.Received().DescribeTo(_description);
         }
 
         [Fact]
